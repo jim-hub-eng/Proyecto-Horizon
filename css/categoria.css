@@ -1,0 +1,381 @@
+body{
+    background-color: #460562;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    scrollbar-color: white black;
+}
+:root{
+    --background: rgb(255, 81, 211);
+}
+.navegacion{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    border-bottom: 3px solid var(--background);
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    top: 0;
+}
+.navegacion #btnMenu{
+    position: absolute;
+    z-index: 1;
+    color: white;
+    left: 90%;
+    padding: 5px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+}
+.titulo{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    top: 140px;
+    color: white;
+    font-size: 35px;
+}
+.imagen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+.navegacion .regresar-btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-left: 10px;
+    color: white;
+    font-size: 22px;
+    transition: .3s;
+}
+.navegacion .regresar-btn:hover{
+    color: black;
+    border-color: white;
+    background-color: white;
+}
+.navegacion h2{
+    position: absolute;
+    left: 40%;
+    font-size: 80px;
+}
+.navegacion .nav-1{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    top: 100%;
+    height: 30px;
+    background-color: black;
+    padding-top: 10px;
+    left: 0;
+
+    a{
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 7px 30px;
+        transition: .2s;
+    }
+    a:hover{
+        color: #d471ff;
+    }
+}
+.navegacion .nav-1 .btn-verCategoria{
+    color: white;
+    text-decoration: none;
+    font-weight: 550;
+    letter-spacing: 1px;
+}
+.navegacion .nav-1 .btn-verCategoria:hover ~ul{
+    height: 535px;
+}
+.navegacion .nav-1 ul{
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 0;
+    transition: .3s;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: black;
+    left: -10px;
+    margin: 0;
+    top: 40px;   
+}
+.navegacion .nav-1 ul:hover{
+    height: 535px;
+}
+.navegacion .nav-1 ul li{
+    position: relative;
+    width: auto;
+    height: auto;
+    list-style: none;
+    left: -20px;
+    margin-top: 20px;
+}
+.navegacion .nav-1 ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 10px 50px;
+    background-color: transparent;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 550;
+    transition: .3s;
+    border-radius: 10px;
+
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        filter: brightness(50%);
+        transition: .3s;
+    }
+    p{
+        z-index: 1;
+    }
+}
+.navegacion .nav-1 ul li a:hover img{
+    transform: scale(1.2);
+}
+.navegacion .nav-1 ul li a:hover{
+    letter-spacing: 3px;
+}
+.extras a{
+    text-decoration: none;
+}
+.contenedor{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    top: 130px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.contenedor .producto{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    color: black;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+.contenedor .producto img{
+    width: 90%;
+    border-radius: 10px;
+}
+footer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    flex-wrap: wrap;
+    top: 200px;
+}
+footer .redes,
+footer .atencionCliente, 
+footer .politicas{
+    flex: 0 0 auto;
+}
+footer .redes{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    color: white;
+    width: 300px;
+    height: auto;
+
+    ul{
+        position: relative;
+        left: -20px;
+    }
+    ul li{
+        list-style: none;
+        padding: 10px;
+
+        a{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            color: white;
+            text-decoration: none;
+            background-color: #101010;
+            border-radius: 50%;
+            
+            i{
+                font-size: 22px;
+            }
+            span{
+                content: " ";
+                position: absolute;
+                top: 90%;
+                padding: 4px 10px;
+                background-color: white;
+                color: black;
+                border-radius: 10px;
+                z-index: 1;
+                opacity: 0;
+                pointer-events: none;
+                transition: .3s;
+            }
+            span::before{
+                content: " ";
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background-color: white;
+                top: -5px;
+                z-index: -1;
+                left: 40%;
+                transform: rotate(45deg);
+            }
+        }
+        a:hover span{
+            opacity: 1;
+            top: 100%;
+        }
+    }
+    .btn-ins:hover{
+        background-color: rgb(231, 32, 155);
+    }
+    .btn-face:hover{
+        background-color: rgb(32, 52, 231);
+    }
+    .btn-x:hover{
+        background-color: black;
+        color: white;
+    }
+    .btn-tiktok:hover{
+        background-color: white;
+        color: black;
+    }
+}
+footer .atencionCliente{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: auto;
+    color: white;
+
+    ul{
+        display: flex;
+        flex-direction: column;
+
+        li{
+            padding: 10px;
+            list-style: none;
+            left: 0;
+
+            a{
+                color: #aaa;
+                text-decoration: none;
+            }
+            a:hover{
+                color: white;
+            }
+        }
+    }
+}
+footer .politicas{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: auto;
+    color: white;
+
+    ul{
+        display: flex;
+        flex-direction: column;
+
+        li{
+            padding: 10px;
+            list-style: none;
+
+            a{
+                text-decoration: none;
+                color: #aaa;
+            }
+            a:hover{
+                color: white;
+            }
+        }
+    }
+}
+@media(max-width: 860px){
+    .navegacion h2{
+        left: 45%;
+        font-size: 50px;
+    }
+}
+@media(max-width: 600px){
+    .navegacion{
+        height: 80px;
+    }
+    .navegacion .regresar-btn{
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        color: black;
+        font-size: 15px;
+    }
+    .navegacion #btnMenu{
+        opacity: 1;
+    }
+    .navegacion h2{
+        left: 45%;
+        font-size: 22px;
+    }
+}
+@media(max-width: 400px){
+    .contenedor .producto{
+        width: 80%;
+        height: 260px;
+    }
+}
