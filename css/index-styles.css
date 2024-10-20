@@ -126,6 +126,20 @@ body{
 .navegacion-box a{
     padding: 10px 50px;
 }
+.navegacion .navegacion-box .btn-menu{
+    position: relative;
+    left: -20px;
+
+    button{
+        padding: 5px;
+        font-size: 22px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: none;
+    }
+}
 .navegacion .box-buscador{
     position: relative;
     display: flex;
@@ -253,7 +267,7 @@ body{
     object-fit: cover;
     color: black;
     flex: 0 0 100%;
-    background-color: #eee;
+    background-color: rgb(230, 176, 127);
 }
 .root .media .box-carosel-ofertas .carosel .boxes img{
     position: absolute;
@@ -335,7 +349,7 @@ body{
 .box-acciones{
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     height: auto;
     width: 100%;
     flex-wrap: wrap;
@@ -380,16 +394,17 @@ body{
 .box-des-1{
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     height: auto;
     flex-wrap: wrap;
     top: 120px;
+    gap: 30px;
 }
 .box-des-1 .des-1 , 
 .box-des-1 .des-2{
     position: relative;
-    width: 45%;
+    width: 300px;
     height: 200px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -544,5 +559,46 @@ footer .politicas{
                 color: white;
             }
         }
+    }
+}
+@media(max-width: 720px){
+    .registrar{
+        display: none;
+    }
+    .navegacion .navegacion-box .btn-menu button{
+        display: block;
+    }
+    .navegacion .nav-1{
+        display: none;
+    }
+    .root{
+        top: 70px;
+    }
+    .root .media{
+        width: 100%;
+    }
+    .root .media .box-carosel-ofertas .carosel .boxes img{
+        object-fit: contain;
+    }
+}
+@media(max-width: 870px){
+    .root .media{
+        width: 1500px;
+    }
+}
+@media(max-width: 705px){
+    .root .media{
+        height: 1700px;
+    }
+    footer{
+        top: 1400px;
+    }
+}
+@media(max-width: 695px){
+    .root .media{
+        height: 1900px;
+    }
+    footer{
+        top: 1600px;
     }
 }
