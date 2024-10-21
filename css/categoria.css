@@ -197,7 +197,7 @@ body{
 }
 .contenedor .producto .box-img{
     position: relative;
-    width: 90%;
+    width: 50%;
     height: auto;
     border-radius: 10px;
     overflow: hidden;
