@@ -29,6 +29,7 @@ function validateForm() {
     }
 
     alert("Registro exitoso!");
+    window.location = "../index.html";
     return true;
 }
 
