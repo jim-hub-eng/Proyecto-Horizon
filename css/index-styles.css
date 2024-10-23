@@ -217,7 +217,81 @@ body{
         color: white;
     }
 }
+.menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+    border-right: 1px solid #202020;
+    left: -300px;
 
+    h2{
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+    button{
+        padding: 10px;
+        position: absolute;
+        left: 90%;
+        font-size: 25px;
+        color: red;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+.menu .ul-1-from-menu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: -20px;
+    top: -10px;
+
+    li{
+        list-style: none;
+        padding: 10px;
+
+        a{  
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+    }
+}
+.menu .ul-2-from-menu{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 88%;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    left: -10px;
+
+    li{
+        list-style: none;
+        padding: 10px;
+
+        a{  
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: #aaa;
+        }
+    }
+}
 .root{
     position: relative;
     display: flex;
@@ -562,7 +636,11 @@ footer .politicas{
     }
 }
 @media(max-width: 720px){
-    .registrar{
+    .registrar,
+    .carrito{
+        display: none;
+    }
+    .navegacion .box-buscador{
         display: none;
     }
     .navegacion .navegacion-box .btn-menu button{

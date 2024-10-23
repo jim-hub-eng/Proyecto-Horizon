@@ -26,7 +26,7 @@
                 <a href="#"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="btn-menu">
-                <button><i class="bi bi-list"></i></button>
+                <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
             </div>
         </div>
         <div class="nav-1">
@@ -44,6 +44,21 @@
             </ul>
         </div>
     </nav>
+
+    <div class="menu">
+        <h2>Menu</h2>
+        <button onclick="cerrarMenu()">&times;</button>
+        <ul class="ul-1-from-menu">
+            <li><a href="#"><i class="bi bi-list-ul"></i>Categorias</a></li>
+            <li><a href="#"><i class="bi bi-person"></i>Iniciar Sesion</a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
+            <li><a href="#"><i class="bi bi-search"></i>Buscar</a></li>
+        </ul>
+        <ul class="ul-2-from-menu">
+            <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>
+            <li><a href="#"><i class="bi bi-question-lg"></i>Preguntas</a></li>
+        </ul>
+    </div>
 
     <div class="root">
         <div class="media">
@@ -137,5 +152,6 @@
         </div>
     </footer>
 
+    <script src="./js/index-script.js"></script>
 </body>
 </html>
