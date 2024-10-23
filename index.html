@@ -84,16 +84,65 @@
 
     <div class="menu">
         <h2>Menu</h2>
-        <button onclick="cerrarMenu()">&times;</button>
+        <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
-            <li><a href="#"><i class="bi bi-list-ul"></i>Categorias</a></li>
+            <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
             <li><a href="login.html"><i class="bi bi-person"></i>Iniciar Sesion</a></li>
             <li><a href="#"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
-            <li><a href="#"><i class="bi bi-search"></i>Buscar</a></li>
+            <li><button><i class="bi bi-search"></i>Buscar</button></li>
         </ul>
         <ul class="ul-2-from-menu">
             <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>
             <li><a href="#"><i class="bi bi-question-lg"></i>Preguntas</a></li>
+        </ul>
+    </div>
+
+    <div class="categorias-form-menu">
+        <h2>Categorias</h2>
+        <button onclick="cerrarCategoriasDeMenu()">&times;</button>
+        <ul>
+            <li>
+                <a href="categorias/casa.html">
+                    <img src="img/casa.png" alt="">
+                    <h4>Hogar</h4>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/electrodomesticos.png" alt="">
+                    <h4>Electrodomesticos</h4>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/ropa.png" alt="">
+                    <h4>Ropa</h4>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/baño.png" alt="">
+                    <h4>Baño</h4>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/maquillage.png" alt="">
+                    <h4>Maquillage</h4>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/jugetes.png" alt="">
+                    <h4>Juguetes</h4>
+                </a>
+            </li>
+            <li>
+                <a href="categorias/muebles.html">
+                    <img src="img/muebles.png" alt="">
+                    <h4>Muebles</h4>
+                </a>
+            </li>
         </ul>
     </div>
 
