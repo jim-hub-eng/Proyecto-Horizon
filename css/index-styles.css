@@ -53,70 +53,71 @@ body{
     left: -50px;
 }
 .navegacion .nav-1 .btn-verCategoria{
+    position: relative;
+    width: 120px;
+    height: 50px;
     color: white;
     text-decoration: none;
-}
-.navegacion .nav-1 .btn-verCategoria:hover ~ul{
-    height: 800px;
-}
-.navegacion .nav-1 ul{
-    position: absolute;
-    width: 300px;
-    height: 0;
-    transition: .3s;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: black;
-    left: -10px;
-    margin: 0;
-    top: 50px;   
-}
-.navegacion .nav-1 ul:hover{
-    height: 800px;
-}
-.navegacion .nav-1 ul li{
-    position: relative;
-    width: auto;
-    height: auto;
-    list-style: none;
-    left: -20px;
-    margin-top: 20px;
-}
-.navegacion .nav-1 ul li a{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    padding: 10px 50px;
     background-color: transparent;
-    overflow: hidden;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: 550;
+}
+.navegacion .nav-1 .btn-verCategoria:hover ~.categorias {
+    height: 450px;
+    top: 100%;
+}
+.navegacion .nav-1 .btn-verCategoria:hover ~.categorias .box-categoria{
+    position: relative;
+}
+.navegacion .categorias{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0; top: 100%;
+    width: 200px;
+    height: 0;
+    background-color: #0a0a0a;
+    border-radius: 0 0 10px 0;
+    gap: 10px;
     transition: .3s;
-    border-radius: 10px;
+    opacity: 1;
+    z-index: 1;
+    overflow: hidden;
 
-    img{
+    .box-categoria{
         position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-        filter: brightness(50%);
-        transition: .3s;
-    }
-    p{
-        z-index: 1;
+        width: 200px;
+        height: 50px;
+
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a img{
+            position: absolute;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+            filter: brightness(30%);
+        }
+        a h4{
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
     }
 }
-.navegacion .nav-1 ul li a:hover img{
-    transform: scale(1.2);
+.navegacion .categorias:hover{
+    top: 100%;
+    height: 450px;
 }
-.navegacion .nav-1 ul li a:hover{
-    letter-spacing: 3px;
+.navegacion .categorias:hover .box-categoria{
+    position: relative;
 }
 .navegacion-box{
     display: flex;
@@ -495,7 +496,6 @@ footer{
     background-color: black;
     flex-wrap: wrap;
     top: 1100px;
-    padding: 10px;
 }
 footer .redes,
 footer .atencionCliente, 
@@ -679,5 +679,35 @@ footer .politicas{
     }
     footer{
         top: 1600px;
+    }
+    #titulo-2{
+        font-size: 23px;
+    }
+}
+@media(max-width: 400px){
+    .root .media{
+        height: 1300px;
+        padding: 0;
+    }
+    .root .media .box-carosel-ofertas{
+        height: 300px;
+    }
+    .root .media .box-carosel-ofertas .box-btn-carosel{
+        top: 90%;
+    }
+    .root .media .box-carosel-ofertas .box-btn-carosel label{
+        width: 10px;
+        height: 10px;
+    }
+    .root .media .box-acciones{
+        left: 0px;
+        flex-wrap: nowrap;
+    }
+    .root .media .box-acciones .box{
+        width: 40%;
+        height: 200px;
+    }
+    footer{
+        top: 1000px;
     }
 }
