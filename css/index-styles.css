@@ -4,6 +4,7 @@ body{
     padding: 0;
     margin: 0;
     scrollbar-color: white black;
+    overflow-x: hidden;
 }
 :root{
     --background: rgb(255, 81, 211);
@@ -463,6 +464,9 @@ body{
 }
 .root .media{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 90%;
     height: 1350px;
     border-radius: 10px;
@@ -471,102 +475,47 @@ body{
 }
 .root .media .box-cate{
     position: relative;
-    width: auto;
-    height: auto;
-    background-color: black;
-    padding: 10px;
-}
-.root .media .box-carosel-ofertas{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    left: 0;
+    width: 90%;
     height: 400px;
-    background-color: black;
     overflow: hidden;
-
-    input{
-        display: none;
-    }
-
 }
-.root .media .box-carosel-ofertas .carosel{
-   position: relative;
-   display: flex;
-   align-items: center;
-   width: 100%;
-   height: 100%;
-   color: white;
-   right: 0;
-   transition: .3s;
-}
-.root .media .box-carosel-ofertas .carosel .boxes{
-    position: relative;
-    height: 100%;
-    object-fit: cover;
-    color: black;
-    flex: 0 0 100%;
-    background-color: black;
-}
-.root .media .box-carosel-ofertas .carosel .boxes img{
-    position: absolute;
+.root .media .box-cate .box-carosel-ofertas{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: .3s;
+    transform: translateX(0%);
 }
-.root .media .box-carosel-ofertas .box-btn-carosel{
+.root .media .box-cate .box-carosel-ofertas .boxes{
+    position: relative;
+    object-fit: cover;
+    flex: 0 0 100%;
+    height: 100%;
+
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+.root .media .box-cate .puntos{
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    top: 90%;
-    z-index: 1;
-    width: 100%;
-    height: auto;
-    padding: 10px;
-    background-color: black;
-    border-radius: 10px 10px 0 0;
+    justify-content: space-between;
+    top: 45%;
+    width: 95%;
+    left: -20px;
 }
-.root .media .box-carosel-ofertas #radios-1:checked ~.carosel{
-    right: 0%;
-}
-.root .media .box-carosel-ofertas #radios-1:checked ~.box-btn-carosel label:nth-child(1){
-    background-color: white;
-}
-
-.root .media .box-carosel-ofertas #radios-2:checked ~.carosel{
-    right: 100%;
-}
-.root .media .box-carosel-ofertas #radios-2:checked ~.box-btn-carosel label:nth-child(2){
-    background-color: white;
-}
-
-.root .media .box-carosel-ofertas #radios-3:checked ~.carosel{
-    right: 200%;
-}
-.root .media .box-carosel-ofertas #radios-3:checked ~.box-btn-carosel label:nth-child(3){
-    background-color: white;
-}
-.root .media .box-carosel-ofertas .box-btn-carosel label{
-    content: " ";
-    position: relative;  
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border: 1px solid white;
+.root .media .box-cate .puntos .punto{
+    list-style: none;
+    color: black;
+    padding: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    border-radius: 50%;
-}
-.root .media .box-carosel-ofertas .box-btn span{
-    content: " ";
-    position: relative;
-    width: 10px;
-    height: 10px;
-    background-color: var(--background);
-    border-radius: 50%;
-    cursor: pointer;
+    background-color: white;
 }
 .root .media .titulo-1{
     position: relative;
@@ -825,10 +774,13 @@ footer .politicas{
     }
     .root .media{
         width: 100%;
+        padding: 0;
     }
-    .root .media .box-carosel-ofertas .carosel .boxes img{
-        object-fit: contain;
-    
+    .root .media .box-cate{
+        width: 100%;
+    }
+    .root .media .box-cate .puntos{
+        width: 90%;
     }
 }
 @media(max-width: 870px){
@@ -865,32 +817,19 @@ footer .politicas{
         font-size: 23px;
     }
 }
+
 @media(max-width: 400px){
-    .root .media{
-        height: 1300px;
-        padding: 0;
+    .box-des-1 .quienesSomos{
+        border-radius: 0px;
     }
-    .root .media .box-carosel-ofertas{
-        height: 300px;
-    }
-    .root .media .box-carosel-ofertas .box-btn-carosel{
-        top: 92%;
-        width: 100%;
-    }
-    .root .media .box-carosel-ofertas .box-btn-carosel label{
-        width: 10px;
-        height: 10px;
-    }
-    /*
-    .root .media .box-acciones{
-        left: 0px;
-        flex-wrap: nowrap;
-    }
-    .root .media .box-acciones .box{
-        width: 40%;
-        height: 200px;
-    } */
-    footer{
-        top: 1650px;
+    .box-acciones .box{
+        width: 150px;
+
+        h3{
+            font-size: 14px;
+        }
+        p{
+            font-size: 13px;
+        }
     }
 }

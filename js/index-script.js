@@ -43,3 +43,32 @@ function desBusquedaFlotante(){
     busquedaFlotante.style.transform = 'translateY(10px)';
     busquedaFlotante.style.transition = '.3s';
 }
+
+const grande = document.querySelector('.box-carosel-ofertas');
+const punto1 = document.querySelector('.punto1');
+const punto2 = document.querySelector('.punto2');
+
+let traslado = 0;
+
+punto1.addEventListener('click', menos);
+punto2.addEventListener('click', mas);
+
+function mas(){
+
+    if(traslado != -2){
+        traslado -= 1;
+
+        grande.style.transform = `translateX(${traslado}00%)`;
+
+    }
+
+}
+function menos(){
+
+    if(traslado != 0){
+        traslado += 1;
+
+    grande.style.transform = `translateX(${traslado}00%)`;
+    }
+
+}
