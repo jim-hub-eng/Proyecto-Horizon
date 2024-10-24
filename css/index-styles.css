@@ -305,6 +305,85 @@ body{
         }
     }
 }
+.busqueda-from-menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 20px;
+    left: -20px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+
+    h2, p{
+        margin: 5px;
+        padding: 10px;
+    }
+
+}
+.busqueda-from-menu .box-btn{
+    position: absolute;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 30px;
+
+    #desBusquedaFlotante{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: red;
+        border-radius: 50%;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        background: linear-gradient(to bottom, #460562, #8112b1);
+    }
+}
+@media(max-width: 443px){
+    #desBusquedaFlotante{
+        left: -10px;
+    }
+}
+.busqueda-from-menu .box-inp-busqueda{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 30px;
+    top: 30px;
+
+    label{
+        content: " ";
+        position: absolute;
+        left: 3.5%;
+    }
+    input[type=text]{
+        width: 90%;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid #aaa;
+        border-radius: 10px;
+        padding-left: 30px;
+        outline: none;
+        color: white;
+    }
+
+}
 .categorias-form-menu{
     position: fixed;
     display: flex;
@@ -380,15 +459,22 @@ body{
     width: 100%;
     height: 500px;
     background-color: transparent;
-    top: 140px;
+    top: 100px;
 }
 .root .media{
     position: relative;
-    width: 75%;
+    width: 90%;
     height: 1350px;
     border-radius: 10px;
-    background-color: black;
+    background-color: transparent;
     padding: 25px;
+}
+.root .media .box-cate{
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: black;
+    padding: 10px;
 }
 .root .media .box-carosel-ofertas{
     position: relative;
@@ -398,7 +484,7 @@ body{
     width: 100%;
     left: 0;
     height: 400px;
-    background-color: transparent;
+    background-color: black;
     overflow: hidden;
 
     input{
@@ -422,7 +508,7 @@ body{
     object-fit: cover;
     color: black;
     flex: 0 0 100%;
-    background-color: rgb(230, 176, 127);
+    background-color: black;
 }
 .root .media .box-carosel-ofertas .carosel .boxes img{
     position: absolute;
@@ -437,12 +523,11 @@ body{
     justify-content: space-evenly;
     top: 90%;
     z-index: 1;
-    width: 90%;
+    width: 100%;
     height: auto;
     padding: 10px;
     background-color: black;
     border-radius: 10px 10px 0 0;
-    box-shadow: 0 0 10px black;
 }
 .root .media .box-carosel-ofertas #radios-1:checked ~.carosel{
     right: 0%;
@@ -489,15 +574,6 @@ body{
     width: 100%;
     height: 30px;
     top: 40px;
-    font-size: 30px;
-    color: white;
-}
-.root .media .titulo-2{
-    position: relative;
-    text-align: center;
-    width: 100%;
-    height: 30px;
-    top: 120px;
     font-size: 30px;
     color: white;
 }
@@ -552,19 +628,28 @@ body{
     justify-content: center;
     width: 100%;
     height: auto;
-    flex-wrap: wrap;
     top: 120px;
-    gap: 30px;
 }
-.box-des-1 .des-1 , 
-.box-des-1 .des-2{
+.box-des-1 .quienesSomos{
     position: relative;
-    width: 300px;
-    height: 200px;
-    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    background-color: black;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
-    flex: 0 0 auto;
+    color: white;
+}
+.logo-img-somos{
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+}
+.box-des-1 .quienesSomos .info{
+    position: relative;
+    padding: 20px;
 }
 footer{
     position: relative;
@@ -716,6 +801,11 @@ footer .politicas{
         }
     }
 }
+@media(max-width: 1066px){
+    footer{
+        top: 1300px;
+    }
+}
 @media(max-width: 720px){
     .registrar,
     .carrito{
@@ -738,6 +828,7 @@ footer .politicas{
     }
     .root .media .box-carosel-ofertas .carosel .boxes img{
         object-fit: contain;
+    
     }
 }
 @media(max-width: 870px){
@@ -749,8 +840,18 @@ footer .politicas{
     .root .media{
         height: 1700px;
     }
+    .box-des-1 .quienesSomos{
+        height: auto;
+        flex-direction: column;
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+
+    }
     footer{
-        top: 1400px;
+        top: 1500px;
     }
 }
 @media(max-width: 695px){
@@ -758,7 +859,7 @@ footer .politicas{
         height: 1900px;
     }
     footer{
-        top: 1600px;
+        top: 1750px;
     }
     #titulo-2{
         font-size: 23px;
@@ -773,12 +874,14 @@ footer .politicas{
         height: 300px;
     }
     .root .media .box-carosel-ofertas .box-btn-carosel{
-        top: 90%;
+        top: 92%;
+        width: 100%;
     }
     .root .media .box-carosel-ofertas .box-btn-carosel label{
         width: 10px;
         height: 10px;
     }
+    /*
     .root .media .box-acciones{
         left: 0px;
         flex-wrap: nowrap;
@@ -786,8 +889,8 @@ footer .politicas{
     .root .media .box-acciones .box{
         width: 40%;
         height: 200px;
-    }
+    } */
     footer{
-        top: 1000px;
+        top: 1650px;
     }
 }

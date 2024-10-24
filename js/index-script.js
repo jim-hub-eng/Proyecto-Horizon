@@ -25,3 +25,21 @@ function cerrarCategoriasDeMenu(){
     categorias_form_menu.style.left = "-" + anchoCategorias + "px";
     categorias_form_menu.style.transition = '.3s';
 }
+
+const busquedaFlotante = document.querySelector('.busqueda-from-menu');
+
+function apaBusquedaFlotante(){
+    busquedaFlotante.style.opacity = '1';
+    busquedaFlotante.style.pointerEvents = 'all';
+    busquedaFlotante.style.transform = 'translateY(0)';
+    busquedaFlotante.style.transition = '.3s';
+
+    menu.style.left = "-" + anchoMenu + "px";
+    menu.style.transition = '.3s';
+}
+function desBusquedaFlotante(){
+    busquedaFlotante.style.opacity = '0';
+    busquedaFlotante.style.pointerEvents = 'none';
+    busquedaFlotante.style.transform = 'translateY(10px)';
+    busquedaFlotante.style.transition = '.3s';
+}
