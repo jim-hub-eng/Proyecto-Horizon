@@ -81,7 +81,7 @@ body{
     left: 0; top: 100%;
     width: 200px;
     height: 0;
-    background-color: #0a0a0a;
+    background-color: black;
     border-radius: 0 0 10px 0;
     gap: 10px;
     transition: .3s;
@@ -95,6 +95,9 @@ body{
         height: 50px;
 
         a{
+            position: absolute;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -106,6 +109,7 @@ body{
             object-fit: cover;
             width: 100%;
             filter: brightness(30%);
+            transition: .3s;
         }
         a h4{
             position: absolute;
@@ -114,6 +118,13 @@ body{
             text-align: center;
             margin: 0;
             padding: 0;
+            transition: .3s;
+        }
+        a:hover h4{
+            letter-spacing: 3px;
+        }
+        a:hover img{
+            transform: scale(1.3);
         }
     }
 }
