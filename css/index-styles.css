@@ -775,6 +775,7 @@ footer .politicas{
         top: 70px;
         width: 100%;
         height: 300px;
+        border-radius: 0px;
     }
     .box-cate .puntos{
         width: 90%;
