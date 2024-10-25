@@ -583,7 +583,7 @@ body{
     transition: all 0.3s ease;
   }
   .ov-btn-grow-skew-reverse:hover::after {
-    transition: all 0.3s ease-out;
+    transition: all .5s ease-out;
     transform: skewX(45deg) scale(1, 1);
   }
 
