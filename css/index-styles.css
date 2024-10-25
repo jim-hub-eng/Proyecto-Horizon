@@ -5,6 +5,10 @@ body{
     margin: 0;
     scrollbar-color: white black;
     overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 :root{
     --background: rgb(255, 81, 211);
@@ -453,33 +457,16 @@ body{
         }
     }
 }
-.root{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 500px;
-    background-color: transparent;
-    top: 100px;
-}
-.root .media{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    height: 1350px;
-    border-radius: 10px;
-    background-color: transparent;
-    padding: 25px;
-}
-.root .media .box-cate{
+.box-cate{
     position: relative;
     width: 90%;
     height: 400px;
     overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid white; 
+    top: 150px;
 }
-.root .media .box-cate .box-carosel-ofertas{
+.box-cate .box-carosel-ofertas{
     width: 100%;
     height: 100%;
     display: flex;
@@ -488,7 +475,7 @@ body{
     transition: .3s;
     transform: translateX(0%);
 }
-.root .media .box-cate .box-carosel-ofertas .boxes{
+.box-cate .box-carosel-ofertas .boxes{
     position: relative;
     object-fit: cover;
     flex: 0 0 100%;
@@ -500,7 +487,7 @@ body{
         height: 100%;
     }
 }
-.root .media .box-cate .puntos{
+.box-cate .puntos{
     position: absolute;
     display: flex;
     align-items: center;
@@ -509,7 +496,7 @@ body{
     width: 95%;
     left: -20px;
 }
-.root .media .box-cate .puntos .punto{
+.box-cate .puntos .punto{
     list-style: none;
     color: black;
     padding: 5px;
@@ -517,12 +504,12 @@ body{
     cursor: pointer;
     background-color: white;
 }
-.root .media .titulo-1{
+.titulo-1{
     position: relative;
     text-align: center;
     width: 100%;
     height: 30px;
-    top: 40px;
+    top: 170px;
     font-size: 30px;
     color: white;
 }
@@ -533,7 +520,7 @@ body{
     height: auto;
     width: 100%;
     flex-wrap: wrap;
-    top: 80px;
+    top: 200px;
     color: black;
 }
 .box-acciones .box{
@@ -544,7 +531,7 @@ body{
     width: 280px;
     height: 300px;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     flex: 0 0 auto;
@@ -575,9 +562,9 @@ body{
     position: relative;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     height: auto;
-    top: 120px;
+    top: 220px;
 }
 .box-des-1 .quienesSomos{
     position: relative;
@@ -586,8 +573,8 @@ body{
     justify-content: center;
     width: 100%;
     height: auto;
-    background-color: black;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
     border-radius: 10px;
     color: white;
 }
@@ -595,6 +582,16 @@ body{
     position: relative;
     height: 300px;
     border-radius: 10px;
+    mix-blend-mode: screen;
+    animation: rotar 5s linear infinite;
+}
+@keyframes rotar{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 .box-des-1 .quienesSomos .info{
     position: relative;
@@ -609,7 +606,7 @@ footer{
     height: auto;
     background-color: black;
     flex-wrap: wrap;
-    top: 1100px;
+    top: 200px;
 }
 footer .redes,
 footer .atencionCliente, 
@@ -750,9 +747,14 @@ footer .politicas{
         }
     }
 }
-@media(max-width: 1066px){
+@media(max-width: 1067px){
     footer{
-        top: 1300px;
+        top: 300px;
+    }
+}
+@media(max-width: 1024px){
+    footer{
+        top: 300px;
     }
 }
 @media(max-width: 720px){
@@ -769,29 +771,22 @@ footer .politicas{
     .navegacion .nav-1{
         display: none;
     }
-    .root{
+    .box-cate{
         top: 70px;
-    }
-    .root .media{
         width: 100%;
-        padding: 0;
+        height: 300px;
     }
-    .root .media .box-cate{
-        width: 100%;
-    }
-    .root .media .box-cate .puntos{
+    .box-cate .puntos{
         width: 90%;
     }
-}
-@media(max-width: 870px){
-    .root .media{
-        width: 1500px;
+    .titulo-1{
+        top: 90px;
+    }
+    .box-acciones{
+        top: 100px;
     }
 }
 @media(max-width: 705px){
-    .root .media{
-        height: 1700px;
-    }
     .box-des-1 .quienesSomos{
         height: auto;
         flex-direction: column;
@@ -803,31 +798,50 @@ footer .politicas{
 
     }
     footer{
-        top: 1500px;
+        top: 300px;
     }
 }
 @media(max-width: 695px){
-    .root .media{
-        height: 1900px;
-    }
-    footer{
-        top: 1750px;
-    }
     #titulo-2{
         font-size: 23px;
     }
 }
-
-@media(max-width: 400px){
-    .box-des-1 .quienesSomos{
-        border-radius: 0px;
+@media(max-width: 500px){
+    .box-cate{
+        height: 220px;
     }
+}
+@media(max-width: 400px){
     .box-acciones .box{
         h3{
-            font-size: 14px;
+            font-size: 18px;
         }
         p{
-            font-size: 13px;
+            font-size: 15px;
         }
+    }
+    .box-cate .puntos{
+        width: 95%;
+        top: 34%;
+        left: -10%;
+    }
+    .box-des-1{
+        width: 100%;
+    }
+    .box-des-1 .quienesSomos{
+        box-shadow: none;
+    }
+}
+@media(max-width: 344px){
+    .box-cate .puntos{
+        width: 95%;
+        justify-content: center;
+        gap: 10px;
+        top: 75%;
+        left: -10%;
+    }
+    .box-cate .puntos .punto{
+        width: 20px;
+        height: 20px;
     }
 }

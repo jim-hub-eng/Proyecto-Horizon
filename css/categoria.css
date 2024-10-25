@@ -12,66 +12,61 @@ body{
     position: fixed;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
-    height: 120px;
+    height: 70px;
     border-bottom: 3px solid var(--background);
+    background-color: black;
     color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    z-index: 10;
-    top: 0;
-}
-.navegacion #btnMenu{
+    z-index: 999;
+
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        filter: brightness(40%);
+    }
+
+}   
+.navegacion .btn-regresar{
     position: absolute;
-    z-index: 1;
-    color: white;
-    left: 90%;
-    padding: 5px;
-    background-color: transparent;
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    opacity: 0;
-}
-.titulo{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    top: 140px;
-    color: white;
-    font-size: 35px;
-}
-.imagen{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(70%);
-}
-.navegacion .regresar-btn{
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50px;
-    height: 50px;
+    height: 30px;
+    background-color: black;
     border: 1px solid black;
-    border-radius: 50%;
-    margin-left: 10px;
     color: white;
-    font-size: 22px;
-    transition: .3s;
+    border-radius: 5px 0 0 5px;
+    left: 10px;
+    top: 200%;
+    left: 96%;
 }
-.navegacion .regresar-btn:hover{
-    color: black;
-    border-color: white;
-    background-color: white;
+
+@media(max-width: 980px){
+    .navegacion .btn-regresar{
+        left: 95%;
+    }
 }
-.navegacion h2{
-    position: absolute;
-    left: 40%;
-    font-size: 80px;
+@media(max-width: 760px){
+    .navegacion .btn-regresar{
+        left: 94%;
+    }
+}
+@media(max-width: 550px){
+    .navegacion .btn-regresar{
+        left: 91%;
+    }
+}
+.navegacion .enlaces li{
+    list-style: none;
+}
+.navegacion .cat{
+    padding: 10px;
 }
 .navegacion .nav-1{
     position: absolute;
@@ -80,97 +75,430 @@ body{
     justify-content: space-between;
     width: 100%;
     top: 100%;
+    padding: 10px;
     height: 30px;
     background-color: black;
-    padding-top: 10px;
     left: 0;
-
-    a{
-        color: white;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 7px 30px;
-        transition: .2s;
-    }
-    a:hover{
-        color: #d471ff;
-    }
+    border-top: 1px solid white;
+}
+.navegacion .nav-1 .Ayuda, .Preguntas , .btn-verCategoria{
+    color: white;   
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.Preguntas{
+    position: relative;
+    left: -50px;
 }
 .navegacion .nav-1 .btn-verCategoria{
+    position: relative;
+    width: 120px;
+    height: 50px;
     color: white;
     text-decoration: none;
-    font-weight: 550;
-    letter-spacing: 1px;
+    background-color: transparent;
 }
-.navegacion .nav-1 .btn-verCategoria:hover ~ul{
-    height: 535px;
+.navegacion .nav-1 .btn-verCategoria:hover ~.categorias {
+    height: 450px;
+    top: 100%;
 }
-.navegacion .nav-1 ul{
-    position: absolute;
-    left: 0;
-    width: 300px;
-    height: 0;
-    transition: .3s;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: black;
-    left: -10px;
-    margin: 0;
-    top: 40px;   
-}
-.navegacion .nav-1 ul:hover{
-    height: 535px;
-}
-.navegacion .nav-1 ul li{
+.navegacion .nav-1 .btn-verCategoria:hover ~.categorias .box-categoria{
     position: relative;
-    width: auto;
-    height: auto;
-    list-style: none;
-    left: -20px;
-    margin-top: 20px;
 }
-.navegacion .nav-1 ul li a{
+.navegacion .categorias{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0; top: 100%;
+    width: 200px;
+    height: 0;
+    background-color: #0a0a0a;
+    border-radius: 0 0 10px 0;
+    gap: 10px;
+    transition: .3s;
+    opacity: 1;
+    z-index: 1;
+    overflow: hidden;
+
+    .box-categoria{
+        position: absolute;
+        width: 200px;
+        height: 50px;
+
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a img{
+            position: absolute;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+            filter: brightness(30%);
+        }
+        a h4{
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+.navegacion .categorias:hover{
+    top: 100%;
+    height: 450px;
+}
+.navegacion .categorias:hover .box-categoria{
+    position: relative;
+}
+.navegacion-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.navegacion-box a{
+    padding: 10px 50px;
+}
+.navegacion .navegacion-box .btn-menu{
+    position: absolute;
+    left: 86%;
+
+    button{
+        padding: 5px;
+        font-size: 22px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: none;
+    }
+}
+.navegacion .box-buscador{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    padding: 10px 50px;
+    width: 200px;
+    height: 30px;
+}
+.navegacion .box-buscador input{
+    position: absolute;
+    width: 0;
+    height: 35px;
+    padding-left: 10px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
     background-color: transparent;
-    overflow: hidden;
-    text-align: center;
     color: white;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: 550;
+    border: 1px solid black;
     transition: .3s;
-    border-radius: 10px;
+}
+.navegacion .box-buscador label{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33px;
+    height: 33px;
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    background-color: rgb(32, 32, 32);
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+.navegacion .box-buscador input:focus,
+.navegacion .box-buscador input:valid{
+    width: 200px;
+    border-color: white;
+}
+.navegacion .box-buscador input:focus ~label,
+.navegacion .box-buscador input:valid ~label{
+    transform: translateX(119px);
+    border-radius: 0 5px 5px 0;
+    transition: .3s;
+}
+.navegacion .registrar{
+    position: relative;
+    width: auto;
 
-    img{
+    a{  
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: white;
+        border: 1px solid white;
+        padding: 3px 20px;
+        border-radius: 14px;
+        text-decoration: none;
+    }
+    a i{
+        font-size: 23px;
+    }
+    a:hover{
+        background-color: #202020;
+    }
+}
+
+.navegacion .carrito{
+    
+    a{
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+}
+/* CSS MENU */
+.menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+    border-right: 1px solid #202020;
+    left: -300px;
+
+    h2{
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+    #cerrarMenu{
+        padding: 10px;
         position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-        filter: brightness(50%);
-        transition: .3s;
-    }
-    p{
-        z-index: 1;
+        left: 90%;
+        font-size: 25px;
+        color: red;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
     }
 }
-.navegacion .nav-1 ul li a:hover img{
-    transform: scale(1.2);
+.menu .ul-1-from-menu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: -20px;
+    top: -10px;
+
+    li{
+        list-style: none;
+        padding: 10px;
+
+        button{  
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: transparent;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: transparent;
+        }
+
+    }
 }
-.navegacion .nav-1 ul li a:hover{
-    letter-spacing: 3px;
+.menu .ul-2-from-menu{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 88%;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    left: -10px;
+
+    li{
+        list-style: none;
+        padding: 10px;
+
+        a{  
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: #aaa;
+        }
+    }
 }
-.extras a{
-    text-decoration: none;
+/* FIN CSS MENU*/
+/*CSS DE BUSQUEDA*/
+.busqueda-from-menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 20px;
+    left: -20px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+
+    h2, p{
+        margin: 5px;
+        padding: 10px;
+    }
+
 }
+.busqueda-from-menu .box-btn{
+    position: absolute;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 30px;
+
+    #desBusquedaFlotante{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: red;
+        border-radius: 50%;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        background: linear-gradient(to bottom, #460562, #8112b1);
+    }
+}
+@media(max-width: 443px){
+    #desBusquedaFlotante{
+        left: -10px;
+    }
+}
+.busqueda-from-menu .box-inp-busqueda{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 30px;
+    top: 30px;
+
+    label{
+        content: " ";
+        position: absolute;
+        left: 3.5%;
+    }
+    input[type=text]{
+        width: 90%;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid #aaa;
+        border-radius: 10px;
+        padding-left: 30px;
+        outline: none;
+        color: white;
+    }
+
+}
+/*FIN CSS DE BUSQUEDA*/
+/*CSS MENU DE CATEGORIAS*/
+.categorias-form-menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+    border-right: 1px solid #202020;
+    left: -300px;
+
+    h2{
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+    button{
+        padding: 10px;
+        position: absolute;
+        left: 90%;
+        font-size: 25px;
+        color: red;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    ul{
+        position: relative;
+        left: -30px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        top: -20px;
+
+        li{
+            list-style: none;
+            margin: 0;
+
+            a{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 50px;
+                overflow: hidden;
+                border-radius: 10px;
+
+                h4{
+                    position: absolute;
+                    margin: 0;
+                    padding: 0;
+                    color: white;
+                }
+                img{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: brightness(50%);
+                }
+            }
+        }
+    }
+}
+/*FIN CSS MENU DE CATEGORIAS*/
 .contenedor{
     position: relative;
     display: flex;
@@ -178,7 +506,7 @@ body{
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
-    top: 130px;
+    top: 200px;
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -232,7 +560,7 @@ footer{
     height: auto;
     background-color: black;
     flex-wrap: wrap;
-    top: 200px;
+    top: 220px;
 }
 footer .redes,
 footer .atencionCliente, 
@@ -376,31 +704,35 @@ footer .politicas{
 @media(max-width: 860px){
     .navegacion h2{
         left: 45%;
-        font-size: 50px;
     }
 }
-@media(max-width: 600px){
-    .navegacion{
-        height: 80px;
+@media(max-width: 740px){
+    .registrar,
+    .carrito{
+        display: none;
     }
-    .navegacion .regresar-btn{
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        color: black;
-        font-size: 15px;
+    .navegacion .box-buscador{
+        display: none;
     }
-    .navegacion #btnMenu{
-        opacity: 1;
+    .navegacion .navegacion-box .btn-menu button{
+        display: block;
     }
-    .navegacion h2{
-        left: 45%;
-        font-size: 22px;
+    .navegacion .nav-1{
+        display: none;
+    }
+    .contenedor{
+        top: 120px;
+    }
+    .navegacion .btn-regresar{
+        top: 110%;
     }
 }
 @media(max-width: 400px){
     .contenedor .producto{
         width: 80%;
         height: 260px;
+    }
+    .navegacion .btn-regresar{
+        left: 90%;
     }
 }
