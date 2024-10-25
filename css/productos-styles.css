@@ -750,4 +750,7 @@ footer .politicas{
     .navegacion .nav-1{
         display: none;
     }
+    .navegacion .btn-regresar{
+        top: 120%;
+    }
 }
