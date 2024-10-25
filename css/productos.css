@@ -509,6 +509,11 @@ body{
 }
 
 .product {
+
+    position: relative;
+    width: 300px;
+    height: auto;
+    
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -521,6 +526,8 @@ body{
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
+    height: 200px;
+    object-fit: cover;
 }
 
 .product h3 {
@@ -550,6 +557,7 @@ body{
     z-index: 1;
     overflow: hidden;
     display: inline-block;
+    text-decoration: none;
   }
   .ov-btn-grow-skew-reverse:hover {
     color: #fff;/* color de fuente hover */
