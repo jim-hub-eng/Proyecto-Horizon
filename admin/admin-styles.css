@@ -14,6 +14,18 @@ body{
     border-right: 1px solid white;
     padding: 10px;
     z-index: 999;
+    left: -300px;
+    transition: .3s;
+    background-color: #0a0a0a;
+}
+.menu #btnCloseList{
+    position: absolute;
+    left: 90%;
+    border: none;
+    color: red;
+    font-size: 22px;
+    cursor: pointer;
+    background-color: transparent;
 }
 .menu .box-logo{
     position: relative;
@@ -23,6 +35,7 @@ body{
     width: 100%;
     height: 80px;
     border-bottom: 1px solid #aaa;
+    pointer-events: none;
 
     img{
         width: 80px;
@@ -124,4 +137,221 @@ body{
         height: 100%;
         object-fit: cover;
     }
+}
+.menu.openMenu{
+    left: 0;
+}
+.nav{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: 70px;
+    z-index: 1;
+
+    button{
+        position: relative;
+        left: -20px;
+        padding: 5px;
+        font-size: 22px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+}
+.box{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 80px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px;
+}
+.box .box-2{
+    position: relative;
+    display: flex;
+   flex: 0 0 100%;
+    height: 100%;
+    background-color: transparent;
+    right: 0%;
+    color: white;
+}
+.box .box-2 .box-3{
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    flex: 0 0 100%;
+}
+.box-administradores{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: auto;
+}
+.box-administradores .box-tablas{
+    width: 90%;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th, .table, td{
+    text-align: center;
+    padding: 15px;
+    border: 1px solid white;
+}
+.table tr td a{
+    text-decoration: none;
+}
+.table tr td .btn-edit{
+    padding: 10px;
+    background-color: rgb(255, 212, 22);
+    color: white;
+    border-radius: 5px;
+}
+.table tr td .btn-delete{
+    padding: 10px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 5px;
+}
+.box-administradores .box-title{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    a{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 30px;
+        padding: 10px;
+        background-color: transparent;
+        border: 1px solid #202020;
+        color: white;
+        text-decoration: none;
+        gap: 10px;
+        border-radius: 60px;
+    }
+}
+.box-administradores .media-form{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    top: 0; left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.box-administradores .media-form form{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    height: 60%;
+    background-color: #0a0a0a;
+    border-radius: 10px;
+    border: 1px solid #202020;
+    padding: 10px;
+}
+.box-administradores .media-form form .container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+.box-administradores .media-form form .container .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.box-administradores .media-form form .container .content .box-img-usuario-regis{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: black;
+}
+.box-administradores .media-form form .container .content .box-input-file{
+    input[type=file]{
+        display: none;
+    }
+
+    label{
+        content: " ";
+        position: relative;
+        width: 200px;
+        height: 30px;
+        background-color: transparent;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        top: 70px;
+        border: 1px solid rgb(57, 44, 230);
+    }
+    label:hover{
+        background-color: rgb(57, 44, 230);
+    }
+
+}
+.box-administradores .media-form form .container .content .box-input{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 40px;
+
+    input[type=text],
+    input[type=password]{
+        width: 200px;
+        height: 40px;
+        background-color: #0a0a0a;
+        color: white;
+        padding-left: 10px;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        outline: none;
+    }
+    label{
+        position: absolute;
+        left: 0;
+        margin-left: 10px;
+        background-color: #0a0a0a;
+        padding: 5px;
+        transition: .3s;
+    }
+    input:focus ~label,
+    input:valid ~label{
+        transform: translateY(-22px);
+    }
+}
+.box-administradores .media-form form button{
+    padding: 7px 40px;
+    background-color: #001aff;
+    border: 1px solid #4e5ff3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
