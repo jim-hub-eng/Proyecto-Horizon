@@ -14,49 +14,81 @@ body {
 }
 
 .container {
-    background-color: transparent;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    animation: fadeIn 3s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    animation: fadeInt 0.8s ease-in-out;
 }
 .container form{
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 90%;
     gap: 20px;
+}
+.box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #ffffff;
-    animation: slideDown 5s ease;
-}
-
-label {
-    margin-top: 10px;
-    display: block;
-    font-weight: 500;
+    margin: 0;
     color: #ffffff;
 }
+.box-input{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 40px;
+    margin-top: 50px;
+}
+.box-input label {
+    position: absolute;
+    left: 0;
+    color: #aaa;
+    margin-left: 5px;
+    background-color: #000000;
+    padding: 5px;
+    transition: .3s;
+    pointer-events: none;
+}
 
-input {
+.box-input input{
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: none;
+    height: 40px;
+    border: 1px solid #aaa;
     border-radius: 4px;
-    background-color: #202020; 
+    background-color: #000000; 
     color: white;
     transition: box-shadow 0.3s;
-}
-
-input:focus {
-    border-color: #000000; 
-    box-shadow: 0 0 5px rgb(0, 0, 0); 
     outline: none;
+    padding-left: 10px;
 }
-
+.box-input p{
+    position: absolute;
+    color: #aaa;
+    top: 110%;
+    left: 4%;
+    margin-top: 2px;
+}
+input:focus,
+input:valid{
+    border-color: #c851ff; 
+}
+input:focus ~label,
+input:valid ~label{
+    transform: translateY(-20px);
+    color: #e09eff;
+    text-shadow: 0 0 10px #c851ff;
+}
 button {
     width: 100%;
     padding: 10px;
@@ -66,47 +98,42 @@ button {
     border-radius: 4px;
     margin-top: 20px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    transition: .3s;
 }
 button:hover {
-    background-color: #350d47; 
+    border-color: #8127aa;
+    background-color: #8127aa; 
+    box-shadow: 0 0 10px #8127aa;
+    letter-spacing: 2px;
 }
-.error {
-    color: red;
-    text-align: center;
-    margin-top: 10px;
-    opacity: 0;
-    animation: fadeInError 0.5s forwards; 
+@media(max-width: 760px){
+    .container{
+        top: 170px;
+    }
+    .box-container{
+        width: 100%;
+        flex-direction: column;
+    }
+    .container form{
+        width: 100%;
+    }
+    .content{
+        width: 90%;
+    }
+    .box-input{
+        width: 100%;
+    }
+    .box-input input{
+        width: 100%;
+    }
 }
-
-/* Animaciones */
-@keyframes fadeIn {
-    from {
+@keyframes fadeInt{
+    0%{
+        transform: translateY(-20px);
         opacity: 0;
-        transform: scale(0.9);
     }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
+    100%{
         transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInError {
-    from {
-        opacity: 0;
-    }
-    to {
         opacity: 1;
     }
 }

@@ -1,39 +1,68 @@
-function validateForm() {
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-    const errorMessage = document.getElementById("errorMessage");
+const nombre_usuario = document.getElementById('txtNU');
+const error_txtUN = document.getElementById('error-txtNU');
 
-    errorMessage.style.opacity = 0; // Oculta el mensaje de error
+nombre_usuario.addEventListener('input', cantLetras_usuario);
 
-    if (username === "" || email === "" || password === "" || confirmPassword === "") {
-        showError("Todos los campos son obligatorios.");
-        return false;
-    }
+function cantLetras_usuario(){
 
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailPattern.test(email)) {
-        showError("Por favor, ingresa un correo electrónico válido.");
-        return false;
-    }
+    let num_letras = nombre_usuario.value.length;
 
-    if (password !== confirmPassword) {
-        showError("Las contraseñas no coinciden.");
-        return false;
-    }
+    error_txtUN.innerHTML = `${num_letras} / 10`;
 
-    if (password.length < 6) {
-        showError("La contraseña debe tener al menos 6 caracteres.");
-        return false;
-    }
-
-    alert("Registro exitoso!");
-    return true;
 }
 
-function showError(message) {
-    const errorMessage = document.getElementById("errorMessage");
-    errorMessage.innerHTML = message;
-    errorMessage.style.opacity = 1; // Muestra el mensaje de error con animación
+const contrasena = document.getElementById('txtPSW');
+const contrasena_r = document.getElementById('txtRPSW');
+const error_txtRPSW = document.getElementById('error_txtRPSW');
+
+contrasena_r.addEventListener('input', validar_psw);
+
+function validar_psw(){
+    
+    let psw = contrasena.value;
+    let psw_r = contrasena_r.value;
+
+    if(psw_r === ""){
+        error_txtRPSW.textContent = "";
+    }else if(psw === psw_r){
+        error_txtRPSW.textContent = 'Las contraseñas coinciden';
+        error_txtRPSW.style.color = '#54ff62';
+    }else{
+        error_txtRPSW.textContent = 'Las contraseñas no coinciden';
+        error_txtRPSW.style.color = 'red';
+    }
+
+}
+
+const correo = document.getElementById('txtCE');
+const error_correo = document.getElementById('error_correo');
+
+correo.addEventListener('input', correoValid);
+
+function correoValid(){
+
+    let new_correo = correo.value;
+    let arroba = "@";
+    let centinela = 0;
+    let i=0;
+
+    for(i=0; i<new_correo.length; i++){
+        if(new_correo[i] == arroba){
+            centinela = 1;
+            break;
+        }else{
+            centinela = 0;
+        }
+    }
+
+    if(new_correo === ""){
+        error_correo.innerText = ' ';
+    }else if(centinela == 1){
+        error_correo.innerText = 'Correcto';
+        error_correo.style.color = '#54ff62';
+    }else{
+        error_correo.innerText = 'Incluye "@" en tu correo';
+        error_correo.style.color = 'red';
+    }
+    
 }
