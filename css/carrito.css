@@ -36,3 +36,40 @@ body{
         }
     }
 }
+.media-car{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 80px;
+    color: white;
+    width: 100%;
+
+    h3{
+        position: relative;
+        bottom: 80px;
+    }
+
+    .img-car{
+        width: 300px;
+        mix-blend-mode: screen;
+    }
+    .img-logo{
+        position: absolute;
+        width: 100px;
+        top: 85px;
+        left: 47%;
+        animation: rotar 2s ease-in-out infinite;
+    }
+}
+@keyframes rotar{
+    0%{
+        transform: translateY(-5px);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-5px);
+    }
+}
