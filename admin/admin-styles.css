@@ -325,6 +325,14 @@ body{
         height: 50px;
     }
 }
+@media(max-width: 400px){
+    .box-administradores .table{
+        transform: scale(0.6);
+        left: -130px;
+        width: 50%;
+        top: -50px;
+    }
+}
 .box-administradores .media-form form .container .content{
     display: flex;
     flex-direction: column;
