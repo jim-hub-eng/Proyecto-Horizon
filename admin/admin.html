@@ -45,111 +45,110 @@
         <button onclick="openList()"><i class="bi bi-list"></i></button>
     </nav>
 
-    <div class="box-administradores box-3">
-        <div class="box-title">
-            <h2>ADMINISTRADORES</h2>
-        </div>
-        <div class="box-tablas">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#id</th>
-                    <th scope="col">FOTO</th>
-                    <th scope="col">NOMBRE</th>
-                    <th scope="col">APELLIDO</th>
-                    <th scope="col">FECHA_INGRESO</th>
-                    <th scope="col">EDAD</th>
-                    <th scope="col">EDITAR</th>
-                    <th scope="col">ELIMINAR</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td>foto</td>
-                    <td>Jim</td>
-                    <td>Gonzalez</td>
-                    <td>26 / 10 / 24</td>
-                    <td>17</td>
-                    <td><a class="btn-edit" href=""><i class="bi bi-pencil-square"></i></a></td>
-                    <td><a class="btn-delete" href=""><i class="bi bi-trash-fill"></i></a></td>
-                  </tr>
-                  <tr>
-                    <th>2</th>
-                    <td>Jacob</td>
-                    <td>Mark</td>
-                    <td>Thornton</td>
-                    <td>Gonzalez</td>
-                    <td>@fat</td>
-                    <td><a class="btn-edit" href=""><i class="bi bi-pencil-square"></i></a></td>
-                    <td><a class="btn-delete" href=""><i class="bi bi-trash-fill"></i></a></td>
-                  </tr>
-                  <tr>
-                    <th>3</th>
-                    <td>Larry the Bird</td>
-                    <td>Mark</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>Gonzalez</td>
-                    <td><a class="btn-edit" href=""><i class="bi bi-pencil-square"></i></a></td>
-                    <td><a class="btn-delete" href=""><i class="bi bi-trash-fill"></i></a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="box-registrar">
-                <button onclick="abrirRegistrarUsuario()" id="btnRegistrarUsuario">Registrar Usuario</button>
-              </div>
-        </div>
-        <div class="media-form">
-            <button onclick="cerrarRegistrarUsuario()" id="cerrarRegistrarUsuario">&times;</button>
-            <form>
-                <h2>REGISTRAR ADMIN</h2>
-                <div class="container">
-                    <div class="content">
-                        <div class="box-input">
-                            <div class="box-img-usuario-regis"></div>
-                        </div>
-                        <div class="box-input-file">
-                            <label for="int-file-user">Seleccionar Foto</label>
-                            <input type="file" name="" id="int-file-user">
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="box-input">
-                            <input type="text" required>
-                            <label for="">Nombre</label>
-                        </div>
-                        <div class="box-input">
-                            <input type="text" required>
-                            <label for="">Apellido Paterno</label>
-                        </div>
-                        <div class="box-input">
-                            <input type="text" required>
-                            <label for="">Edad</label>
-                        </div>
-                        <div class="box-input">
-                            <input type="password" required>
-                            <label for="">Contraseña</label>
-                        </div>
-                    </div>
-                </div>
-                <button>Registrar</button>
-            </form>
-        </div>
-    </div>
-
-    <!--
     <div class="box">
         <div class="box-2">
-            
-            <div class="box-productos box-3">
+            <div class="box-administradores boxes">
+                <div class="box-title">
+                    <h2>ADMINISTRADORES</h2>
+                </div>
+                <div class="box-tablas">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#id</th>
+                            <th scope="col">FOTO</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">APELLIDO</th>
+                            <th scope="col">FECHA_INGRESO</th>
+                            <th scope="col">EDAD</th>
+                            <th scope="col">EDITAR</th>
+                            <th scope="col">ELIMINAR</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>1</th>
+                            <td>foto</td>
+                            <td>Jim</td>
+                            <td>Gonzalez</td>
+                            <td>26 / 10 / 24</td>
+                            <td>17</td>
+                            <td><a class="btn-edit" href=""><i class="bi bi-pencil-square"></i></a></td>
+                            <td><a class="btn-delete" href=""><i class="bi bi-trash-fill"></i></a></td>
+                          </tr>
+                          <tr>
+                            <th>2</th>
+                            <td>Jacob</td>
+                            <td>Mark</td>
+                            <td>Thornton</td>
+                            <td>Gonzalez</td>
+                            <td>@fat</td>
+                            <td><a class="btn-edit" href=""><i class="bi bi-pencil-square"></i></a></td>
+                            <td><a class="btn-delete" href=""><i class="bi bi-trash-fill"></i></a></td>
+                          </tr>
+                          <tr>
+                            <th>3</th>
+                            <td>Larry the Bird</td>
+                            <td>Mark</td>
+                            <td>@twitter</td>
+                            <td>@twitter</td>
+                            <td>Gonzalez</td>
+                            <td><a class="btn-edit" href=""><i class="bi bi-pencil-square"></i></a></td>
+                            <td><a class="btn-delete" href=""><i class="bi bi-trash-fill"></i></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="box-registrar">
+                        <button onclick="abrirRegistrarUsuario()" id="btnRegistrarUsuario">Registrar Usuario</button>
+                      </div>
+                </div>
+                <div class="media-form">
+                    <button onclick="cerrarRegistrarUsuario()" id="cerrarRegistrarUsuario">&times;</button>
+                    <form>
+                        <h2>REGISTRAR ADMIN</h2>
+                        <div class="container">
+                            <div class="content">
+                                <div class="box-input">
+                                    <div class="box-img-usuario-regis"></div>
+                                </div>
+                                <div class="box-input-file">
+                                    <label for="int-file-user">Seleccionar Foto</label>
+                                    <input type="file" name="" id="int-file-user">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="box-input">
+                                    <input type="text" required>
+                                    <label for="">Nombre</label>
+                                </div>
+                                <div class="box-input">
+                                    <input type="text" required>
+                                    <label for="">Apellido Paterno</label>
+                                </div>
+                                <div class="box-input">
+                                    <input type="text" required>
+                                    <label for="">Edad</label>
+                                </div>
+                                <div class="box-input">
+                                    <input type="password" required>
+                                    <label for="">Contraseña</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button>Registrar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- FIN DE PRIMERA CAJA-->
+            <!--SEGUNDA CAJA-->
+            <div class="box-productos boxes">
                 <div class="title-2">
-                    <h2>PRODUCTOS</h2>
+                    <h1>REGISTRAR PRODUCTOS</h1>
                 </div>
 
                 <div class="box-carosel-forms">
                     <div class="box-labels-car">
-                        <input type="radio" name="radios-carosel" id="radios-carosel-1">
+                        <input type="radio" name="radios-carosel" id="radios-carosel-1" checked>
                         <input type="radio" name="radios-carosel" id="radios-carosel-2">
                         <input type="radio" name="radios-carosel" id="radios-carosel-3">
                         <input type="radio" name="radios-carosel" id="radios-carosel-4">
@@ -159,15 +158,350 @@
                         <input type="radio" name="radios-carosel" id="radios-carosel-8">
                         <div class="box-carosel-1">
                             <div class="box-carosel-2">
+                                <!-- FORMUARIO HOGAR-->
                                 <div class="box-formularios">
-                                    <form action=""></form>
+                                    <form action="">
+                                        <h2>HOGAR</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
                                 </div>
+                                <!-- FIN FORMUARIO HOGAR-->
+                                <!-- FORMULARIO ELECTRODOMESTICOS-->
                                 <div class="box-formularios">
-                                    <form action=""></form>
+                                    <form action="">
+                                        <h2>ELECTRODOMESTICOS</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
                                 </div>
+                                <!-- FIN FORMULARIO ELECTRODOMESTICOS-->
+                                <!-- FORMULARIO DE ELECTRONICO-->
                                 <div class="box-formularios">
-                                    <form action=""></form>
+                                    <form action="">
+                                        <h2>ELECTROICO</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
                                 </div>
+                                <!--FIN FORMULARIO DE ELECTRONICO-->
+                                <!-- FORMULARIO DE ROPA-->
+                                <div class="box-formularios">
+                                    <form action="">
+                                        <h2>ROPA</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!--FIN FORMULARIO DE ROPA-->
+                                <!-- FORMULARIO DE BAÑO-->
+                                <div class="box-formularios">
+                                    <form action="">
+                                        <h2>BAÑO</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!--FIN FORMULARIO DE BAÑO-->
+                                <!-- FORMULARIO DE MAQUILLAJE-->
+                                <div class="box-formularios">
+                                    <form action="">
+                                        <h2>MAQUILLAJE</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!--FIN FORMULARIO DE MAQUILLAJE-->
+                                <!-- FORMULARIO DE JUGUETES-->
+                                <div class="box-formularios">
+                                    <form action="">
+                                        <h2>JUGUETES</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!--FIN FORMULARIO DE JUGUETES-->
+                                <!-- FORMULARIO DE MUEBLES-->
+                                <div class="box-formularios">
+                                    <form action="">
+                                        <h2>MUEBLES</h2>
+                                        <div class="container">
+                                            <div class="content">
+                                                <div class="box-img-product">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="box-input-file-product">
+                                                    <label for="">Selecionar foto</label>
+                                                    <input type="file" name="" id="">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" maxlength="50" id="int-name-hogar" required>
+                                                    <label for="int-name-articulo">Nombre del Articulo</label>
+                                                    <p id="box-count-name-hogar" >0 / 50</p>
+                                                </div>
+                                                <div class="box-textarea">
+                                                    <textarea maxlength="230" name="" id="int-des-hogar" placeholder="Descripcion" required></textarea>
+                                                    <p id="box-count-des-hogar">0 / 230</p>
+                                                </div>
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="" id="int-des-hogar" required>
+                                                    <label for="int-des-articulo">Descuento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button>
+                                            Registrar
+                                            <span></span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!--FIN FORMULARIO DE MUEBLES-->
                             </div>
                         </div>
                         <div class="box-labels">
@@ -182,9 +516,11 @@
                         </div>
                     </div>
                 </div>
-
+                <!--FIN DE SEGUNDA CAJA-->
+            <div class="boxes"></div>
         </div>
     </div>
+
 
     <script src="admin-script.js"></script>
 </body>
