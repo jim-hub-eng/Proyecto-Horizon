@@ -7,6 +7,18 @@ function closeList(){
     menu.classList.remove("openMenu");
 }
 
+const carrusel = document.querySelector('.box-2');
+
+function btn_car_1(){
+    carrusel.style.right = '0%';
+}
+function btn_car_2(){
+    carrusel.style.right = '100%';
+}
+function btn_car_3(){
+    carrusel.style.right = '200%';
+}
+
 //  FUNCIONES PARA APARECER FORMULARIO PARA REGISTRAR USUARIO
 const media_form = document.querySelector('.media-form'); // CAJA DE FORMULARIO
 

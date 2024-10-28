@@ -17,21 +17,10 @@
         </div>
         <div class="box-ul-btn-actions">
             <ul>
-                <li>
-                    <input type="radio" name="radios" id="radio-1">
-                    <label for="radio-1"><i class="bi bi-people-fill"></i>Admins</label>
-                </li>
-                <li>
-                    <input type="radio" name="radios" id="radio-2">
-                    <label for="radio-2"><i class="bi bi-bag-fill"></i>Productos</label>
-                </li>
-                <li>
-                    <input type="radio" name="radios" id="radio-3">
-                    <label for="radio-3"><i class="bi bi-filetype-pdf"></i>Reportes</label>
-                </li>
-                <li>
-                    <a href=""><i class="bi bi-box-arrow-in-left"></i>Salir</a>
-                </li>
+                <li><button onclick="btn_car_1()"><i class="bi bi-people-fill"></i>Admins</button></li>
+                <li><button onclick="btn_car_2()"><i class="bi bi-bag-fill"></i>Productos</button></li>
+                <li><button onclick="btn_car_3()"><i class="bi bi-filetype-pdf"></i>Reportes</button></li>
+                <li><a href=""><i class="bi bi-box-arrow-in-left"></i>Salir</a></li>
             </ul>
         </div>
         <a href="#" class="box-admin">
@@ -118,24 +107,24 @@
                             </div>
                             <div class="content">
                                 <div class="box-input">
-                                    <input type="text" required>
-                                    <label for="">Nombre</label>
+                                    <input type="text" id="in-1" required>
+                                    <label for="in-1">Nombre</label>
                                 </div>
                                 <div class="box-input">
-                                    <input type="text" required>
-                                    <label for="">Apellido Paterno</label>
+                                    <input type="text" id="in-2" required>
+                                    <label for="in-2">Apellido Paterno</label>
                                 </div>
                                 <div class="box-input">
-                                    <input type="text" required>
-                                    <label for="">Edad</label>
+                                    <input type="text" id="in-3" required>
+                                    <label for="in-3">Edad</label>
                                 </div>
                                 <div class="box-input">
-                                    <input type="password" required>
-                                    <label for="">Contraseña</label>
+                                    <input type="password" id="in-4" required>
+                                    <label for="in-4">Contraseña</label>
                                 </div>
                             </div>
                         </div>
-                        <button>Registrar</button>
+                        <button>Registrar <span></span></button>
                     </form>
                 </div>
             </div>
@@ -517,7 +506,22 @@
                     </div>
                 </div>
                 <!--FIN DE SEGUNDA CAJA-->
-            <div class="boxes"></div>
+        </div>
+        <div class="box-reportes boxes">
+            <h1 class="title-2">REPORTES</h1>
+            <div class="box-reportes-1">
+                <ul>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Usuarios</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Hogar)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Electrodomesticos)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Electronico)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Ropa)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Baño)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Maquillaje)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Juguetes)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Muebles)</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 

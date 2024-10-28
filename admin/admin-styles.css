@@ -62,29 +62,27 @@ body{
 .menu .box-ul-btn-actions ul li{
     padding: 10px;
 }
-.menu .box-ul-btn-actions ul li input{
-    display: none;
-}
-.menu .box-ul-btn-actions ul li label{
+.menu .box-ul-btn-actions ul li button{
     position: relative;
     display: flex;
     align-items: center;
     width: 220px;
-    height: 40px;
+    height: 50px;
     border-radius: 0 5px 5px 0;
     gap: 10px;
-    font-weight: 550;
+    font-weight: 500;
     background-color: #0a0a0a;
     border: 2px solid #0a0a0a;
     cursor: pointer;
     color: white;
     padding: 5px;
+    font-size: 18px;
 
     i{
         font-size: 20px;
     }
 }
-.menu .box-ul-btn-actions ul li label:hover{
+.menu .box-ul-btn-actions ul li button:hover{
     border-left: 2px solid white;
     background-color: #202020
 }
@@ -151,6 +149,7 @@ body{
     z-index: 1;
     border-bottom: 1px solid #202020;
     background-color: #0a0a0a;
+    z-index: 888;
 
     button{
         position: relative;
@@ -411,12 +410,32 @@ body{
     }
 }
 .box-administradores .media-form form button{
-    padding: 7px 40px;
-    background-color: #001aff;
-    border: 1px solid #4e5ff3;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #8e03ff;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    overflow: hidden;
+    z-index: 999;
+
+    span{
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #8e03ff;
+        left: 0;
+        top: 100%;
+        z-index: -1;
+        transition: .3s;
+    }
+
+}
+.box-administradores .media-form form button:hover span{
+    top: 0;
 }
 .box-administradores #btnRegistrarUsuario{
     padding: 7px 40px;
@@ -447,7 +466,9 @@ body{
     align-items: center;
     width: 100%;
     height: 100%;
-    right: 100%;
+    right: 0%;
+    color: white;
+    transition: .3s;
 }
 .box .box-2 .boxes{
     display: flex;
@@ -743,4 +764,44 @@ body{
 }
 #radios-carosel-8:checked ~.box-carosel-1 .box-carosel-2{
     right: 700%;
+}
+/* CSS DE REPORTES */
+.box-reportes{
+    position: relative;
+    flex-direction: column;
+}
+.box-reportes-1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.box-reportes-1 ul{
+    display: flex;
+    flex-direction: column;
+    
+    li{
+        padding: 10px;
+        list-style: none;
+
+        a{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            width: auto;
+            padding: 10px;
+            height: 40px;
+            background-color: #0a0a0a;
+            border: 1px solid rgb(57, 44, 230);
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            background-color: rgb(57, 44, 230);
+
+        }
+    }
 }
