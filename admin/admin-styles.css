@@ -149,7 +149,7 @@ body{
     z-index: 1;
     border-bottom: 1px solid #202020;
     background-color: #0a0a0a;
-    z-index: 888;
+    z-index: 500;
 
     button{
         position: relative;
@@ -288,6 +288,7 @@ body{
     border: none;
     cursor: pointer;
     background-color: red;
+    z-index: 999;
 }
 .box-administradores .media-form form{
     position: relative;
@@ -499,12 +500,16 @@ body{
 .box-productos .box-carosel-forms .box-labels-car .box-labels{
     position: absolute;
     width: 100%;
+    height: auto;
     display: flex;
     align-items: center;
+    left: -12%;
     justify-content: center;
+    padding: 10px;
+    border-radius: 50px;
     gap: 10px;
     top: 0%;
-    left: -12%;
+    flex-wrap: wrap;
 
     label{
         position: relative;
@@ -513,6 +518,7 @@ body{
         border-radius: 10px;
         border: 1px solid rgb(57, 44, 230);
         box-shadow: 0 0 30px black;
+        flex: 0 0 auto;
     }
     label:hover{
         background-color: rgb(57, 44, 230);
