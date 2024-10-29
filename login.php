@@ -9,21 +9,21 @@
 <body class="align">
 
     <div class="grid">
-      <form action="https://httpbin.org/post" method="POST" class="form login">
+      <form action="./php/iniciar_s.php" method="POST" class="form login">
         
         <img src="img/logo.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 300px;">
             <div class="form__field">
           <label for="login__username"><svg class="icon">
               <use xlink:href="#icon-user"></use>
             </svg><span class="hidden">username</span></label>
-          <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Correo" required>
+          <input autocomplete="username" id="login__username" type="text" name="txtemail" class="form__input" placeholder="Correo" required>
         </div>
   
         <div class="form__field">
           <label for="login__password"><svg class="icon">
               <use xlink:href="#icon-lock"></use>
             </svg><span class="hidden">password</span></label>
-          <input id="login__password" type="password" name="password" class="form__input" placeholder="Contraseña" required>
+          <input id="login__password" type="password" name="txtpsw" class="form__input" placeholder="Contraseña" required>
         </div>
   
         <div class="form__field">
@@ -32,7 +32,7 @@
   
       </form>
   
-      <p class="text--center">No tienes cuenta? <a href="registrar.html">Registrate aqui</a> <svg class="icon">
+      <p class="text--center">No tienes cuenta? <a href="./registrar.php">Registrate aqui</a> <svg class="icon">
           <use xlink:href="#icon-arrow-right"></use>
         </svg></p>
   

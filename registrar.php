@@ -9,53 +9,53 @@
 <body>
     <div class="container">
         <h2>Registrarse</h2>
-        <form id="registerForm" onsubmit="return validateForm()">
+        <form action="./php/registrar_usuario.php" method="POST" id="registerForm">
             <div class="box-container">
                 <div class="content">
                     <div class="box-input">
-                        <input type="text" id="txtN" required>
+                        <input type="text" name="txtNombre" id="txtN" required>
                         <label for="">Nombre</label>
                     </div>
                     <div class="box-input">
-                        <input type="text" id="txtAP" required>
+                        <input type="text" name="txtApellidoP" id="txtAP" required>
                         <label for="">Apellido Paterno</label>
                     </div>
                     <div class="box-input">
-                        <input type="text" id="txtAM" required>
+                        <input type="text" name="txtApellidoM" id="txtAM" required>
                         <label for="">Apellido Materno</label>
                     </div>
                     <div class="box-input">
-                        <input type="text" maxlength="10" id="txtNU" required>
+                        <input type="text" name="txtUsuario" maxlength="10" id="txtNU" required>
                         <label for="">Nombre de Usuario</label>
                         <p id="error-txtNU" >0 / 10</p>
                     </div>
                     <div class="box-input">
-                        <input type="email" id="txtCE" required>
+                        <input type="email" name="txtCorreo" id="txtCE" required>
                         <label for="">Correo Electronico</label>
                         <p id="error_correo"></p>
                     </div>
                 </div>
                 <div class="content">
                     <div class="box-input">
-                        <input type="password" id="txtPSW" required>
+                        <input type="password" name="txtPsw" id="txtPSW" required>
                         <label for="">Contraseña</label>
                     </div>
                     <div class="box-input">
-                        <input type="password" id="txtRPSW" required>
+                        <input type="password" name="txtRPsw" id="txtRPSW" required>
                         <label for="">Repetir Contraseña</label>
                         <p id="error_txtRPSW"></p>
                     </div>
                     <div class="box-input">
-                        <input type="text" id="txtD" required>
+                        <input type="text" name="txtDireccion" id="txtD" required>
                         <label for="">Direccion</label>
                     </div>
                     <div class="box-input">
-                        <input type="text" id="txtR" required>
+                        <input type="text" name="txtRegion" id="txtR" required>
                         <label for="">Region</label>
                     </div>
                 </div>
             </div>
-            <button type="submit">Registrarse</button>
+            <button name="btnRegistrarUsuario" type="submit">Registrarse</button>
         </form>
         <p id="errorMessage" class="error"></p>
     </div>
