@@ -1,18 +1,19 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAÑO</title>
-    <link rel="stylesheet" href="../css/productos.css">
+    <title>ELECTRODOMESTICOS</title>
+    <link rel="stylesheet" href="../css/categoria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
     
     <nav class="navegacion">
-        <img src="../img/baño/Titulo.jpg" alt="">
+        <img src="../img/electrodomesticos.png" alt="">
         <div class="cat">
-            <h2>MUEBLES DE BAÑO</h2>
+            <h2>ELECTRODOMESTICOS</h2>
         </div>
         <div class="box-buscador">
             <input type="search" id="inp-buscador" placeholder="Buscar..." required>
@@ -35,45 +36,51 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="../categorias/casa.html">
+                    <a href="../categorias/casa.php">
                         <img src="../img/casa.png">
                         <h4>Hogar</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
-                        <img src="../img/electrodomesticos.png">
-                        <h4>Electrodomesticos</h4>
+                    <a href="../categorias/electronico.html">
+                        <img src="../img/electronico.png">
+                        <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="./ropa.html">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/Baño.html">
+                    <a href="./Baño.html">
                         <img src="../img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="./maquillaje.html">
                         <img src="../img/maquillage.png">
-                        <h4>Maquillage</h4>
+                        <h4>Maquillaje</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="./juguetes.html">
                         <img src="../img/jugetes.png">
-                        <h4>Juegetes</h4>
+                        <h4>Juguetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/muebles.html">
+                    <a href="./muebles.html">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
+                    </a>
+                </div>
+                <div class="box-categoria">
+                    <a href="./electrodomesticos.php">
+                        <img src="../img/electrodomesticos.png">
+                        <h4>Electrodomesticos</h4>
                     </a>
                 </div>
             </div>
@@ -113,95 +120,86 @@
         <button onclick="cerrarCategoriasDeMenu()">&times;</button>
         <ul>
             <li>
-                <a href="../categorias/casa.html">
+                <a href="../categorias/casa.php">
                     <img src="../img/casa.png" alt="">
                     <h4>Hogar</h4>
                 </a>
             </li>
             <li>
                 <a href="">
-                    <img src="../img/electrodomesticos.png" alt="">
-                    <h4>Electrodomesticos</h4>
+                    <img src="../img/electronico.png" alt="">
+                    <h4>Electronicos</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./ropa.html">
                     <img src="../img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./Baño.html">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./maquillaje.html">
                     <img src="../img/maquillage.png" alt="">
-                    <h4>Maquillage</h4>
+                    <h4>Maquillaje</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./juguetes.html">
                     <img src="../img/jugetes.png" alt="">
                     <h4>Juguetes</h4>
                 </a>
             </li>
             <li>
-                <a href="../categorias/muebles.html">
+                <a href="./muebles.html">
                     <img src="../img/muebles.png" alt="">
                     <h4>Muebles</h4>
+                </a>
+            </li>
+            <li>
+                <a href="./electrodomesticos.php">
+                    <img src="../img/electrodomesticos.png" alt="">
+                    <h4>Electrodomesticos</h4>
                 </a>
             </li>
         </ul>
     </div>
 
-   ------------PRODUCTOS-------------
-   <div class="product-container">
-    <div class="product">
-        <img src="../img/baño/MuebleB1.png" alt="Producto 1">
-        <h3>GABINETE TERUEL 30 2 PZAS COLOR CARAMEL</h3>
-        <p class="price">Precio: $50.00 <span class="discount">10% de descuento</span></p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
+    <div class="contenedor">
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electrodomesticos/lavadoras/lava1.png" alt="">
+            </div>
+            <h3>Lavadoras</h3>
+            <a href="../productos/../productos/productos.php?subCategoria=lavadora">Ver</a>
+        </div>
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electrodomesticos/licuadora/lic1.png" alt="">
+            </div>
+            <h3>Licuadoras</h3>
+            <a href="../productos/productos.php?subCategoria=licuadora">Ver</a>
+        </div>
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electrodomesticos/refrigerador/refri1.png" alt="">
+            </div>
+            <h3>Refrigeradores</h3>
+            <a href="../productos/productos.php?subCategoria=refrigerador">Ver</a>
+        </div>
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electrodomesticos/microo/micro1.png" alt="">
+            </div>
+            <h3>Microondas</h3>
+            <a href="../productos/productos.php?subCategoria=microondas">Ver</a>
+        </div>
     </div>
-
-    <div class="product">
-        <img src="../img/baño/MuebleB2.png" alt="Producto 2">
-        <h3>GABINETE STRATBURG 30 2PZAS COLOR CARAMEL</h3>
-        <p class="price">Precio: $70.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MuebleB3.png" alt="Producto 3">
-        <h3>GABINETE PARA BAÑO DE PISO CLADY BLANCO 24 PULGADAS CON LAVABO</h3>
-        <p class="price">Precio: $45.00 <span class="discount">15% de descuento</span></p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MueblesB4.png" alt="Producto 4">
-        <h3>MUEBLE PARA BAÑO HOLLYBROOK CLIFTON 62.2 X 42.5 X 87.3 CM</h3>
-        <p class="price">Precio: $100.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MueblesB5.png" alt="Producto 5">
-        <h3>MUEBLE PARA BAÑO WESTCOURT 155 X 55.9 X 99 CM</h3>
-        <p class="price">Precio: $30.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MueblesB6.png" alt="Producto 6">
-        <h3>MUEBLE PARA BAÑO WESTCOURT 155 X 55.9 X 97.8 CM</h3>
-        <p class="price">Precio: $80.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-</div>
-</div>
     <footer>
         <div class="redes">
             <h3>Redes Sociales</h3>

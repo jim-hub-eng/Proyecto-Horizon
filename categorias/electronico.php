@@ -1,18 +1,19 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOGAR</title>
-    <link rel="stylesheet" href="../css/productos.css">
+    <title>ELECTRONICO</title>
+    <link rel="stylesheet" href="../css/categoria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
     
     <nav class="navegacion">
-        <img src="../img/casas/dormitorios/dormitorio1.png" alt="">
+        <img src="../img/electronico.png" alt="">
         <div class="cat">
-            <h2>DORMITORIOS</h2>
+            <h2>ELECTRONICO</h2>
         </div>
         <div class="box-buscador">
             <input type="search" id="inp-buscador" placeholder="Buscar..." required>
@@ -35,45 +36,51 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="../categorias/casa.html">
+                    <a href="./casa.html">
                         <img src="../img/casa.png">
                         <h4>Hogar</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
                     <a href="">
-                        <img src="../img/electrodomesticos.png">
-                        <h4>Electrodomesticos</h4>
+                        <img src="../img/electronico.png">
+                        <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="./ropa.html">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/Baño.html">
+                    <a href="./Baño.html">
                         <img src="../img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="./maquillaje.html">
                         <img src="../img/maquillage.png">
-                        <h4>Maquillage</h4>
+                        <h4>Maquillaje</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="./juguetes.html">
                         <img src="../img/jugetes.png">
-                        <h4>Juegetes</h4>
+                        <h4>Jueguetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/muebles.html">
+                    <a href="./muebles.html">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
+                    </a>
+                </div>
+                <div class="box-categoria">
+                    <a href="./electrodomesticos.html">
+                        <img src="../img/electrodomesticos.png">
+                        <h4>Electrodomesticos</h4>
                     </a>
                 </div>
             </div>
@@ -113,88 +120,86 @@
         <button onclick="cerrarCategoriasDeMenu()">&times;</button>
         <ul>
             <li>
-                <a href="../categorias/casa.html">
+                <a href="./casa.html">
                     <img src="../img/casa.png" alt="">
                     <h4>Hogar</h4>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <img src="../img/electrodomesticos.png" alt="">
-                    <h4>Electrodomesticos</h4>
+                <a href="./electronico.html">
+                    <img src="../img/electronico.png" alt="">
+                    <h4>Electronico</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./ropa.html">
                     <img src="../img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./categorias/electronico.html">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./maquillaje.html">
                     <img src="../img/maquillage.png" alt="">
-                    <h4>Maquillage</h4>
+                    <h4>Maquillaje</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./juguetes.html">
                     <img src="../img/jugetes.png" alt="">
                     <h4>Juguetes</h4>
                 </a>
             </li>
             <li>
-                <a href="../categorias/muebles.html">
+                <a href="./muebles.html">
                     <img src="../img/muebles.png" alt="">
                     <h4>Muebles</h4>
+                </a>
+            </li>
+            <li>
+                <a href="./electrodomesticos.html">
+                    <img src="../img/electrodomesticos.png" alt="">
+                    <h4>Electrodomesticos</h4>
                 </a>
             </li>
         </ul>
     </div>
 
-   ------------PRODUCTOS-------------
-   <div class="product-container">
-    <div class="product">
-        <img src="../img/casas/dormitorios/dormitorio1.png" alt="Producto 1">
-        <h3>CAMA MATRIMONIAL</h3>
-        <p class="price">Precio: $5680.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
+    <div class="contenedor">
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electronico/videojuegos/videojuego.png" alt="">
+            </div>
+            <h3>VideoJuegos</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=videojuego">Ver</a>
+        </div>
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electronico/tv/tv.png" alt="">
+            </div>
+            <h3>Televiciones</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=televicion">Ver</a>
+        </div>
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electronico/bosinas/bosinas.png" alt="">
+            </div>
+            <h3>Bosinas</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=bosina">Ver</a>
+        </div>
+        <div class="producto">
+            <div class="box-img">
+                <img src="../img/electronico/camaras/camaras.png" alt="">
+            </div>
+            <h3>Camaras</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=camara">Ver</a>
+        </div>
     </div>
-
-    <div class="product">
-        <img src="../img/casas/dormitorios/dormitorio2.png" alt="Producto 2">
-        <h3>CAMA MATRIMONIAL MILAH BEIGE</h3>
-        <p class="price">Precio: $13774.000</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/casas/dormitorios/dormitorio3.png" alt="Producto 3">
-        <h3>RECAMARA 3 PIEZAS KING SIZE GLAM GRIS</h3>
-        <p class="price">Precio: $13012.00 <span class="discount">15% de descuento</span></p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/casas/dormitorios/dormitorio4.png" alt="Producto 4">
-        <h3>CAMA MATRIMONIAL REIKI GRIS</h3>
-        <p class="price">Precio: $14249.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/casas/dormitorios/dormitorio5.png" alt="Producto 5">
-        <h3>RECAMARA 3 PIEZAS KING SIZE SIQUEIROS TAPIZADA AZUL</h3>
-        <p class="price">Precio: $12254.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-</div>
-</div>
     <footer>
         <div class="redes">
             <h3>Redes Sociales</h3>

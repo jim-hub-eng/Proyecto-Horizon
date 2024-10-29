@@ -36,7 +36,7 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="categorias/casa.html">
+                    <a href="categorias/casa.php">
                         <img src="img/casa.png">
                         <h4>Hogar</h4>
                     </a>
@@ -78,7 +78,7 @@
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./categorias/electrodomesticos.html">
+                    <a href="./categorias/electrodomesticos.php">
                         <img src="img/electrodomesticos.png">
                         <h4>Electrodomesticos</h4>
                     </a>

@@ -32,7 +32,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="./admin-styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -203,11 +203,15 @@
                                                     <p id="box-count-des-hogar">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-hogar" required>
-                                                    <label for="int-precio-articulo">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-hogar" required>
+                                                    <label for="int-sub-articulo">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                            <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-hogar" required>
                                                     <label for="int-des-articulo">Descuento</label>
@@ -247,11 +251,15 @@
                                                     <p id="box-count-des-electrodomestico">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-electrodomestico" required>
-                                                    <label for="int-precio-electrodomestico">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-articulo" required>
+                                                    <label for="int-sub-articulo">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-electrodomestico" required>
+                                                    <label for="int-precio-electrodomestico">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-hogar" required>
                                                     <label for="int-des-articulo">Descuento</label>
@@ -291,11 +299,15 @@
                                                     <p id="box-count-des-electronico">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-electronico" required>
-                                                    <label for="int-precio-electronico">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-electronico" required>
+                                                    <label for="int-sub-electronico">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                            <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-electronico" required>
+                                                    <label for="int-precio-electronico">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-hogar" required>
                                                     <label for="int-des-articulo">Descuento</label>
@@ -335,11 +347,15 @@
                                                     <p id="box-count-des-ropa">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-ropa" required>
-                                                    <label for="int-precio-ropa">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-ropa" required>
+                                                    <label for="int-sub-ropa">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                            <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-ropa" required>
+                                                    <label for="int-precio-ropa">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-ropa" required>
                                                     <label for="int-des-ropa">Descuento</label>
@@ -379,11 +395,15 @@
                                                     <p id="box-count-des-bano">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-hogar" required>
-                                                    <label for="int-precio-articulo">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-hogar" required>
+                                                    <label for="int-sub-articulo">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                                <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-hogar" required>
+                                                    <label for="int-precio-articulo">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-hogar" required>
                                                     <label for="int-des-articulo">Descuento</label>
@@ -423,11 +443,15 @@
                                                     <p id="box-count-des-maquillaje">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-maquillaje" required>
-                                                    <label for="int-precio-maquillaje">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-maquillaje" required>
+                                                    <label for="int-sub-maquillaje">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                            <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-maquillaje" required>
+                                                    <label for="int-precio-maquillaje">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-maquillaje" required>
                                                     <label for="int-des-maquillaje">Descuento</label>
@@ -467,11 +491,15 @@
                                                     <p id="box-count-des-juguetes">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-juguetes" required>
-                                                    <label for="int-precio-juguetes">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-juguetes" required>
+                                                    <label for="int-sub-juguetes">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                            <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-juguetes" required>
+                                                    <label for="int-precio-juguetes">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-juguetes" required>
                                                     <label for="int-des-juguetes">Descuento</label>
@@ -511,11 +539,15 @@
                                                     <p id="box-count-des-muebles">0 / 230</p>
                                                 </div>
                                                 <div class="box-input">
-                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-muebles" required>
-                                                    <label for="int-precio-muebles">Precio</label>
+                                                    <input type="text" name="txtSubCateArticulo" id="int-sub-muebles" required>
+                                                    <label for="int-sub-muebles">Sub-categoria</label>
                                                 </div>
                                             </div>
                                             <div class="content">
+                                            <div class="box-input">
+                                                    <input type="text" name="txtPrecioArticulo" id="int-precio-muebles" required>
+                                                    <label for="int-precio-muebles">Precio</label>
+                                                </div>
                                                 <div class="box-input">
                                                     <input type="text" name="txtDescuentoArticulo" id="int-des-muebles" required>
                                                     <label for="int-des-muebles">Descuento</label>
@@ -551,14 +583,14 @@
             <div class="box-reportes-1">
                 <ul>
                     <li><a href="./apartado_reportes/reporte_admin.php"><i class="bi bi-filetype-pdf"></i>Reporte de Usuarios</a></li>
-                    <li><a href="./apartado_reportes/reporte_hogar.php"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Hogar)</a></li>
+                    <!-- <li><a href="./apartado_reportes/reporte_hogar.php"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Hogar)</a></li>
                     <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Electrodomesticos)</a></li>
                     <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Electronico)</a></li>
                     <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Ropa)</a></li>
                     <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Baño)</a></li>
                     <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Maquillaje)</a></li>
                     <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Juguetes)</a></li>
-                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Muebles)</a></li>
+                    <li><a href="#"><i class="bi bi-filetype-pdf"></i>Reporte de Productos(Muebles)</a></li> -->
                 </ul>
             </div>
         </div>
