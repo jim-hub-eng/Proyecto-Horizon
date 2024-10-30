@@ -132,31 +132,31 @@
                 </a>
             </li>
             <li>
-                <a href="./ropa.html">
+                <a href="./ropa.php">
                     <img src="../img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/Baño.html">
+                <a href="./categorias/Baño.php">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
             </li>
             <li>
-                <a href="./maquillaje.html">
+                <a href="./maquillaje.php">
                     <img src="../img/maquillage.png" alt="">
                     <h4>Maquillaje</h4>
                 </a>
             </li>
             <li>
-                <a href="./juguetes.html">
+                <a href="./juguetes.php">
                     <img src="../img/jugetes.png" alt="">
                     <h4>Juguetes</h4>
                 </a>
             </li>
             <li>
-                <a href="./muebles.html">
+                <a href="./muebles.php">
                     <img src="../img/muebles.png" alt="">
                     <h4>Muebles</h4>
                 </a>

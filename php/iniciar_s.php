@@ -15,8 +15,7 @@
     $validar_login = mysqli_query($conexion , "SELECT * FROM admin WHERE correo = '$correo' and contrasena = '$password'");
 
     if(mysqli_num_rows($validar_login) > 0){
-        $_SESSION['correo'] = $correo; 
-        header("location: ../admin/admin.html");
+        header("location: ../admin/admin.php");
         exit;
     }
 
@@ -24,7 +23,7 @@
 
     if(mysqli_num_rows($validar_login) > 0){
         $_SESSION['correo'] = $correo; 
-        header("location: ../index.html");
+        header("location: ../index.php");
         exit;
     }else{
         echo '

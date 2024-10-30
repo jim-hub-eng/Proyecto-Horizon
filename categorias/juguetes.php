@@ -36,49 +36,49 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="./casa.html">
+                    <a href="./casa.php">
                         <img src="../img/casa.png">
                         <h4>Hogar</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./electronico.html">
+                    <a href="./electronico.php">
                         <img src="../img/electronico.png">
                         <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./ropa.html">
+                    <a href="./ropa.php">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./Baño.html">
+                    <a href="./Baño.php">
                         <img src="../img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./maquillaje.html">
+                    <a href="./maquillaje.php">
                         <img src="../img/maquillage.png">
                         <h4>Maquillaje</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./juguetes.html">
+                    <a href="./juguetes.php">
                         <img src="../img/jugetes.png">
                         <h4>Juguetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./muebles.html">
+                    <a href="./muebles.php">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./electrodomesticos.html">
+                    <a href="./electrodomesticos.php">
                         <img src="../img/electrodomesticos.png">
                         <h4>Electrodomesticos</h4>
                     </a>
@@ -120,13 +120,13 @@
         <button onclick="cerrarCategoriasDeMenu()">&times;</button>
         <ul>
             <li>
-                <a href="./casa.html">
+                <a href="./casa.php">
                     <img src="../img/casa.png" alt="">
                     <h4>Hogar</h4>
                 </a>
             </li>
             <li>
-                <a href="./electronico.html">
+                <a href="./electronico.php">
                     <img src="../img/electronico.png" alt="">
                     <h4>Electronico</h4>
                 </a>
@@ -138,31 +138,31 @@
                 </a>
             </li>
             <li>
-                <a href="./categorias/Baño.html">
+                <a href="./categorias/Baño.php">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
             </li>
             <li>
-                <a href="./maquillaje.html">
+                <a href="./maquillaje.php">
                     <img src="../img/maquillage.png" alt="">
                     <h4>Maquillaje</h4>
                 </a>
             </li>
             <li>
-                <a href="./juguetes.html">
+                <a href="./juguetes.php">
                     <img src="../img/jugetes.png" alt="">
                     <h4>Juguetes</h4>
                 </a>
             </li>
             <li>
-                <a href="./muebles.html">
+                <a href="./muebles.php">
                     <img src="../img/muebles.png" alt="">
                     <h4>Muebles</h4>
                 </a>
             </li>
             <li>
-                <a href="./electrodomesticos.html">
+                <a href="./electrodomesticos.php">
                     <img src="../img/electrodomesticos.png" alt="">
                     <h4>Electrodomesticos</h4>
                 </a>
@@ -176,21 +176,21 @@
                 <img src="../img/juguetes/figuras_accion/fa1.png" alt="">
             </div>
             <h3>Figuras de Accion</h3>
-            <a href="../productos/Productos_Casa.html">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=figuras">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/juguetes/muñecas/m1.png" alt="">
             </div>
             <h3>Muñecas</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=muñeca">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/juguetes/juegos_m/jdm1.png" alt="">
             </div>
             <h3>Juegos de Mesa</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=juegos">Ver</a>
         </div>
     </div>
     <footer>

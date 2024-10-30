@@ -8,6 +8,16 @@
         .nav{
             z-index: 999;
         }
+        .box-foto{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .box-img-usuario-regis{
+            overflow: hidden;
+        }
         .box .box-2{
             right: 200%;
         }
@@ -124,7 +134,9 @@
                         <div class="container">
                             <div class="content">
                                 <div class="box-input">
-                                    <div class="box-img-usuario-regis"></div>
+                                    <div class="box-img-usuario-regis">
+                                        <img class="box-foto">
+                                    </div>
                                 </div>
                                 <div class="box-input-file">
                                     <label for="int-file-user">Seleccionar Foto</label>
@@ -597,6 +609,30 @@
     </div>
 
 
-    <script src="admin-script.js"></script>
+    <script src="./admin-script.js"></script>
+    <script>
+        const box_foto = document.querySelector('.box-foto');
+        const int_file_user = document.getElementById('int-file-user');
+
+        int_file_user.addEventListener('change', function(event){
+
+            const file = event.target.files[0];
+
+            if(file){
+
+                const reader = new FileReader();
+
+                reader.onload = function(e){
+                
+                    box_foto.src = e.target.result;
+                    box_foto.style.display = 'block';     
+                
+                }
+            
+                reader.readAsDataURL(file);
+            }
+
+});
+    </script>
 </body>
 </html>

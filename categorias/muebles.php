@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAQUILLAJE</title>
+    <title>MUEBLES</title>
     <link rel="stylesheet" href="../css/categoria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -11,9 +11,9 @@
 <body>
     
     <nav class="navegacion">
-        <img src="../img/maquillage.png" alt="">
+        <img src="../img/muebles.png" alt="">
         <div class="cat">
-            <h2>MAQUILLAJE</h2>
+            <h2>MUEBLES</h2>
         </div>
         <div class="box-buscador">
             <input type="search" id="inp-buscador" placeholder="Buscar..." required>
@@ -36,49 +36,49 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="./casa.html">
+                    <a href="./casa.php">
                         <img src="../img/casa.png">
                         <h4>Hogar</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./electronico.html">
+                    <a href="./electronico.php">
                         <img src="../img/electronico.png">
                         <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./ropa.html">
+                    <a href="./ropa.php">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./Baño.html">
+                    <a href="./Baño.php">
                         <img src="../img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./maquillaje.html">
+                    <a href="./maquillaje.php">
                         <img src="../img/maquillage.png">
-                        <h4>Maquillae</h4>
+                        <h4>Maquillaje</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./juguetes.html">
+                    <a href="./juguetes.php">
                         <img src="../img/jugetes.png">
                         <h4>Juguetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./muebles.html">
+                    <a href="./muebles.php">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./electrodomesticos.html">
+                    <a href="./electrodomesticos.php">
                         <img src="../img/electrodomesticos.png">
                         <h4>Electrodomesticos</h4>
                     </a>
@@ -120,49 +120,49 @@
         <button onclick="cerrarCategoriasDeMenu()">&times;</button>
         <ul>
             <li>
-                <a href="../categorias/casa.html">
+                <a href="./casa.php">
                     <img src="../img/casa.png" alt="">
                     <h4>Hogar</h4>
                 </a>
             </li>
             <li>
-                <a href="./electronico.html">
+                <a href="./electronico.php">
                     <img src="../img/electronico.png" alt="">
                     <h4>Electronico</h4>
                 </a>
             </li>
             <li>
-                <a href="./ropa.html">
+                <a href="./ropa.php">
                     <img src="../img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
             </li>
             <li>
-                <a href="./Baño.html">
+                <a href="./Baño.php">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./maquillaje.php">
                     <img src="../img/maquillage.png" alt="">
                     <h4>Maquillaje</h4>
                 </a>
             </li>
             <li>
-                <a href="./juguetes.html">
+                <a href="./juguetes.php">
                     <img src="../img/jugetes.png" alt="">
                     <h4>Juguetes</h4>
                 </a>
             </li>
             <li>
-                <a href="./muebles.html">
+                <a href="./muebles.php">
                     <img src="../img/muebles.png" alt="">
                     <h4>Muebles</h4>
                 </a>
             </li>
             <li>
-                <a href="./electrodomesticos.html">
+                <a href="./electrodomesticos.php">
                     <img src="../img/electrodomesticos.png" alt="">
                     <h4>Electrodomesticos</h4>
                 </a>
@@ -173,31 +173,31 @@
     <div class="contenedor">
         <div class="producto">
             <div class="box-img">
-                <img src="../img/maquillaje/base/base1.png" alt="">
+                <img src="../img/muebles/mesa/mesa.png" alt="">
             </div>
-            <h3>Base</h3>
-            <a href="../productos.html">Ver</a>
+            <h3>Mesa</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=mesa">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
-                <img src="../img/maquillaje/gloss/gloss1.png" alt="">
+                <img src="../img/muebles/sillas/sillas.png" alt="">
             </div>
-            <h3>Gloss</h3>
-            <a href="../productos.html">Ver</a>
+            <h3>Sillas</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=silla">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
-                <img src="../img/maquillaje/labial/labial1.png" alt="">
+                <img src="../img/muebles/comodas/comodas.png" alt="">
             </div>
-            <h3>Labial</h3>
-            <a href="../productos.html">Ver</a>
+            <h3>Comodas</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=comoda">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
-                <img src="../img/maquillaje/sombra/sombra1.png" alt="">
+                <img src="../img/muebles/armarios/armario.png" alt="">
             </div>
-            <h3>Sombras</h3>
-            <a href="../productos.html">Ver</a>
+            <h3>Armarios</h3>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=armario">Ver</a>
         </div>
     </div>
     <footer>

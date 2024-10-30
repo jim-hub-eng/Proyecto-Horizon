@@ -42,37 +42,37 @@
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./categorias/electronico.html">
+                    <a href="./categorias/electronico.php">
                         <img src="img/electronico.png">
                         <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./categorias/ropa.html">
+                    <a href="./categorias/ropa.php">
                         <img src="img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./categorias/Baño.html">
+                    <a href="./categorias/Baño.php">
                         <img src="img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./categorias/maquillaje.html">
+                    <a href="./categorias/maquillaje.php">
                         <img src="img/maquillage.png">
                         <h4>Maquillaje</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./categorias/juguetes.html">
+                    <a href="./categorias/juguetes.php">
                         <img src="img/jugetes.png">
                         <h4>Juguetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./categorias/muebles.html">
+                    <a href="./categorias/muebles.php">
                         <img src="img/muebles.png">
                         <h4>Muebles</h4>
                     </a>

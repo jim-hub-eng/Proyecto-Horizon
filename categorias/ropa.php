@@ -36,19 +36,19 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="./casa.html">
+                    <a href="./casa.php">
                         <img src="../img/casa.png">
                         <h4>Hogar</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./electronico.html">
+                    <a href="./electronico.php">
                         <img src="../img/electronico.png">
                         <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./ropa.html">
+                    <a href="./ropa.php">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
@@ -78,7 +78,7 @@
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./electrodomesticos.html">
+                    <a href="./electrodomesticos.php">
                         <img src="../img/electrodomesticos.png">
                         <h4>Electrodomesticos</h4>
                     </a>
@@ -120,19 +120,19 @@
         <button onclick="cerrarCategoriasDeMenu()">&times;</button>
         <ul>
             <li>
-                <a href="./casa.html">
+                <a href="./casa.php">
                     <img src="../img/casa.png" alt="">
                     <h4>Hogar</h4>
                 </a>
             </li>
             <li>
-                <a href="./electronico.html">
+                <a href="./electronico.php">
                     <img src="../img/electronico.png" alt="">
                     <h4>Electronico</h4>
                 </a>
             </li>
             <li>
-                <a href="./ropa.html">
+                <a href="./ropa.php">
                     <img src="../img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
@@ -162,7 +162,7 @@
                 </a>
             </li>
             <li>
-                <a href="./electrodomesticos.html">
+                <a href="./electrodomesticos.php">
                     <img src="../img/electrodomesticos.png" alt="">
                     <h4>Electrodomesticos</h4>
                 </a>
@@ -176,28 +176,28 @@
                 <img src="../img/ropa/hombre/h1.png" alt="">
             </div>
             <h3>Hombre</h3>
-            <a href="../productos/Productos_Casa.html">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=hombre">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/ropa/mujer/m.png" alt="">
             </div>
             <h3>Mujer</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=mujer">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/ropa/niño/nh.png" alt="">
             </div>
             <h3>Niños</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=niño">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/ropa/niña/nm.png" alt="">
             </div>
             <h3>Niñas</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=niña">Ver</a>
         </div>
     </div>
     <footer>

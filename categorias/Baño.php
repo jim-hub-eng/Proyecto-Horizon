@@ -36,49 +36,49 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="../categorias/casa.html">
+                    <a href="../categorias/casa.php">
                         <img src="../img/casa.png">
                         <h4>Hogar</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/electronico.html">
+                    <a href="../categorias/electronico.php">
                         <img src="../img/electronico.png">
                         <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./ropa.html">
+                    <a href="./ropa.php">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./Baño.html">
+                    <a href="./Baño.php">
                         <img src="../img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./maquillaje.html">
+                    <a href="./maquillaje.php">
                         <img src="../img/maquillage.png">
                         <h4>Maquillaje</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./juguetes.html">
+                    <a href="./juguetes.php">
                         <img src="../img/jugetes.png">
                         <h4>Juguetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/muebles.html">
+                    <a href="../categorias/muebles.php">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./electrodomesticos.html">
+                    <a href="./electrodomesticos.php">
                         <img src="../img/electrodomesticos.png">
                         <h4>Electrodomesticos</h4>
                     </a>
@@ -120,49 +120,49 @@
         <button onclick="cerrarCategoriasDeMenu()">&times;</button>
         <ul>
             <li>
-                <a href="../categorias/casa.html">
+                <a href="../categorias/casa.php">
                     <img src="../img/casa.png" alt="">
                     <h4>Hogar</h4>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./categorias/electronico.php">
                     <img src="../img/electronico.png" alt="">
                     <h4>Electronicos</h4>
                 </a>
             </li>
             <li>
-                <a href="./ropa.html">
+                <a href="./ropa.php">
                     <img src="../img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
             </li>
             <li>
-                <a href="./Baño.html">
+                <a href="./Baño.php">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
             </li>
             <li>
-                <a href="./maquillaje.html">
+                <a href="./maquillaje.php">
                     <img src="../img/maquillage.png" alt="">
                     <h4>Maquillaje</h4>
                 </a>
             </li>
             <li>
-                <a href="./juguetes.html">
+                <a href="./juguetes.php">
                     <img src="../img/jugetes.png" alt="">
                     <h4>Juguetes</h4>
                 </a>
             </li>
             <li>
-                <a href="./muebles.html">
+                <a href="./muebles.php">
                     <img src="../img/muebles.png" alt="">
                     <h4>Muebles</h4>
                 </a>
             </li>
             <li>
-                <a href="./electrodomesticos.html">
+                <a href="./electrodomesticos.php">
                     <img src="../img/electrodomesticos.png" alt="">
                     <h4>Electrodomesticos</h4>
                 </a>
@@ -176,42 +176,42 @@
                 <img src="../img/baño/sc1.jpg" alt="">
             </div>
             <h3>Muebles De Baño</h3>
-            <a href="../productos/Productos_Baño.html">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=mueble">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/baño/sc2.jpg" alt="">
             </div>
             <h3>Toallas</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=toalla">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/baño/sc3.jpg" alt="">
             </div>
             <h3>Batas De Baño</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=bata">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/baño/sc4.jpg" alt="">
             </div>
             <h3>Cortinas De Baño</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=cortina">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/baño/sc5.jpg" alt="">
             </div>
             <h3>Dosificadores</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=dosificador">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
                 <img src="../img/baño/sc6.jpg" alt="">
             </div>
             <h3>Tinas</h3>
-            <a href="">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=tina">Ver</a>
         </div>
     </div>
     <footer>

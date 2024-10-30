@@ -6,7 +6,6 @@ function openList(){
 function closeList(){
     menu.classList.remove("openMenu");
 }
-
 const carrusel = document.querySelector('.box-2');
 
 function btn_car_1(){

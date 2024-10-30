@@ -40,45 +40,134 @@ body{
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    top: 80px;
-    color: white;
+    flex-direction: column;
+    top: 100px;
+    background-color: transparent;
     width: 100%;
+    height: auto;
 }
-.media-car .car{
+.media-car .producto{
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 300px;
-    height: auto;
+    width: 90%;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
     padding: 10px;
+    gap: 10px;
+    margin-top: 10px;
 
-    h3{
-        position: relative;
-        bottom: 80px;
-    }
-
-    .img-car{
+    img{
         width: 300px;
-        mix-blend-mode: screen;
-    }
-    .img-logo{
-        position: absolute;
-        width: 100px;
-        top: 95px;
-        left: 38%;
-        animation: rotar 2s ease-in-out infinite;
+        border-radius: 5px;
     }
 }
-@keyframes rotar{
-    0%{
-        transform: translateY(-5px);
+.media-car .producto .title{
+    .precio-sin-descuento{
+        font-size: 17px;
+        text-decoration: line-through;
     }
-    50%{
-        transform: translateY(0);
+}
+.media-car .producto .title label{
+    font-size: 25px;
+}
+.media-car .producto .precio{
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: -10px;
+
+    p{
+        font-size: 20px;
+        margin: 0;
     }
-    100%{
-        transform: translateY(-5px);
+    .span-des{
+        color: red;
+        font-weight: 550;
+    }
+
+}
+.media-car .media-pagar{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 100%;
+    width: 90%;
+    height: 100px;
+    background-color: transparent;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+.media-car .box-pagar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+}
+.media-car .box-pagar button{
+    padding: 7px 50px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 550;
+}
+.media-car .box-pagar button:hover{
+    background-color: white;
+    color: black;
+}
+.media-car .producto .box-acciones{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 80%;
+    gap: 10px;
+
+    input[type=number]{
+        width: 30px;
+        height: 30px;
+    }
+    .btn-recargar,
+    .btn-elim{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        color: white;
+        border-radius: 0;
+        font-size: 20px;
+        border-radius: 3px;
+    }
+    .btn-elim{
+        background-color: red;
+    }
+    .btn-recargar{
+        background-color: royalblue;
+    }
+
+}   
+@media(max-width: 730px){
+    .producto{
+        flex-direction: column;
+        align-items: center;
+    }
+    .media-car .producto .box-acciones{
+        left: 5%;
+        top: 85%;
     }
 }

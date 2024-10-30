@@ -57,7 +57,7 @@ function Footer()
     while($row = $resultado -> fetch_assoc()){
         $pdf->Cell(10);
         $pdf->Cell(20,10,$row['id'],1,0,'C',0);
-        $pdf->Cell(50,10,$row['nombre'],1,0,'Cborder: ',0);
+        $pdf->Cell(20,10,$row['nombre'],1,0,'C',0);
         $pdf->Cell(50,10,$row['correo'],1,0,'C',0);
         $pdf->Cell(20,10,$row['edad'],1,0,'C',0);
         $pdf->Cell(50,10,$row['fecha_ingreso'],1,1,'C',0);
