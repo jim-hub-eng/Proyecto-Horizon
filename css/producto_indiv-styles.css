@@ -269,6 +269,7 @@ body{
     li{
         list-style: none;
         padding: 10px;
+        left: 0;
 
         button{  
             display: flex;
@@ -345,9 +346,7 @@ body{
     position: absolute;
     width: 90%;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    height: 30px;
 
     #desBusquedaFlotante{
         position: relative;
@@ -361,6 +360,7 @@ body{
         border: none;
         font-size: 22px;
         cursor: pointer;
+        left: 45%;
         background: linear-gradient(to bottom, #460562, #8112b1);
     }
 }
