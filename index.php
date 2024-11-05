@@ -1,9 +1,37 @@
+<?php
+    session_start();
+
+    include './php/conexion.php';
+
+    $correo = $_SESSION['correo'];
+
+    $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
+    $ejecutar = $conexion -> query($sql);
+
+    while($datos = $ejecutar -> fetch_assoc()){
+        $id_usuario = $_SESSION['id'] = $datos['id'];
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
+    <style>
+        .cerrarS{
+            
+                color: red;
+                text-decoration: none;
+        }
+        @media(max-width: 720px){
+            .box-cerrarsesion{
+                display: none;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="css/index-styles.css">
     <link rel="shortcut icon" href="img/logo-1_2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -20,11 +48,11 @@
             <label for="inp-buscador"><i class="bi bi-search"></i></label>
         </div>
         <div class="navegacion-box">
-            <div class="registrar">
-                <a href="login.html"><i class="bi bi-person"></i>Iniciar Sesion</a>
-            </div>
             <div class="carrito">
-                <a href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
+                <a href="./carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="box-cerrarsesion">
+                <a class="cerrarS" href="./php/cerrarSesion.php">Salir</a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -36,7 +64,7 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="categorias/casa.php">
+                    <a href="./categorias/casa.php">
                         <img src="img/casa.png">
                         <h4>Hogar</h4>
                     </a>
@@ -92,9 +120,9 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href="login.html"><i class="bi bi-person"></i>Iniciar Sesion</a></li>
-            <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
-            <li><button onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
+            <li><a href="./carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
+            <li><button style="margin-left: -10px;" onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
+            <li><a class="cerrarS" href="./php/cerrarSesion.php"><i class="bi bi-box-arrow-in-left"></i>Salir</a></li>
         </ul>
         <ul class="ul-2-from-menu">
             <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>
@@ -119,49 +147,49 @@
         <button onclick="cerrarCategoriasDeMenu()">&times;</button>
         <ul>
             <li>
-                <a href="categorias/casa.html">
+                <a href="./categorias/casa.php">
                     <img src="img/casa.png" alt="">
                     <h4>Hogar</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/electronico.html">
+                <a href="./categorias/electronico.php">
                     <img src="img/electronico.png" alt="">
                     <h4>Electronico</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/ropa.html">
+                <a href="./categorias/ropa.php">
                     <img src="img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/Baño.html">
+                <a href="./categorias/Baño.php">
                     <img src="img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/maquillaje.html">
+                <a href="./categorias/maquillaje.php">
                     <img src="img/maquillage.png" alt="">
                     <h4>Maquillaje</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/juguetes.html">
+                <a href="./categorias/juguetes.php">
                     <img src="img/jugetes.png" alt="">
                     <h4>Juguetes</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/muebles.html">
+                <a href="./categorias/muebles.php">
                     <img src="img/muebles.png" alt="">
                     <h4>Muebles</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/electrodomesticos.html">
+                <a href="./categorias/electrodomesticos.php">
                     <img src="img/electrodomesticos.png" alt="">
                     <h4>Electrodomesticos</h4>
                 </a>

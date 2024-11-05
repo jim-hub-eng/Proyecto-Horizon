@@ -11,12 +11,12 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 70px;
+    height: 60px;
     border-bottom: 3px solid var(--background);
     background-color: black;
     color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    z-index: 999;
+    z-index: 1;
     color: white;
 
     .link-regresar{
@@ -58,9 +58,21 @@ body{
     gap: 10px;
     margin-top: 10px;
 
-    img{
-        width: 300px;
-        border-radius: 5px;
+    .box-img-producto{
+        position: relative;
+        width: 180px;
+        height: 180px;
+        background-color: transparent;
+        border: 1px solid #aaa;
+        overflow: hidden;
+
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
     }
 }
 .media-car .producto .title{
@@ -80,7 +92,7 @@ body{
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     left: -10px;
 
     p{
@@ -110,37 +122,27 @@ body{
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    flex-direction: column;
     width: 100%;
     height: 30px;
+    gap: 20px;
     background-color: transparent;
 }
-.media-car .box-pagar button{
-    padding: 7px 50px;
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 550;
-}
-.media-car .box-pagar button:hover{
-    background-color: white;
-    color: black;
+.media-car .box-pagar .datos-pagar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
 }
 .media-car .producto .box-acciones{
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 80%;
+    left: 90%;
     gap: 10px;
 
-    input[type=number]{
-        width: 30px;
-        height: 30px;
-    }
-    .btn-recargar,
     .btn-elim{
         position: relative;
         display: flex;
@@ -152,22 +154,232 @@ body{
         border-radius: 0;
         font-size: 20px;
         border-radius: 3px;
-    }
-    .btn-elim{
         background-color: red;
-    }
-    .btn-recargar{
-        background-color: royalblue;
     }
 
 }   
-@media(max-width: 730px){
-    .producto{
+.media-car .box-pagar button{
+    position: relative;
+    width: 90%;
+    height: 50px;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid royalblue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 550;
+}
+.media-car .box-pagar button:hover{
+    background-color: royalblue;
+}
+@media(max-width: 550px){
+  .media-car .producto{
+        width: 330px;
+        height: 350px;
         flex-direction: column;
         align-items: center;
     }
-    .media-car .producto .box-acciones{
-        left: 5%;
-        top: 85%;
+    .media-car .producto .box-img-producto{
+      width: 150px;
+      height: 150px;
     }
+    .media-car .producto .title label{
+      font-size: 22px;
+      font-weight: 550;
+    }
+    .media-car .producto .title .precio p{
+      font-size: 17px;
+    }
+    .media-car .producto .title .precio .precio-sin-descuento{
+      font-size: 15px;
+    }
+    .media-car .producto .box-acciones{
+        width: 90%;
+        left: 5%;
+        top: 89%;
+    }
+}
+@media(max-width: 400px){
+  .media-car .producto{
+    width: 90%;
+  }
+}
+/* METHODO DE PAGO*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+.container{
+    position: fixed;
+    top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0,0,0,.5);
+  padding-top: 0px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.container form{
+  position: relative;
+  padding:20px;/*para el espacioi que sobra en todos los bordes*/
+  width: 720px; /*el ancho de los furmlarios*/ 
+  background: #fff;
+  height: 570px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #aaa white;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+.container #btnCerrarPaga{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 93%;
+  top: 2%;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  color: red;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 999;
+}
+.container form .row{
+  display: flex;/*para que se divida en 2 columnas*/
+  flex-wrap: wrap;/*para que al recortar la pantalla se baje toda la columna*/
+  gap:15px; /*espacio entre las columnas*/
+}
+
+.container form .row .col{
+  flex:1 1 200px;/*Es como para poner el ancho en el que se va a bajar la columna*/
+}
+
+.container form .row .col .title{
+  font-size: 20px;
+  color:#333;
+  padding-bottom: 5px;
+  text-transform: uppercase;/*hace que sean mayusuculas las letras*/
+}
+
+.container form .row .col .inputBox{
+  margin:15px 0;
+}
+
+.container form .row .col .inputBox span{
+  margin-bottom: 10px;
+  display: block;
+}
+
+.container form .row .col .inputBox input{/*CAJA DE TEXTO*/
+  width: 90%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;/*SE PUEDE USAR PARA PONER TODO EN MAYUSCULAS O MINUSCULAS*/
+}
+
+.container form .row .col .inputBox input:focus{/*para el borde si lepico a un campo*/
+  border:1px solid #000;
+}
+
+.container form .row .col .flex{/*todos los que estan juntos clase cvv, año zip,estado*/
+  display: flex;/*para que este al lado de el cvv*/
+  gap:15px;/*espacio entre el año de expiracion y el cvv*/
+}
+
+.container form .row .col .flex .inputBox{
+  margin-top: 5px;
+}
+
+.container form .row .col .inputBox img{
+  height: 40px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);/*como una sombra a la imagen*/
+}
+
+.container form .submit-btn{
+  width: 100%; /*este hace que ocupe todo el ancho*/
+  padding:12px;/*este le da ancho al boton*/
+  font-size: 17px;
+  background: #27ae60;
+  color:#fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.container form .submit-btn:hover{
+  background: #2ecc71;
+}
+
+select{
+  width: 300px;
+  border:1px solid #ccc;
+    padding: 12px 15px;
+    background-color: #fff;
+    outline: none;
+    color: #666;
+}
+.input-quantity::-webkit-inner-spin-button,
+.input-quantity::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+        appearance: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-icon {
+  font-size: 50px;
+  color: green;
+}
+@media(max-width: 900px){
+    .container form .row{
+        flex-direction: column;
+    }
+    .inputBox select{
+        width: 95%;
+    }
+}
+@media(max-width: 570px){
+  .container form #btnCerrarPaga{
+    left: 90%;
+  }
 }

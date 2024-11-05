@@ -1,5 +1,18 @@
 <?php
 
+    session_start();
+
+    include '../php/conexion.php';
+
+    $correo = $_SESSION['correo'];
+
+    $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
+    $ejecutar = $conexion -> query($sql);
+
+    while($datos_usuario = $ejecutar -> fetch_assoc()){
+        $id_usuario = $datos_usuario['id'];
+    }
+
     $sub_categoria = $_GET['subCategoria'];
 
 ?>
@@ -9,6 +22,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= ucwords($sub_categoria) ?> | Horizon Marcketing</title>
+    <style>
+        #btn-anadir-carrito{
+            background: #fff; /* color de fondo */
+            color: #020202; /* color de fuente */
+            border: 2px solid #000000; /* tamaño y color de borde */
+            padding: 16px 20px;
+            border-radius: 20px; /* redondear bordes */
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            bottom: -10px;
+        }
+        #btn-anadir-carrito:hover{
+            color: #fff;
+        }
+        #btn-anadir-carrito span{
+            content: "";
+            background: #460562; /* color de fondo hover */
+            position: absolute;
+            z-index: -1;
+            padding: 16px 20px;
+            display: block;
+            left: -20%;
+            right: -20%;
+            top: 0;
+            bottom: 0;
+            transform: skewX(45deg) scale(0, 1);
+            transition: all 0.3s ease;
+        }
+        #btn-anadir-carrito:hover span{
+            transition: all .5s ease-out;
+            transform: skewX(45deg) scale(1, 1);
+        }
+    </style>
     <link rel="stylesheet" href="../css/productos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -25,7 +75,7 @@
         </div>
         <div class="navegacion-box">
             <div class="carrito">
-                <a href="../carrito.html"><i class="fas fa-shopping-cart"></i></a>
+            <a target="_blank" href="../carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -37,50 +87,50 @@
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
-                    <a href="../categorias/casa.html">
+                    <a href="../categorias/casa.php">
                         <img src="../img/casa.png">
                         <h4>Hogar</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="../categorias/electrodomesticos.php">
                         <img src="../img/electrodomesticos.png">
                         <h4>Electrodomesticos</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="../categorias/ropa.php">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/Baño.html">
+                    <a href="../categorias/Baño.php">
                         <img src="../img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="../categorias/maquillaje.php">
                         <img src="../img/maquillage.png">
                         <h4>Maquillage</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="">
+                    <a href="../categorias/juguetes.php">
                         <img src="../img/jugetes.png">
                         <h4>Juegetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/muebles.html">
+                    <a href="../categorias/muebles.php">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
                     </a>
                 </div>
             </div>
         </div>
-        <a class="btn-regresar" href="../index.html"><i class="bi bi-arrow-left"></i></a>
+        <a class="btn-regresar" href="../index.php"><i class="bi bi-arrow-left"></i></a>
     </nav>
 
     <div class="menu">
@@ -88,8 +138,7 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href="../login.html"><i class="bi bi-person"></i>Iniciar Sesion</a></li>
-            <li><a href="../carrito.html"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
+            <li><a href="../carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
             <li><button onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
         </ul>
         <ul class="ul-2-from-menu">
@@ -169,7 +218,7 @@
         $resultado = $conexion -> query($sql);
 
         while($datos = $resultado -> fetch_object()){ ?>
-            <div class="product">
+            <form action="../php/mostrar_carrito.php" method="POST"  class="product">
                 <?php echo '<img src="./mos.php?id=' . htmlspecialchars($datos -> id, ENT_QUOTES) . '" >'; ?>
                 <h3><?= ucwords($datos ->  nombre) ?></h3>
                 <p class="price">Precio: $<?= $datos -> precio ?> 
@@ -181,50 +230,18 @@
                         <?php }
                     ?>
                 </p>
+                <input type="hidden" name="txtidProducto" value="<?= $datos -> id ?>">
+                <input type="hidden" name="txtidUsuario" value="<?= $id_usuario ?>">
+                <input type="hidden" name="txtSubCategoria" value="<?= $sub_categoria ?>">
                 <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-            </div>
+                <button id="btn-anadir-carrito">Añadir al carrito <span></span></button>
+            </form>
         <?php }
 
     ?>
-    <!--
-    <div class="product">
-        <img src="../img/baño/MuebleB2.png" alt="Producto 2">
-        <h3>GABINETE STRATBURG 30 2PZAS COLOR CARAMEL</h3>
-        <p class="price">Precio: $70.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MuebleB3.png" alt="Producto 3">
-        <h3>GABINETE PARA BAÑO DE PISO CLADY BLANCO 24 PULGADAS CON LAVABO</h3>
-        <p class="price">Precio: $45.00 <span class="discount">15% de descuento</span></p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MueblesB4.png" alt="Producto 4">
-        <h3>MUEBLE PARA BAÑO HOLLYBROOK CLIFTON 62.2 X 42.5 X 87.3 CM</h3>
-        <p class="price">Precio: $100.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MueblesB5.png" alt="Producto 5">
-        <h3>MUEBLE PARA BAÑO WESTCOURT 155 X 55.9 X 99 CM</h3>
-        <p class="price">Precio: $30.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
-
-    <div class="product">
-        <img src="../img/baño/MueblesB6.png" alt="Producto 6">
-        <h3>MUEBLE PARA BAÑO WESTCOURT 155 X 55.9 X 97.8 CM</h3>
-        <p class="price">Precio: $80.00</p>
-        <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-    </div>
--->
 </div>
 </div>
-    <footer>
+    <footer id="footer">
         <div class="redes">
             <h3>Redes Sociales</h3>
             <ul>

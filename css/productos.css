@@ -515,11 +515,12 @@ body{
     }
 }
 .product {
-
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 300px;
     height: auto;
-    
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -607,7 +608,7 @@ footer{
     height: auto;
     background-color: black;
     flex-wrap: wrap;
-    top: 220px;
+    top: 200px;
 }
 footer .redes,
 footer .atencionCliente, 

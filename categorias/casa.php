@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    $id_usuario = $_SESSION['id'];
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +13,6 @@
     <title>HOGAR</title>
     <link rel="stylesheet" href="../css/categoria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
     
@@ -20,11 +26,8 @@
             <label for="inp-buscador"><i class="bi bi-search"></i></label>
         </div>
         <div class="navegacion-box">
-            <div class="registrar">
-                <a href="../login.html"><i class="bi bi-person"></i>Iniciar Sesion</a>
-            </div>
             <div class="carrito">
-                <a href="../carrito.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="../carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -48,31 +51,31 @@
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./ropa.html">
+                    <a href="./ropa.php">
                         <img src="../img/ropa.png">
                         <h4>Ropa</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./Baño.html">
+                    <a href="./Baño.php">
                         <img src="../img/baño.png">
                         <h4>Baño</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./maquillaje.html">
+                    <a href="./maquillaje.php">
                         <img src="../img/maquillage.png">
                         <h4>Maquillaje</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./juguetes.html">
+                    <a href="./juguetes.php">
                         <img src="../img/jugetes.png">
                         <h4>Juguetes</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="./muebles.html">
+                    <a href="./muebles.php">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
                     </a>
@@ -85,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn-regresar" href="../index.html"><i class="bi bi-arrow-left"></i></a>
+        <a class="btn-regresar" href="../index.php"><i class="bi bi-arrow-left"></i></a>
     </nav>
 
     <div class="menu">
@@ -93,8 +96,7 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href="../login.html"><i class="bi bi-person"></i>Iniciar Sesion</a></li>
-            <li><a href="../carrito.html"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
+            <li><a href="../carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i>Carrito</a></li>
             <li><button onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
         </ul>
         <ul class="ul-2-from-menu">
@@ -138,7 +140,7 @@
                 </a>
             </li>
             <li>
-                <a href="./categorias/Baño.php">
+                <a href="./Baño.php">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>

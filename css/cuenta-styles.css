@@ -1,0 +1,188 @@
+body{
+    background-color: #460562;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    scrollbar-color: white black;
+}
+.nav{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    border-bottom: 3px solid var(--background);
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 999;
+
+    a{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: white;
+    }
+    h3{
+        padding: 10px;
+    }
+}
+.box-1{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 572px;
+    background-color: transparent;
+    top: 70px;
+}
+.box-cuenta{
+    width: 300px;
+    height: 100%;
+    background-color: #6d1692;
+    border-right: 2px solid #6d1692;
+}
+.datos-usuario{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 93%;
+    height: auto;
+    padding: 10px;
+    border-bottom: 1px solid #460562;
+    top: 20px;
+}
+.box-img-usuario{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    top: 0;
+
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}
+.nombres{
+    label , p{
+        margin: 5px;
+        color: white;
+        padding: 0;
+    }
+    label{
+        font-weight: 550;
+        font-size: 20px;
+    }
+    p{
+        font-size: 15px;
+    }
+}
+.btns-editar{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 40px;
+
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 40px;
+        background-color: #7b329b;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        gap: 5px;
+    }
+    a:hover{
+        background-color: #9b41c2;
+    }
+
+}
+.box-cuenta ul{
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    top: 50px;
+    left: -30px;
+
+    li{
+        padding: 10px;
+        list-style: none;
+
+        button{
+            position: relative;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 17px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            border-left: 2px solid white;
+            border-radius: 0 5px 5px 0;
+            padding-left: 5px;
+            color: white;
+            cursor: pointer;
+
+            i{
+                font-size: 20px;
+            }
+        }
+        button:hover{
+            background-color: #7b329b;
+        }
+
+
+    }
+}
+.box-btn-salir{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    top: 93%;
+    width: 245px;
+    height: 40px;
+    background-color: transparent;
+    
+    a{
+        display: flex;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        gap: 5px;
+        color: rgb(206, 206, 206);
+    }
+    a:hover{
+        color: red;
+    }
+
+}
+.box-acciones{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+.box-2{
+    
+}

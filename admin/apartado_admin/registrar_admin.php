@@ -2,15 +2,15 @@
 
     $conexion = new mysqli("localhost", "root", "", "horizon");
 
-    $imagen = $conexion -> real_escape_string(file_get_contents($_FILES["txtAdminFoto"]["tmp_name"]));
+    //$imagen = $conexion -> real_escape_string(file_get_contents($_FILES["txtAdminFoto"]["tmp_name"]));
     $nombre = $_POST['txtAdminNombre'];
     $correo = $_POST['txtAdminCorreo'];
     $edad = $_POST['txtAdminEdad'];
     $fecha = $_POST['txtDiaHoy'];
     $psw = $_POST['txtAdminPsw'];
 
-    $consulta = "INSERT INTO admin(foto, nombre, contrasena, correo, edad, fecha_ingreso)
-                VALUES('$imagen', '$nombre', '$psw', '$correo', '$edad', '$fecha')";
+    $consulta = "INSERT INTO admin(nombre, contrasena, correo, edad, fecha_ingreso)
+                VALUES('$nombre', '$psw', '$correo', '$edad', '$fecha')";
     
     $verificar_correo = mysqli_query($conexion , "SELECT * FROM admin WHERE correo = '$correo'");
 

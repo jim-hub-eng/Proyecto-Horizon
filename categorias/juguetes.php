@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    $id_usuario = $_SESSION['id'];
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +27,8 @@
             <label for="inp-buscador"><i class="bi bi-search"></i></label>
         </div>
         <div class="navegacion-box">
-            <div class="registrar">
-                <a href="../login.html"><i class="bi bi-person"></i>Iniciar Sesion</a>
-            </div>
             <div class="carrito">
-                <a href="../carrito.html"><i class="fas fa-shopping-cart"></i></a>
+                <a href="../carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -85,7 +89,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn-regresar" href="../index.html"><i class="bi bi-arrow-left"></i></a>
+        <a class="btn-regresar" href="../index.php"><i class="bi bi-arrow-left"></i></a>
     </nav>
 
     <div class="menu">
@@ -93,8 +97,7 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href="../login.html"><i class="bi bi-person"></i>Iniciar Sesion</a></li>
-            <li><a href="../carrito.html"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
+            <li><a href="../carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i>Carrito</a></li>
             <li><button onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
         </ul>
         <ul class="ul-2-from-menu">
@@ -132,13 +135,13 @@
                 </a>
             </li>
             <li>
-                <a href="./ropa.html">
+                <a href="./ropa.php">
                     <img src="../img/ropa.png" alt="">
                     <h4>Ropa</h4>
                 </a>
             </li>
             <li>
-                <a href="./categorias/Baño.php">
+                <a href="./Baño.php">
                     <img src="../img/baño.png" alt="">
                     <h4>Baño</h4>
                 </a>
@@ -176,7 +179,7 @@
                 <img src="../img/juguetes/figuras_accion/fa1.png" alt="">
             </div>
             <h3>Figuras de Accion</h3>
-            <a target="_blanck" href="../productos/productos.php?subCategoria=figuras">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=figura de accion">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
@@ -190,7 +193,7 @@
                 <img src="../img/juguetes/juegos_m/jdm1.png" alt="">
             </div>
             <h3>Juegos de Mesa</h3>
-            <a target="_blanck" href="../productos/productos.php?subCategoria=juegos">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=juego de mesa">Ver</a>
         </div>
     </div>
     <footer>

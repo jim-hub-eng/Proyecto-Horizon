@@ -1,0 +1,369 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.nav{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 40px;
+    z-index: 999;
+
+    button{
+        padding: 5px;
+        font-size: 18px;
+        border: 1px solid rgb(148, 194, 255);
+        color: rgb(148, 194, 255);
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: transparent;
+    }
+    button:nth-child(1){
+        background-color: rgb(148, 194, 255);
+        color: white;
+    }
+
+}
+.box-1{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    padding: 10px;
+}
+.box-2{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
+    background-color: transparent;
+    overflow: hidden;
+}
+.box-3{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    right: 0%;
+    transition: .3s;
+}
+.boxes{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    object-fit: cover;
+    flex: 0 0 100%;
+}
+.title-1{
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    a{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 30px;
+        text-decoration: none;
+        color: white;
+        background-color: royalblue;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+
+}
+.box-registrar{
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+}
+.title-2{
+    padding: 10px;
+}
+.form-container-admin{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+.box-btn-admin{
+    button{
+        padding: 7px 40px;
+        background-color: transparent;
+        color: rgb(255, 70, 70);
+        border: 1px solid rgb(255, 70, 70);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: rgb(255, 70, 70);
+        color: white;
+    }
+}
+.container{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.content{
+    position: relative;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box-input{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+
+    input{
+        width: 90%;
+        height: 35px;
+        border: 2px solid #bbb;
+        background-color: transparent;
+        color: black;
+        border-radius: 5px;
+        padding-left: 10px;
+        outline: none;
+    }
+    label{
+        position: absolute;
+        left: 0;
+        margin-left: 33px;
+        color: #202020;
+        background-color: white;
+        padding: 5px;
+        transition: .3s;
+    }
+    input:focus,
+    input:valid{
+        border-color: royalblue;
+    }
+    input:focus ~label,
+    input:valid ~label{
+        transform: translateY(-20px);
+        color: black;
+    }
+
+}
+.box-tabla{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+.box-tabla table{
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+}
+.box-tabla table th,
+.box-tabla table td{
+    padding: 10px;
+    border: 1px solid black;
+}
+@media(max-width: 710px) {
+    .box-1{
+        top: 50px;
+    }
+    .box-2{
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .content{
+        width: 100%;
+        left: -20px;
+
+        .box-input{
+            label{
+                left: -10px;
+            }
+        }
+
+    }
+    .content-2{
+        margin-top: 50px;
+    }
+    .box-btn button{
+        width: 90%;
+    }
+}
+@media(max-width: 590px){
+    .box-tabla table{
+        transform: scale(0.8);
+    }
+}
+@media(max-width: 480px){
+    .box-tabla table{
+        transform: scale(0.7);
+    }
+}
+@media(max-width: 480px){
+    .title-1{
+        flex-direction: column;
+    }
+    .box-registrar{
+        margin-top: 40px;
+    }
+    .box-tabla table{
+        transform: scale(0.6);
+    }
+}
+@media(max-width: 350px){
+    .content{
+        .box-input{
+            label{
+                left: -25px;
+            }
+        }
+    }
+}
+/* CAJA DOS */
+.box-file{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: auto;
+    background-color: transparent;
+    gap: 10px;
+
+    img{
+        width: 200px;
+        height: auto;
+    }
+    input[type=file]{
+        display: none;
+    }
+    label{
+        padding: 7px 40px;
+        border: 1px solid royalblue;
+        border-radius: 10px;
+        color: black;
+        cursor: pointer;
+    }
+    label:hover{
+        background-color: royalblue;
+        color: white;
+    }
+}
+.box-input p{
+    position: absolute;
+    top: 70%;
+    left: 5%;   
+}
+.box-textarea{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    height: auto;
+    background-color: transparent;
+    top: 20px;
+
+    textarea{
+        width: 100%;
+        resize: none;
+        height: 100px;
+        border-radius: 10px;
+        outline: none;
+        padding: 10px;
+    }
+    textarea:focus{
+        border-color: royalblue;
+    }
+    p{
+        position: absolute;
+        top: 100%;
+    }
+}
+.box-select{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 93%;
+    height: auto;
+    background-color: transparent;
+    margin-top: 20px;
+
+    label{
+        position: relative;
+        left: 0;
+    }
+    select{
+        position: relative;
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #aaa;
+
+    }
+
+}
+.box-btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 93%;
+    height: 200px;
+    margin-top: 20px;
+    background-color: transparent;
+
+    button{
+        padding: 7px 40px;
+        background-color: transparent;
+        border: 1px solid rgb(255, 70, 70);
+        color: black;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 550;
+    }
+    button:hover{
+        background-color: rgb(255, 70, 70);
+        color: white;
+    }
+
+}
