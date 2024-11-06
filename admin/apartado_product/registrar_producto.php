@@ -9,9 +9,12 @@
     $precio_articulo = $_POST['txtPrecioArticulo'];
     $descuento_articulo = $_POST['txtDescuentoArticulo'];
     $categoria = $_POST['txtCategoria'];
+    $color = $_POST['txtColorArticulo'];
+    $marca = $_POST['txtMarcaArticulo'];
+    $intereses = $_POST['txtInteresesArticulo'];
 
-    $consulta = "INSERT INTO productos(imagen, nombre, descripcion, precio, descuento, sub_categoria, categoria)
-                VALUES('$imagen', '$nombre_articulo', '$des_articulo', '$precio_articulo', '$descuento_articulo','$sub_categoria','$categoria')";
+    $consulta = "INSERT INTO productos(imagen, nombre, descripcion, precio, descuento, color, marca, sub_categoria, categoria)
+                VALUES('$imagen', '$nombre_articulo', '$des_articulo', '$precio_articulo', '$descuento_articulo','$color','$marca','$sub_categoria','$categoria')";
     
     $ejecutar = $conexion -> query($consulta);
 

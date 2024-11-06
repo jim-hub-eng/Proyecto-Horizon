@@ -660,8 +660,30 @@ body{
     background-color: royalblue;
     color: white;
 }
+#btnAnadirCarrito:hover{
+    background-color: rgb(53, 84, 177);
+}
 #btnComprar{
+    background-color: transparent;
+    color: black;
+    overflow: hidden;
+}
+#btnComprar::after{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: black;
+    top: 0%;
+    border-radius: 5px;
+    transition: .3s;
+    left: -100%;
+    z-index: -1;
+}
+#btnComprar:hover::after{
+    left: 0%;
+}
+#btnComprar:hover{
     color: white;
 }
 .box-datos{

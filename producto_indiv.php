@@ -1,3 +1,11 @@
+<?php 
+
+    session_start();
+
+    $id_usuario = $_SESSION['id'];
+    $id_producto = $_GET['id'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +27,7 @@
         </div>
         <div class="navegacion-box">
             <div class="carrito">
-                <a href=""><i class="bi bi-cart-fill"></i></a>
+                <a href="./carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -87,7 +95,7 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button style="margin-left: -5px;" onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href=""><i class="bi bi-cart-fill"></i>Carrito</a></li>
+            <li><a href="./carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i>Carrito</a></li>
             <li><button style="margin-left: -5px;" onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
         </ul>
         <ul class="ul-2-from-menu">
@@ -166,49 +174,85 @@
     <div class="media">
         <div class="media-2">
             <div class="box">
-                <div class="box-img">
-                    <img src="img/audifonos.png" alt="">
-                </div>
+                <?php
+                    
+                    include './php/conexion.php';
+
+                    $sql = "SELECT id FROM productos WHERE id = '$id_producto'";
+                    $ejecutar = $conexion -> query($sql);
+
+                    while($datos = $ejecutar -> fetch_object()){
+                        echo '
+                        <div class="box-img">
+                            <img src="./productos/mos.php?id= ' . htmlspecialchars($datos -> id, ENT_QUOTES) . ' " alt="">
+                        </div>
+                    ';
+                    }
+
+                ?>
             </div>
             <div class="box">
                 <div class="box-info">
-                    <h3>Bose Auriculares Abiertos Ultra, con tecnología OpenAudio, Auriculares inalámbricos Open Ear, con batería de hasta 48 Horas de duración, Negro</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sapiente sed quia placeat doloribus vero est in voluptatibus animi accusantium, sint facere voluptatem quibusdam distinctio iure aspernatur! Alias, cumque fugiat!</p>
-                    <p><b>Color: </b>Rojo</p>
-                    <p><b>Marca: </b>Base</p>
-                    <div class="box-puntuacion">
-                        <p id="num-pun">4</p>
-                        <div class="estrellas">
-                            <p><i class="bi bi-star-fill"></i></p>
-                            <p><i class="bi bi-star-fill"></i></p>
-                            <p><i class="bi bi-star-fill"></i></p>
-                            <p><i class="bi bi-star-fill"></i></p>
-                            <p><i class="bi bi-star"></i></p>
+                <?php
+                    
+                    include './php/conexion.php';
+
+                    $sql = "SELECT * FROM productos WHERE id = '$id_producto'";
+                    $ejecutar = $conexion -> query($sql);
+
+                    while($datos = $ejecutar -> fetch_object()){
+                            $sub_categoria = $datos -> sub_categoria;
+                        ?>
+                        <h3><?php echo ucwords($datos -> nombre) ?></h3>
+                        <p><?= $datos -> descripcion ?></p>
+                        <p><b>Color: </b><?php echo ucwords($datos -> color) ?></p>
+                        <p><b>Marca: </b><?php echo ucwords($datos -> marca) ?></p>
+                        <div class="box-puntuacion">
+                            <p id="num-pun">4</p>
+                            <div class="estrellas">
+                                <p><i class="bi bi-star-fill"></i></p>
+                                <p><i class="bi bi-star-fill"></i></p>
+                                <p><i class="bi bi-star-fill"></i></p>
+                                <p><i class="bi bi-star-fill"></i></p>
+                                <p><i class="bi bi-star"></i></p>
+                            </div>
+                        </div>
+                        <div class="box-meses">
+                            <p><?= $datos -> intereses ?></p>
+                        </div>
+                        <div class="box-precio-2">
+                            <label>Precio $<?= $datos -> precio ?></label>
+                            <?php
+                                if($datos -> descuento != "n / a"){ ?>
+                                    <p class="p-precio-sin">$<?= $datos -> precio - (($datos -> precio * $datos -> descuento) / 100)  ?></p>
+                                    <p class="p-descuento"><?= $datos -> descuento ?>% de descuento</p>
+                                <?php }
+                            ?>  
                         </div>
                     </div>
-                    <div class="box-meses">
-                        <p>5 meses sin intereses</p>
-                    </div>
-                    <div class="box-precio-2">
-                        <label>Precio $000</label>
-                        <p class="p-precio-sin">$300</p>
-                        <p class="p-descuento">10% de descuento</p>
-                    </div>
-                </div>
+                    <?php }
+
+                ?>
             </div>
         </div>
 
         <div class="box-2">
             <div class="box-info-2">
                 <span></span>
-                <div class="input-select">
-                    <label>Seleccione la cantidad:</label>
-                    <select name="" id="">
-                        <option>1</option>
-                    </select>
-                </div>
-                <form class="bx">
-                    <button id="btnAnadirCarrito">Añadir al carrito</button>
+                <form style="margin-top: 50px;" class="bx" action="./php/anadirCarroProductoIndiv.php" method="POST">
+                    <?php
+
+                        include './php/conexion.php';
+
+                        $sql = "SELECT * FROM productos WHERE id = '$id_producto'";
+                        $ejecutar = $conexion -> query($sql);
+
+                        while ($datos = $ejecutar -> fetch_object()){ ?>
+                            <input type="hidden" name="txtidUsuario" value="<?= $id_usuario ?>" required>
+                            <input type="hidden" name="txtidProducto" value="<?= $datos -> id ?>" required>
+                        <?php }
+                    ?>  
+                    <button id="btnAnadirCarrito" type="submit">Añadir al carrito</button>
                 </form>
                 <div class="bx">
                     <button id="btnComprar">Comprar</button>
@@ -238,80 +282,54 @@
         <div class="box-3">
             <h2>Productos Relacionados</h2>
             <div class="productos">
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
-                    </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
-                    </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
-                    </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
-                    </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
+                <?php
+
+                    $sql = "SELECT * FROM productos WHERE sub_categoria = '$sub_categoria'";
+                    $ejecutar = $conexion -> query($sql);
+
+                    while($datos = $ejecutar -> fetch_object()){
+                        if($datos -> id != $id_producto ){ ?>
+                            <div class="producto">
+                            <div class="box-producto-img">
+                                <img src="img/audifonos.png" alt="">
+                            </div>
+                            <h3><?= $datos -> nombre ?></h3>
+                            <div class="box-precio">
+                                <p>Precio: $<?= $datos -> precio ?></p>
+                                <?php
+                                    if($datos -> descuento != "n / a"){ ?>
+                                        <p class="des"><?= $datos -> descuento ?>% de descuento</p>
+                                    <?php }
+                                ?>  
+                            </div>
+                            <div class="box-btn">
+                                <a href="./producto_indiv.php?id=<?= $datos -> id ?>">Ver mas <span></span></a>
+                                <button>Añadir al carrito</button>
+                            </div>
+                        </div>
+                        <?php }
+                        
+                    }
+
+                ?>
             </div>
         </div>
         <div class="box-4">
             <div class="box-coment-calif">
-                <div class="box-img-user">
+                <form class="box-img-user">
                     <h2>Escribe tu comentario</h2>
                     <div class="box-flex">
                         <div class="box-user">
-                            <img src="img/sinImagen.png" alt="">
+                            <img src="./img/usuarioSinFoto.png" alt="">
                         </div>
                         <div class="box-inp">
-                            <label>Nombre:</label>
-                            <input type="text">
+                            <label>Usuario:</label>
+                            <input type="text" value="">
                         </div>
                     </div>
                     <div class="box-textarea">
-                        <textarea name="" id="" placeholder="Escriba comentario..."></textarea>
-                        <p>0 / 230</p>
+                        <textarea name="" id="text-coment" maxlength="230" placeholder="Escriba comentario..."></textarea>
+                        <p id="box-letras">0 / 230</p>
                     </div>
                     <div class="box-calif-stars">
                         <h3>Calificar</h3>
@@ -335,7 +353,7 @@
                         <span></span>
                         <span></span>
                     </button>
-                </div>
+                </form>
                 <div class="box-comentarios">
                     <div class="comentario">
                         <div class="nombre-user">
@@ -498,5 +516,20 @@
     </footer>
 
     <script src="./js/producto_indiv-script.js"></script>
+    <script>
+
+        const textarea =document.getElementById("text-coment");
+        const box =document.getElementById('box-letras');
+
+        textarea.addEventListener('keyup', contarLetras);
+
+        function contarLetras(){
+
+            let cantLetras = textarea.value.length;
+            box.innerHTML = `${cantLetras} / 230`;
+
+        }
+
+    </script>
 </body>
 </html>

@@ -4,15 +4,7 @@
 
     include '../php/conexion.php';
 
-    $correo = $_SESSION['correo'];
-
-    $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
-    $ejecutar = $conexion -> query($sql);
-
-    while($datos_usuario = $ejecutar -> fetch_assoc()){
-        $id_usuario = $datos_usuario['id'];
-    }
-
+    $id_usuario = $_SESSION['id'];
     $sub_categoria = $_GET['subCategoria'];
 
 ?>
@@ -233,7 +225,7 @@
                 <input type="hidden" name="txtidProducto" value="<?= $datos -> id ?>">
                 <input type="hidden" name="txtidUsuario" value="<?= $id_usuario ?>">
                 <input type="hidden" name="txtSubCategoria" value="<?= $sub_categoria ?>">
-                <a href="#" class="ov-btn-grow-skew-reverse">Ver Mas</a>
+                <a href="../producto_indiv.php?id=<?= $datos -> id ?>" class="ov-btn-grow-skew-reverse">Ver Mas</a>
                 <button id="btn-anadir-carrito">Añadir al carrito <span></span></button>
             </form>
         <?php }

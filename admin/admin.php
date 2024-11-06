@@ -19,6 +19,9 @@
             text-decoration: none;
             background-color: red;
         }
+        .content-2 .box-input p{
+            left: 85%;
+        }
     </style>
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -146,6 +149,21 @@
                             <div class="box-input">
                                 <input type="text" name="txtDescuentoArticulo" id="" required>
                                 <label for="">Descuento</label>
+                            </div>
+                            <div class="box-input">
+                                <input type="text" name="txtColorArticulo" id="" required>
+                                <label for="">Color</label>
+                                <p>0 / 20</p>
+                            </div>
+                            <div class="box-input">
+                                <input type="text" name="txtMarcaArticulo" id="" required>
+                                <label for="">Marca</label>
+                                <p>0 / 20</p>
+                            </div>
+                            <div class="box-input">
+                                <input type="text" name="txtInteresesArticulo" id="" required>
+                                <label for="">Intereses</label>
+                                <p>0 / 50</p>
                             </div>
                             <div class="box-select">
                                 <label for="">Categoria</label>
