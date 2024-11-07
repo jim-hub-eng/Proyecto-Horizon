@@ -13,8 +13,8 @@
     $marca = $_POST['txtMarcaArticulo'];
     $intereses = $_POST['txtInteresesArticulo'];
 
-    $consulta = "INSERT INTO productos(imagen, nombre, descripcion, precio, descuento, color, marca, sub_categoria, categoria)
-                VALUES('$imagen', '$nombre_articulo', '$des_articulo', '$precio_articulo', '$descuento_articulo','$color','$marca','$sub_categoria','$categoria')";
+    $consulta = "INSERT INTO productos(imagen, nombre, descripcion, precio, descuento, color, marca, intereses,sub_categoria, categoria)
+                VALUES('$imagen', '$nombre_articulo', '$des_articulo', '$precio_articulo', '$descuento_articulo','$color','$marca','$intereses','$sub_categoria','$categoria')";
     
     $ejecutar = $conexion -> query($consulta);
 

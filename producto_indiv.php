@@ -11,11 +11,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>| Horizon Marcketing</title>
+    <title>HORIZON MARCKETING</title>
     <style>
         #estrella{
             color: yellow;
             filter: drop-shadow(0 0 10px yellow);
+        }
+        .box-producto-img{
+            margin-top: 10px;
+            border-radius: 10px;
+            overflow: hidden;
         }
     </style>
     <link rel="stylesheet" href="css/producto_indiv-styles.css">
@@ -233,11 +238,13 @@
                             
                         ?>
                         <div class="box-precio-2">
-                            <label>Precio $<?= $datos -> precio ?></label>
                             <?php
                                 if($datos -> descuento != "n / a"){ ?>
-                                    <p class="p-precio-sin">$<?= $datos -> precio - (($datos -> precio * $datos -> descuento) / 100)  ?></p>
+                                    <label>Precio $<?= $datos -> precio - (($datos -> precio * $datos -> descuento) / 100) ?></label>
+                                    <p class="p-precio-sin">$<?= $datos -> precio  ?></p>
                                     <p class="p-descuento"><?= $datos -> descuento ?>% de descuento</p>
+                                <?php } else { ?>
+                                    <label>Precio $<?= $datos -> precio ?></label>
                                 <?php }
                             ?>  
                         </div>
@@ -301,7 +308,7 @@
 
                     while($datos = $ejecutar -> fetch_object()){
                         if($datos -> id != $id_producto ){ ?>
-                            <div class="producto">
+                            <div class="producto product">
                             <div class="box-producto-img">
                                 <?php
                                     echo '
@@ -309,7 +316,7 @@
                                     ';
                                 ?>
                             </div>
-                            <h3><?= $datos -> nombre ?></h3>
+                            <h3><marquee><?= $datos -> nombre ?></marquee></h3>
                             <div class="box-precio">
                                 <p>Precio: $<?= $datos -> precio ?></p>
                                 <?php
@@ -483,62 +490,44 @@
         <div class="box-3 box-productos-2">
             <h2>Otros productos</h2>
             <div class="productos">
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
+                <?php
+                
+                $sql_1 = "SELECT sub_categoria FROM categorias ORDER BY RAND() LIMIT 1;";
+                $ejecutar_1 = $conexion -> query($sql_1);
+
+                $datos_1 = $ejecutar_1 -> fetch_object();
+                $subCategoriaSql = $datos_1 -> sub_categoria;
+
+                $sql = "SELECT * FROM productos WHERE sub_categoria = '$subCategoriaSql'";
+                $ejecutar = $conexion -> query($sql);
+                                    
+                while($datos = $ejecutar -> fetch_object()){
+                    if($datos -> id != $id_producto ){ ?>
+                        <div class="producto product">
+                        <div class="box-producto-img">
+                            <?php
+                                echo '
+                                    <img src="./productos/mos.php?id='. htmlspecialchars($datos -> id , ENT_QUOTES) .'" alt="">
+                                ';
+                            ?>
+                        </div>
+                        <h3><?= $datos -> nombre ?></h3>
+                        <div class="box-precio">
+                            <p>Precio: $<?= $datos -> precio ?></p>
+                            <?php
+                                if($datos -> descuento != "n / a"){ ?>
+                                    <p class="des"><?= $datos -> descuento ?>% de descuento</p>
+                                <?php }
+                            ?>  
+                        </div>
+                        <div class="box-btn">
+                            <a href="./producto_indiv.php?id=<?= $datos -> id ?>">Ver mas <span></span></a>
+                            <button>Añadir al carrito</button>
+                        </div>
                     </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
-                    </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
-                    </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="box-producto-img">
-                        <img src="img/audifonos.png" alt="">
-                    </div>
-                    <h3>Titulo</h3>
-                    <div class="box-precio">
-                        <p>Precio: $3000</p>
-                        <p class="des">10% de descuento</p>
-                    </div>
-                    <div class="box-btn">
-                        <a href="">Ver mas <span></span></a>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
+                <?php }
+                }
+                ?>
             </div>
         </div>
     </div>

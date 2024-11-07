@@ -132,9 +132,9 @@
                                 <label id="caja-file" for="input-file-foto">Seleccionar archivo</label>
                             </div>
                             <div class="box-input">
-                                <input type="text" maxlength="50" name="txtNombreArticulo" id="inp-nombre-producto" required>
+                                <input type="text" maxlength="70" name="txtNombreArticulo" id="inp-nombre-producto" required>
                                 <label for="">Nombre del producto</label>
-                                <p id="caja-nombre-producto">0 / 50</p>
+                                <p id="caja-nombre-producto">0 / 70</p>
                             </div>
                             <div class="box-textarea">
                                 <textarea name="txtDesArticulo" maxlength="230" id="inp-des-producto" placeholder="Escriba la descripcion" required></textarea>
@@ -197,7 +197,7 @@
            </div>
         </div>
     </div>
-    <script src="admin.js"></script>
+    <script src="./admin.js"></script>
     <script>
         function selectCategoria(){
             var articulo = document.getElementById("selectorCategoria").value;
@@ -215,6 +215,20 @@
                 document.getElementById("selecionarSubCategoria").innerHTML = '<option value="">Selecciona una opción</option>';
             }
         }
+
+        const nombre_producto = document.getElementById('inp-nombre-producto');
+const error_producto = document.getElementById('caja-nombre-producto');
+
+nombre_producto.addEventListener('input', cantLetras_producto);
+
+function cantLetras_producto(){
+
+    let num_letras = nombre_producto.value.length;
+
+    error_producto.innerHTML = `${num_letras} / 70`;
+
+}
+
     </script>
 </body>
 </html>

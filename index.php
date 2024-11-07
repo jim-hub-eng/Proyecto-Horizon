@@ -21,9 +21,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
     <style>
-        .cerrarS{
-            
-                color: red;
+        .icon-usuario{
+                color: white;
+                font-size: 20px;
                 text-decoration: none;
         }
         @media(max-width: 720px){
@@ -52,7 +52,7 @@
                 <a href="./carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="box-cerrarsesion">
-                <a class="cerrarS" href="./php/cerrarSesion.php">Salir</a>
+                <a class="icon-usuario" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>

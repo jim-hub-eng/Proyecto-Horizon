@@ -78,19 +78,6 @@ function correoValid(){
     }
     
 }
-const nombre_producto = document.getElementById('inp-nombre-producto');
-const error_producto = document.getElementById('caja-nombre-producto');
-
-nombre_producto.addEventListener('input', cantLetras_producto);
-
-function cantLetras_producto(){
-
-    let num_letras = nombre_producto.value.length;
-
-    error_producto.innerHTML = `${num_letras} / 50`;
-
-}
-
 const des_producto = document.getElementById('inp-des-producto');
 const caja_des_producto = document.getElementById('caja-des-producto');
 
