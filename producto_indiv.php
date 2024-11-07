@@ -12,6 +12,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>| Horizon Marcketing</title>
+    <style>
+        #estrella{
+            color: yellow;
+            filter: drop-shadow(0 0 10px yellow);
+        }
+    </style>
     <link rel="stylesheet" href="css/producto_indiv-styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -217,9 +223,15 @@
                                 <p><i class="bi bi-star"></i></p>
                             </div>
                         </div>
-                        <div class="box-meses">
-                            <p><?= $datos -> intereses ?></p>
-                        </div>
+                        <?php
+
+                            if($datos -> intereses != "n / a"){ ?>
+                                <div class="box-meses">
+                                    <p><?= $datos -> intereses ?></p>
+                                </div>
+                            <?php }
+                            
+                        ?>
                         <div class="box-precio-2">
                             <label>Precio $<?= $datos -> precio ?></label>
                             <?php
@@ -291,7 +303,11 @@
                         if($datos -> id != $id_producto ){ ?>
                             <div class="producto">
                             <div class="box-producto-img">
-                                <img src="img/audifonos.png" alt="">
+                                <?php
+                                    echo '
+                                        <img src="./productos/mos.php?id='. htmlspecialchars($datos -> id , ENT_QUOTES) .'" alt="">
+                                    ';
+                                ?>
                             </div>
                             <h3><?= $datos -> nombre ?></h3>
                             <div class="box-precio">
@@ -316,29 +332,50 @@
         </div>
         <div class="box-4">
             <div class="box-coment-calif">
-                <form class="box-img-user">
+                <form method="POST" action="./php/registrar_comentario.php" class="box-img-user">
                     <h2>Escribe tu comentario</h2>
                     <div class="box-flex">
-                        <div class="box-user">
-                            <img src="./img/usuarioSinFoto.png" alt="">
-                        </div>
-                        <div class="box-inp">
-                            <label>Usuario:</label>
-                            <input type="text" value="">
-                        </div>
+                        <?php
+
+                            $sql = "SELECT id , foto , usuario FROM usuarios WHERE id = '$id_usuario'";
+                            $ejecutar = $conexion -> query($sql);
+
+                            while($datos = $ejecutar -> fetch_object()){
+                              
+                                if($datos -> foto == NULL){ ?>
+                                    <div class="box-user">
+                                        <img src="./img/usuarioSinFoto.png" alt="">
+                                    </div>
+                                <?php } else {
+                                    echo '
+                                        <div class="box-user">
+                                            <img src="./php/mostrar_foto_usu.php?id=' . htmlspecialchars($datos -> id, ENT_QUOTES) . ' " alt="">
+                                        </div>
+                                    ';
+                                }
+
+                            ?>                            
+                            <div class="box-inp">
+                                <label>Usuario:</label>
+                                <input type="text" name="txtUsuario" value="<?= $datos -> usuario ?>">
+                            </div>
+
+                            <?php }
+
+                        ?>
                     </div>
                     <div class="box-textarea">
-                        <textarea name="" id="text-coment" maxlength="230" placeholder="Escriba comentario..."></textarea>
+                        <textarea name="txtComentario" id="text-coment" maxlength="230" placeholder="Escriba comentario..."></textarea>
                         <p id="box-letras">0 / 230</p>
                     </div>
-                    <div class="box-calif-stars">
+                    <div style="top: -70px;" class="box-calif-stars">
                         <h3>Calificar</h3>
                         <div class="box-stars">
-                            <input type="radio" name="radios" id="star-1">
-                            <input type="radio" name="radios" id="star-2">
-                            <input type="radio" name="radios" id="star-3">
-                            <input type="radio" name="radios" id="star-4">
-                            <input type="radio" name="radios" id="star-5">
+                            <input type="radio" value="1" name="radios" id="star-1" required>
+                            <input type="radio" value="2" name="radios" id="star-2" required>
+                            <input type="radio" value="3" name="radios" id="star-3" required>
+                            <input type="radio" value="4" name="radios" id="star-4" required>
+                            <input type="radio" value="5" name="radios" id="star-5" required>
 
                             <label class="lb-star-1" for="star-1"><i class="bi bi-star-fill"></i></i></label>
                             <label class="lb-star-2" for="star-2"><i class="bi bi-star-fill"></i></label>
@@ -347,7 +384,8 @@
                             <label class="lb-star-5" for="star-5"><i class="bi bi-star-fill"></i></label>
                         </div>
                     </div>
-                    <button id="btnEnviarComen">Enviar 
+                    <input type="hidden" name="txtIdProducto" value="<?= $id_producto ?>">
+                    <button style="top: -50px;" id="btnEnviarComen">Enviar 
                         <span></span>
                         <span></span>
                         <span></span>
@@ -355,54 +393,90 @@
                     </button>
                 </form>
                 <div class="box-comentarios">
-                    <div class="comentario">
-                        <div class="nombre-user">
-                            <div class="img-user">
-                                <img src="img/sinImagen.png" alt="">
+                    <?php
+                        include './php/conexion.php';
+                        $sql = "SELECT T.id, T.foto, T.usuario, P.usuario, P.comentario, P.estrellas FROM `comentarios` P INNER JOIN `usuarios` T WHERE T.usuario = P.usuario AND P.id_producto = '$id_producto'";
+                        $ejecutar = $conexion -> query($sql);
+
+                        while($datos = $ejecutar -> fetch_object()){ ?>
+
+                        <div class="comentario">
+                            <div class="nombre-user">
+                                <div class="img-user">
+                                    <?php
+
+                                        if($datos -> foto == NULL){ ?>
+                                            <img src="./img/usuarioSinFoto.png" alt="">
+                                        <?php } else { 
+                                            echo '
+                                                <img src="./php/mostrar_foto_usu.php?id= ' . htmlspecialchars($datos -> id , ENT_QUOTES) . ' " alt="">
+                                            ';
+                                        }
+
+                                    ?>
+                                </div>
+                                <h3><?= $datos -> usuario ?></h3>
                             </div>
-                            <h3>Jim Goonzalez Corona</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae rerum impedit numquam sed consequuntur aut dolorem enim neque ut in, voluptates autem doloremque, ipsam illo temporibus earum eos nihil? Error?</p>
-                        <div style="margin-left: 10px;" class="box-stars">
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                        </div>
-                    </div>
-                    <div class="comentario">
-                        <div class="nombre-user">
-                            <div class="img-user">
-                                <img src="img/sinImagen.png" alt="">
+                            <p><?= $datos -> comentario ?></p>
+                            <div style="margin-left: 10px;" class="box-stars">
+                                <?php
+
+                                    switch($datos -> estrellas){
+                                        case 1:
+                                            ?>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                            <?php
+                                        break;
+                                        case 2:
+                                            ?>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                            <?php
+                                        break;
+                                        case 3:
+                                            ?>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                            <?php
+                                        break;
+                                        case 4:
+                                            ?>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                            <?php
+                                        break;
+                                        case 5:
+                                            ?>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                                <i id="estrella" class="bi bi-star-fill"></i>
+                                            <?php
+                                        break;
+                                        }
+
+
+                                ?>
                             </div>
-                            <h3>Jim Goonzalez Corona</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae rerum impedit numquam sed consequuntur aut dolorem enim neque ut in, voluptates autem doloremque, ipsam illo temporibus earum eos nihil? Error?</p>
-                        <div style="margin-left: 10px;" class="box-stars">
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                        </div>
-                    </div>
-                    <div class="comentario">
-                        <div class="nombre-user">
-                            <div class="img-user">
-                                <img src="img/sinImagen.png" alt="">
-                            </div>
-                            <h3>Jim Goonzalez Corona</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae rerum impedit numquam sed consequuntur aut dolorem enim neque ut in, voluptates autem doloremque, ipsam illo temporibus earum eos nihil? Error?</p>
-                        <div style="margin-left: 10px;" class="box-stars">
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                        </div>
-                    </div>
+
+                        <?php 
+                        }
+                    ?>
                 </div>
             </div>
         </div>
