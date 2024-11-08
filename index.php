@@ -5,11 +5,15 @@
 
     $correo = $_SESSION['correo'];
 
-    $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
-    $ejecutar = $conexion -> query($sql);
+    if($correo){
+        $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
+        $ejecutar = $conexion -> query($sql);
 
-    while($datos = $ejecutar -> fetch_assoc()){
+        while($datos = $ejecutar -> fetch_assoc()){
         $id_usuario = $_SESSION['id'] = $datos['id'];
+    }
+    }else{
+        header("location: ./login.php");
     }
 
 ?>
@@ -31,6 +35,27 @@
                 display: none;
             }
         }
+        #resultados{
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background-color: white;
+            top: 200%;
+            border-radius: 10px;
+            z-index: 999;
+            width: 200px;
+            height: auto;
+            padding: 10px;
+            color: black;
+
+            a{
+                color: black;
+                padding: 10px;
+                text-decoration: none;
+            }
+
+        }
     </style>
     <link rel="stylesheet" href="css/index-styles.css">
     <link rel="shortcut icon" href="img/logo-1_2.png" type="image/x-icon">
@@ -46,6 +71,9 @@
         <div class="box-buscador">
             <input type="search" id="inp-buscador" placeholder="Buscar..." required>
             <label for="inp-buscador"><i class="bi bi-search"></i></label>
+            <div id="resultados">
+                <a href="">Manzana</a>
+            </div>
         </div>
         <div class="navegacion-box">
             <div class="carrito">
@@ -302,6 +330,62 @@
     </footer>
 
     <script src="./js/index-script.js"></script>
-</body>
+    <script>
+        const search = document.getElementById('inp-buscador');
+        search.addEventListener('keyup', buscar);
+        const resultados =document.getElementById('resultados');
+        let lista = [
+        <?php
+            $sql = "SELECT id , nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
 
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>",
+            <?php }
+        ?>
+        ];
+        let link = {
+        <?php
+            $sql = "SELECT id, nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>" : "<?= $datos -> id ?>",
+            <?php }
+        ?>
+        };
+        function buscar(){
+            let buscardor = search.value;
+            let i = 0;
+            let result = [];
+            let resultLinks = [];
+            resultados.innerHTML = '';
+
+            for(i=0; i<lista.length; i++){
+                if(lista[i].toLowerCase().includes(buscardor.toLowerCase())){
+                    result.push(lista[i]);
+                    resultLinks.push(i);
+                }
+            }
+            if(result.length > 0){
+                for(i=0; i<lista.length; i++){
+                    const a = document.createElement('a');
+                    a.textContent = result[i];
+                    a.href = './producto_indiv.php?id=' + link[result[i]];
+
+                    resultados.appendChild(a);
+                }
+            }else{
+                resultados.textContent = 'Sin resultados';
+            }
+            if(buscardor == ''){
+                resultados.style.display = 'none';
+            }else{
+                resultados.style.display = 'flex';
+            }
+
+        }
+
+    </script>
+</body>
 </html>
