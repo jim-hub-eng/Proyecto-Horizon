@@ -141,6 +141,7 @@
                 </div>
             </div>
         </div>
+        <a class="btn-regresar" href="../index.php"><i class="bi bi-arrow-left"></i></a>
     </nav>
 
     <div class="menu">
