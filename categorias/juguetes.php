@@ -11,6 +11,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JUGUETES</title>
+    <style>
+        .icon-usuario{
+                color: white;
+                font-size: 20px;
+                text-decoration: none;
+        }
+        @media(max-width: 740px){
+            .box-cerrarsesion{
+                display: none;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="../css/categoria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -29,6 +41,9 @@
         <div class="navegacion-box">
             <div class="carrito">
                 <a href="../carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="box-cerrarsesion">
+                <a class="icon-usuario" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -99,6 +114,8 @@
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
             <li><a href="../carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i>Carrito</a></li>
             <li><button onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
+            <li><a class="cerrarS" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></i>Cuenta</a></li>
+
         </ul>
         <ul class="ul-2-from-menu">
             <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>

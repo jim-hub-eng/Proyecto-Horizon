@@ -30,7 +30,7 @@
                 font-size: 20px;
                 text-decoration: none;
         }
-        @media(max-width: 720px){
+        @media(max-width: 740px){
             .box-cerrarsesion{
                 display: none;
             }
@@ -71,9 +71,7 @@
         <div class="box-buscador">
             <input type="search" id="inp-buscador" placeholder="Buscar..." required>
             <label for="inp-buscador"><i class="bi bi-search"></i></label>
-            <div id="resultados">
-                <a href="">Manzana</a>
-            </div>
+            <div id="resultados"></div>
         </div>
         <div class="navegacion-box">
             <div class="carrito">
@@ -88,7 +86,7 @@
         </div>
         <div class="nav-1">
             <a class="btn-verCategoria" href=""><i class="bi bi-list-ul"></i>Categorias</a>
-            <a class="Ayuda" href=""><i class="bi bi-info-circle"></i>Ayuda</a>
+            <a class="Ayuda" href="./Ayuda.html"><i class="bi bi-info-circle"></i>Ayuda</a>
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
@@ -141,7 +139,6 @@
                 </div>
             </div>
         </div>
-        <a class="btn-regresar" href="../index.php"><i class="bi bi-arrow-left"></i></a>
     </nav>
 
     <div class="menu">
@@ -151,7 +148,7 @@
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
             <li><a href="./carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
             <li><button style="margin-left: -10px;" onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
-            <li><a class="cerrarS" href="./php/cerrarSesion.php"><i class="bi bi-box-arrow-in-left"></i>Salir</a></li>
+            <li><a class="cerrarS" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></i>Cuenta</a></li>
         </ul>
         <ul class="ul-2-from-menu">
             <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>
@@ -317,7 +314,7 @@
         <div class="atencionCliente">
             <h2>Atencion al Cliente</h2>
             <ul>
-                <li><a href="#">Ayuda</a></li>
+                <li><a href="./Ayuda.html">Ayuda</a></li>
                 <li><a href="#">Servicios</a></li>
             </ul>
         </div>

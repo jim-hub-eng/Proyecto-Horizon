@@ -34,34 +34,41 @@ body{
 .media{
     position: relative;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     height: auto;
     top: 70px;
 }
 /* CSS DE DATOS DE CUENTA */
 .b-1{
-    width: 80%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+}
+.b-2{
+    display: flex;
 }
 .box-cuenta{
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 50%;
+    width: 90%;
     height: auto;
     padding: 10px;
+    background-color: transparent;
 }
 .box-btns{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 30px;
+    width: auto;
+    height: auto;
     background-color: transparent;
     top: 30px;
 
@@ -95,8 +102,8 @@ body{
 }
 .box-img-user{
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     overflow: hidden;
     border-radius: 50%;
 
@@ -108,5 +115,60 @@ body{
     }
 }
 .box-datos{
+    position: relative;
+    left: 10px;
     color: white;
+}
+/* CSS DE COMENTARIOS */
+.boxes{
+    position: relative;
+    background-color: #5e177c;
+    border-radius: 10px;
+    border: 1px solid #b16ccf;
+    width: 81%;
+    padding: 10px;
+    height: auto;
+    color: white;
+}
+.box-comentarios{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 97%;
+    height: auto;
+}
+.comentario{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px;
+}
+.box-user-img{
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 5px;
+    gap: 5px;
+
+    .box-img-c{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
 }
