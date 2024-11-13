@@ -1,8 +1,9 @@
 <?php
 
-    session_start();
-    session_destroy();
+    session_start(); #inicia sesion
+    session_destroy(); #destruye la sesion
 
-    header("location: ../login.php");
+    #te manda al login
+    header("location: ../login.php  ");
 
 ?>

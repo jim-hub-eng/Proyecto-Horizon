@@ -1,9 +1,9 @@
 <?php 
 
-    session_start();
+    session_start(); #inicia sesion
 
-    $id_usuario = $_SESSION['id'];
-    $id_producto = $_GET['id'];
+    $id_usuario = $_SESSION['id']; #se obtiene el id del usuario que se mando por el link
+    $id_producto = $_GET['id']; #se obtiene el id del producto para porder mostrarlo
 
 ?>
 <!DOCTYPE html>
@@ -188,12 +188,14 @@
                 <?php
                     
                     include './php/conexion.php';
-
-                    $sql = "SELECT id FROM productos WHERE id = '$id_producto'";
+                    #se genera la consulta para porder obtener la foto de la imagen 
+                    $sql = "SELECT id FROM productos WHERE id = '$id_producto'"; #selecciona el id del producto
+                    #se ejecuta la conexion
                     $ejecutar = $conexion -> query($sql);
 
                     while($datos = $ejecutar -> fetch_object()){
-                        echo '
+                        #muestra la imagen
+                        echo ' 
                         <div class="box-img">
                             <img src="./productos/mos.php?id= ' . htmlspecialchars($datos -> id, ENT_QUOTES) . ' " alt="">
                         </div>
@@ -207,21 +209,21 @@
                 <?php
                     
                     include './php/conexion.php';
-
-                    $sql = "SELECT * FROM productos WHERE id = '$id_producto'";
-                    $ejecutar = $conexion -> query($sql);
+                    #genera la consulta para obtener la informacion de todas las entidades del producto
+                    $sql = "SELECT * FROM productos WHERE id = '$id_producto'"; #selecciona todos los campos de la tabla productos cuando el id sea el "el id que se obtuvo con GET"
+                    $ejecutar = $conexion -> query($sql);#se ejecuta la consulta
 
                     while($datos = $ejecutar -> fetch_object()){
-                            $sub_categoria = $datos -> sub_categoria;
+                            $sub_categoria = $datos -> sub_categoria; #se obtiene la subcatgoria del producto para despues usarla
                         ?>
-                        <h3><?php echo ucwords($datos -> nombre) ?></h3>
-                        <p><?= $datos -> descripcion ?></p>
-                        <p><b>Color: </b><?php echo ucwords($datos -> color) ?></p>
-                        <p><b>Marca: </b><?php echo ucwords($datos -> marca) ?></p>
+                        <h3><?php echo ucwords($datos -> nombre) ?></h3> <!-- Se pone en mayusculas la primera letra del nombre del producto -->
+                        <p><?= $datos -> descripcion ?></p> <!-- Se obtine la descripcion del producto -->
+                        <p><b>Color: </b><?php echo ucwords($datos -> color) ?></p> <!-- Se obtine el color del producto -->
+                        <p><b>Marca: </b><?php echo ucwords($datos -> marca) ?></p> <!-- Se obtine la marca -->
                         <div class="box-puntuacion">
-                            <p id="num-pun">4</p>
+                            <p id="num-pun">4</p> <!-- Puntuacion de las estrellas -->
                             <div class="estrellas">
-                                <p><i class="bi bi-star-fill"></i></p>
+                                <p><i class="bi bi-star-fill"></i></p> <!-- Estrellas -->
                                 <p><i class="bi bi-star-fill"></i></p>
                                 <p><i class="bi bi-star-fill"></i></p>
                                 <p><i class="bi bi-star-fill"></i></p>
@@ -230,21 +232,21 @@
                         </div>
                         <?php
 
-                            if($datos -> intereses != "n / a"){ ?>
+                            if($datos -> intereses != "n / a"){ ?> <!-- Si lo que contiene intereses es diferente a "n / a" -->
                                 <div class="box-meses">
-                                    <p><?= $datos -> intereses ?></p>
+                                    <p><?= $datos -> intereses ?></p> <!-- Se muestran los intereses --> 
                                 </div>
-                            <?php }
+                            <?php } #Si no tuviera intereses no se mostrarian
                             
                         ?>
                         <div class="box-precio-2">
                             <?php
-                                if($datos -> descuento != "n / a"){ ?>
-                                    <label>Precio $<?= $datos -> precio - (($datos -> precio * $datos -> descuento) / 100) ?></label>
-                                    <p class="p-precio-sin">$<?= $datos -> precio  ?></p>
-                                    <p class="p-descuento"><?= $datos -> descuento ?>% de descuento</p>
+                                if($datos -> descuento != "n / a"){ ?> <!-- Si lo que contiene intereses es diferente a "n / a" -->
+                                    <label>Precio $<?= $datos -> precio - (($datos -> precio * $datos -> descuento) / 100) ?></label> <!-- Operacion para sar el precio con descuento -->
+                                    <p class="p-precio-sin">$<?= $datos -> precio  ?></p> <!-- Se obtiene precio sin descuento -->
+                                    <p class="p-descuento"><?= $datos -> descuento ?>% de descuento</p> <!-- Se obtiene el mumero de descuento -->
                                 <?php } else { ?>
-                                    <label>Precio $<?= $datos -> precio ?></label>
+                                    <label>Precio $<?= $datos -> precio ?></label> <!-- Si no tuviera descuento solo se mustra el precio -->
                                 <?php }
                             ?>  
                         </div>
@@ -262,15 +264,19 @@
                     <?php
 
                         include './php/conexion.php';
-
+                                
+                        #se genera la consulta para obtener el producto con el id
                         $sql = "SELECT * FROM productos WHERE id = '$id_producto'";
+                        #se ejecuta la consulta
                         $ejecutar = $conexion -> query($sql);
 
                         while ($datos = $ejecutar -> fetch_object()){ ?>
+                            <!-- Se le inserta los valores del producto desde que hay en bd -->
                             <input type="hidden" name="txtidUsuario" value="<?= $id_usuario ?>" required>
                             <input type="hidden" name="txtidProducto" value="<?= $datos -> id ?>" required>
                         <?php }
                     ?>  
+                    <!-- Cuando da click se mandan los datos al carrito -->
                     <button id="btnAnadirCarrito" type="submit">Añadir al carrito</button>
                 </form>
                 <div class="bx">
@@ -303,29 +309,34 @@
             <div class="productos">
                 <?php
 
+                    #se genera la consulta para mostrar los producto de la misma subcategoria del producto inicial
                     $sql = "SELECT * FROM productos WHERE sub_categoria = '$sub_categoria'";
+                    #se ejecuta la consulta
                     $ejecutar = $conexion -> query($sql);
 
                     while($datos = $ejecutar -> fetch_object()){
+                        #Si el id del producto es igual al id del producto inicial, no se muestra
                         if($datos -> id != $id_producto ){ ?>
                             <div class="producto product">
                             <div class="box-producto-img">
-                                <?php
+                                <?php #se muestra la imagen del producto
                                     echo '
                                         <img src="./productos/mos.php?id='. htmlspecialchars($datos -> id , ENT_QUOTES) .'" alt="">
                                     ';
                                 ?>
                             </div>
+                            <!-- Se muestra el nombre del producto -->
                             <h3><marquee><?= $datos -> nombre ?></marquee></h3>
                             <div class="box-precio">
+                            <!-- Se  muestra el precio del producto -->
                                 <p>Precio: $<?= $datos -> precio ?></p>
-                                <?php
+                                <?php #si el descuento es diferente de n / a se muestra
                                     if($datos -> descuento != "n / a"){ ?>
                                         <p class="des"><?= $datos -> descuento ?>% de descuento</p>
                                     <?php }
                                 ?>  
                             </div>
-                            <div class="box-btn">
+                            <div class="box-btn"> <!-- Se manda el id del producto al archivo producto_indiv.php por la url -->
                                 <a href="./producto_indiv.php?id=<?= $datos -> id ?>">Ver mas <span></span></a>
                                 <button>Añadir al carrito</button>
                             </div>
@@ -344,16 +355,19 @@
                     <div class="box-flex">
                         <?php
 
+                            #se muestra los datos del registro del usuario que esta en sesion
                             $sql = "SELECT id , foto , usuario FROM usuarios WHERE id = '$id_usuario'";
+                            #se ejecuta la consulta
                             $ejecutar = $conexion -> query($sql);
 
                             while($datos = $ejecutar -> fetch_object()){
-                              
+                                
+                                #si la entidad esta vacia se muestra una imagen preterminada
                                 if($datos -> foto == NULL){ ?>
                                     <div class="box-user">
                                         <img src="./img/usuarioSinFoto.png" alt="">
                                     </div>
-                                <?php } else {
+                                <?php } else { #si no esta vacia muestra la foto del usuario
                                     echo '
                                         <div class="box-user">
                                             <img src="./php/mostrar_foto_usu.php?id=' . htmlspecialchars($datos -> id, ENT_QUOTES) . ' " alt="">
@@ -364,6 +378,7 @@
                             ?>                            
                             <div class="box-inp">
                                 <label>Usuario:</label>
+                                <!-- Muestra el usuario del usuario -->
                                 <input type="text" name="txtUsuario" value="<?= $datos -> usuario ?>">
                             </div>
 
@@ -373,18 +388,18 @@
                     </div>
                     <div class="box-textarea">
                         <textarea name="txtComentario" id="text-coment" maxlength="230" placeholder="Escriba comentario..."></textarea>
-                        <p id="box-letras">0 / 230</p>
+                        <p id="box-letras">0 / 230</p> <!-- Caja de comentario -->
                     </div>
                     <div style="top: -70px;" class="box-calif-stars">
                         <h3>Calificar</h3>
                         <div class="box-stars">
-                            <input type="radio" value="1" name="radios" id="star-1" required>
+                            <input type="radio" value="1" name="radios" id="star-1" required> <!-- Input radio para poder mandar el numero elegido de estrellas -->
                             <input type="radio" value="2" name="radios" id="star-2" required>
                             <input type="radio" value="3" name="radios" id="star-3" required>
                             <input type="radio" value="4" name="radios" id="star-4" required>
                             <input type="radio" value="5" name="radios" id="star-5" required>
 
-                            <label class="lb-star-1" for="star-1"><i class="bi bi-star-fill"></i></i></label>
+                            <label class="lb-star-1" for="star-1"><i class="bi bi-star-fill"></i></i></label> <!-- Estrellas -->
                             <label class="lb-star-2" for="star-2"><i class="bi bi-star-fill"></i></label>
                             <label class="lb-star-3" for="star-3"><i class="bi bi-star-fill"></i></label>
                             <label class="lb-star-4" for="star-4"><i class="bi bi-star-fill"></i></label>
@@ -392,6 +407,7 @@
                         </div>
                     </div>
                     <input type="hidden" name="txtIdProducto" value="<?= $id_producto ?>">
+                    <!-- se manda el id del producto  -->
                     <button style="top: -50px;" id="btnEnviarComen">Enviar 
                         <span></span>
                         <span></span>
@@ -402,6 +418,7 @@
                 <div class="box-comentarios">
                     <?php
                         include './php/conexion.php';
+                        #se genera la consulta para obtener la foto , el nombre de usuario, el comentario y las estrellas de los comentario
                         $sql = "SELECT T.id, T.foto, T.usuario, P.usuario, P.comentario, P.estrellas FROM `comentarios` P INNER JOIN `usuarios` T WHERE T.usuario = P.usuario AND P.id_producto = '$id_producto'";
                         $ejecutar = $conexion -> query($sql);
 
@@ -412,9 +429,10 @@
                                 <div class="img-user">
                                     <?php
 
-                                        if($datos -> foto == NULL){ ?>
-                                            <img src="./img/usuarioSinFoto.png" alt="">
+                                        if($datos -> foto == NULL){ ?> <!-- Se verifica si no tiene nada la entidad de foto -->
+                                            <img src="./img/usuarioSinFoto.png" alt=""> <!-- Se muestra una imagen por preterminada -->
                                         <?php } else { 
+                                            #si no esta vacio se muetra la foto del usuario
                                             echo '
                                                 <img src="./php/mostrar_foto_usu.php?id= ' . htmlspecialchars($datos -> id , ENT_QUOTES) . ' " alt="">
                                             ';
@@ -422,13 +440,13 @@
 
                                     ?>
                                 </div>
-                                <h3><?= $datos -> usuario ?></h3>
+                                <h3><?= $datos -> usuario ?></h3> <!-- Se muestra el nombre de usuario -->
                             </div>
-                            <p><?= $datos -> comentario ?></p>
+                            <p><?= $datos -> comentario ?></p> <!-- Se muestra el comentario -->
                             <div style="margin-left: 10px;" class="box-stars">
                                 <?php
 
-                                    switch($datos -> estrellas){
+                                    switch($datos -> estrellas){ #se usa el switch dependiendo del numero de estrellas
                                         case 1:
                                             ?>
                                                 <i id="estrella" class="bi bi-star-fill"></i>
@@ -491,36 +509,42 @@
             <h2>Otros productos</h2>
             <div class="productos">
                 <?php
-                
+                #se genera una consulta donde se eliga una subcategoria al azar
                 $sql_1 = "SELECT sub_categoria FROM categorias ORDER BY RAND() LIMIT 1;";
+                #se ejecuta la consulta
                 $ejecutar_1 = $conexion -> query($sql_1);
 
                 $datos_1 = $ejecutar_1 -> fetch_object();
-                $subCategoriaSql = $datos_1 -> sub_categoria;
+                $subCategoriaSql = $datos_1 -> sub_categoria; #la subcategoria elegida se guarda en una variable
 
+                #se seleciona todos las entidades de productos cuando la categoria sea la que se eligio al azar
                 $sql = "SELECT * FROM productos WHERE sub_categoria = '$subCategoriaSql'";
+                #se ejecuta la consulta
                 $ejecutar = $conexion -> query($sql);
                                     
                 while($datos = $ejecutar -> fetch_object()){
-                    if($datos -> id != $id_producto ){ ?>
+                    if($datos -> id != $id_producto ){ ?> <!-- Si el id del producto es diferente al del producto inicial -->
                         <div class="producto product">
                         <div class="box-producto-img">
                             <?php
+                                #se muestra la imagen del producto
                                 echo '
                                     <img src="./productos/mos.php?id='. htmlspecialchars($datos -> id , ENT_QUOTES) .'" alt="">
                                 ';
                             ?>
                         </div>
+                        <!-- Se muestra el nombre del producto -->
                         <h3><?= $datos -> nombre ?></h3>
                         <div class="box-precio">
+                            <!-- Se muestra el precio -->
                             <p>Precio: $<?= $datos -> precio ?></p>
                             <?php
-                                if($datos -> descuento != "n / a"){ ?>
-                                    <p class="des"><?= $datos -> descuento ?>% de descuento</p>
+                                if($datos -> descuento != "n / a"){ ?> <!-- Si el descuento es diferente a n / a -->
+                                    <p class="des"><?= $datos -> descuento ?>% de descuento</p> <!-- Se muestra el descuento -->
                                 <?php }
                             ?>  
                         </div>
-                        <div class="box-btn">
+                        <div class="box-btn"> <!-- Se manda el id del producto por el link -->
                             <a href="./producto_indiv.php?id=<?= $datos -> id ?>">Ver mas <span></span></a>
                             <button>Añadir al carrito</button>
                         </div>
@@ -581,15 +605,15 @@
     <script src="./js/producto_indiv-script.js"></script>
     <script>
 
-        const textarea =document.getElementById("text-coment");
+        const textarea =document.getElementById("text-coment"); 
         const box =document.getElementById('box-letras');
 
-        textarea.addEventListener('keyup', contarLetras);
+        textarea.addEventListener('keyup', contarLetras); //Mientras se escribe en la caja de comentario va hacer lo siguiente
 
-        function contarLetras(){
+        function contarLetras(){ //La funcion de cuando esta escribiedo
 
-            let cantLetras = textarea.value.length;
-            box.innerHTML = `${cantLetras} / 230`;
+            let cantLetras = textarea.value.length; //Se van contando las letras
+            box.innerHTML = `${cantLetras} / 230`; //Se muestra el total del letra
 
         }
 

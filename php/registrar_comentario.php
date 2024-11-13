@@ -2,14 +2,17 @@
 
     include '../php/conexion.php';
 
+    #se guardan los datos en variables
     $usuario = $_POST['txtUsuario'];
     $comentario = $_POST['txtComentario'];
     $estrellas = $_POST['radios'];
     $id_producto = $_POST['txtIdProducto'];
 
+    #codigo de la consulta
     $sql = "INSERT INTO comentarios(id_producto, usuario, comentario, estrellas)
             VALUES('$id_producto','$usuario', '$comentario', '$estrellas')";
-    
+
+    #se ejecuta la consulta
     $ejecutar = $conexion -> query($sql);
 
     if($ejecutar){
