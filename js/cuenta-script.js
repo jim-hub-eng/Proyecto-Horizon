@@ -1,24 +1,22 @@
+import * as jm from '../libreria/libreria.js';
+
 const carosel = document.querySelector('.box');
 
 const buttonComentarios = document.getElementById('btnComentarios');
 const buttonCompras = document.getElementById('btnCompras');
 
-function btnComentarios(){
+jm.btnStyle(buttonComentarios, "activo", buttonCompras, "activo");
+jm.btnStyle(buttonCompras, "activo", buttonComentarios, "activo");
 
-    carosel.style.right = '0%';
-    buttonComentarios.className = 'activo';
-    buttonCompras.classList.remove('activo');
 
-}
-function btnCompras(){
-    carosel.style.right = '100%';
-    buttonCompras.className = 'activo';
-    buttonComentarios.classList.remove('activo');
-}
+jm.verskynItemClass(buttonComentarios , carosel, "comentarios", "compras");
+jm.verskynItemClass(buttonCompras , carosel, "compras", "comentarios");
+
+
 const fondo = document.querySelector('.fondo');
-function openSeleccion(){
-    fondo.classList.add("activo");
-}
-function closeSeleccion(){
-    fondo.classList.remove("activo");
-}
+const openSeleccion = document.getElementById('openSeleccion');
+const closeSeleccion = document.getElementById('closeSeleccion');
+
+jm.verskynItemClass(openSeleccion , fondo, "activo" , null);
+jm.verskynItemClass(closeSeleccion, fondo, null ,"activo");
+

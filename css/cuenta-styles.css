@@ -167,6 +167,12 @@ body{
     right: 0%;
     transition: .3s;
 }
+.box.comentarios{
+    right: 0;
+}
+.box.compras{
+    right: 100%;
+}
 .boxes{
     position: relative;
     width: 100%;
@@ -212,12 +218,13 @@ body{
     height: 300px;
     color: white;
 }
-#btn-cerrar-selecion{
+#closeSeleccion{
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     color: red;
+    background-color: black;
     left: 90%;
     font-size: 23px;    
     width: 20px;
@@ -226,12 +233,13 @@ body{
     top: 0;
     margin-top: 10px;
     border: none;
+    cursor: pointer;
 }
 #btn-cerrar-selecion:hover{
     background-color: red;
     color: white;
 }
-.selecionar button{
+.selecionar .eleccion{
     position: relative;
     display: flex;
     align-items: center;
@@ -244,7 +252,7 @@ body{
     z-index: 1;
     overflow: hidden;
 }
-.selecionar button::after{
+.selecionar .eleccion::after{
     content: " ";
     position: absolute;
     width: 100%;
@@ -255,8 +263,107 @@ body{
     border-radius: 5px;
     transition: .3s;
 }
-.selecionar button:hover::after{
+.selecionar .eleccion:hover::after{
     left: 0;
+}
+/* CSS DE FOTO ELEGIR FOTO DE PERFIL */
+.box-foto-perfil{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: .3s;
+}
+.foto-perfil{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #c234ff;
+    width: 300px;
+    height: 350px;
+    background-color: black;
+}
+.ls-btn{
+    position: absolute;
+    color: red;
+    font-size: 22px;
+    left: 90%;
+    cursor: pointer;
+}
+.box-img-perfil{
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    bottom: 70px;
+
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.box-file{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: auto;
+
+    input[type=file]{
+        display: none;
+    }
+    label{
+        position: relative;
+        border-bottom: 1px solid royalblue;
+        color: white;
+        padding: 7px 30px;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1;
+    }
+    label::after{
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 100%;
+        background-color: royalblue;
+        transition: .3s;
+        z-index: -1;
+    }
+    label:hover::after{
+        top: 0;
+    }   
+}
+#btnGuardar{
+    padding: 7px 30px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: 1px solid #c234ff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+#btnGuardar:hover{
+    padding: 7px 80px;
+    background-color: #c234ff;
 }
 /* CSS DE COMENTARIOS */
 .box-comentarios{
