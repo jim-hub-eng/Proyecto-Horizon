@@ -132,10 +132,14 @@ body{
         margin-left: 10px;
         cursor: pointer;
     }
-    button:nth-child(1){
-        background-color: rgba(142, 3, 255, 0.137);
-        border-bottom: 1px solid rgb(170, 67, 255);
-    }
+}
+#btnComentarios.activo{
+    background-color: rgba(142, 3, 255, 0.137);
+    border-bottom: 1px solid rgb(170, 67, 255);
+}
+#btnCompras.activo{
+    background-color: rgba(142, 3, 255, 0.137);
+    border-bottom: 1px solid rgb(170, 67, 255);
 }
 /* CSS DE CARRUSEL */
 .box-carosel{
@@ -160,7 +164,8 @@ body{
     display: flex;
     width: 100%;
     height: 100%;
-    right: 100%;
+    right: 0%;
+    transition: .3s;
 }
 .boxes{
     position: relative;
@@ -169,6 +174,89 @@ body{
     flex: 0 0 100%;
     object-fit: cover;
     background-color: transparent;
+}
+/* CSS DE ALERTA DE SELECIONAR QUE CAMBIAR*/
+.fondo{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: .3s;
+}
+.fondo.activo{
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+}
+.selecionar{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    border: 2px solid #c234ff;
+    gap: 10px;
+    width: 350px;
+    height: 300px;
+    color: white;
+}
+#btn-cerrar-selecion{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    left: 90%;
+    font-size: 23px;    
+    width: 20px;
+    height: 20px;
+    z-index: 999;
+    top: 0;
+    margin-top: 10px;
+    border: none;
+}
+#btn-cerrar-selecion:hover{
+    background-color: red;
+    color: white;
+}
+.selecionar button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+}
+.selecionar button::after{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #b300ff;
+    z-index: -1;
+    left: -100%;
+    border-radius: 5px;
+    transition: .3s;
+}
+.selecionar button:hover::after{
+    left: 0;
 }
 /* CSS DE COMENTARIOS */
 .box-comentarios{
@@ -206,7 +294,53 @@ body{
     }
 }
 /* CSS DE COMPRAS */
+.box-compras{
+    position: relative;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    background-color: transparent;
+    padding: 10px;
+}
+.compra{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    width: 300px;
+    height: auto;
+    color: black;
+    flex: 0 0 auto;
+}
+.box-img-producto{
+    position: relative;
+    width: 280px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 5px;
 
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.datos{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    gap: 10px;
+    height: auto;
+    padding: 10px;
+}
 /* CSS DE FOOTER */
 footer{
     position: relative;

@@ -22,15 +22,15 @@
             </div>
         </div>
         <box class="box-2">
-            <button><i class="bi bi-pencil-square"></i></button>
+            <button onclick="openSeleccion()"><i class="bi bi-pencil-square"></i></button>
             <a href=""><i class="bi bi-box-arrow-in-left"></i></a>
             <button><i class="bi bi-list"></i></button>
         </box>
     </nav>
     <div class="media">
         <div class="box-car">
-            <button><i class="bi bi-chat-left-dots"></i>Comentarios</button>
-            <button><i class="bi bi-bag"></i>Compras</button>
+            <button id="btnComentarios" class="activo" onclick="btnComentarios()"><i class="bi bi-chat-left-dots"></i>Comentarios</button>
+            <button id="btnCompras" onclick="btnCompras()"><i class="bi bi-bag"></i>Compras</button>
         </div>
         <div class="box-carosel">
             <div class="carosel">
@@ -99,9 +99,71 @@
                             <h2>Compras</h2>
                             <p>Se mostraran todas las compras hechas.</p>
                         </div>
+                        <div class="box-compras">
+                            
+                            <div class="compra">
+                                <div class="box-img-producto">
+                                    <img src="../img/casas/cosina/cosina1.png" alt="">
+                                </div>
+                                <div class="datos">
+                                    <marquee><h3>Titulo</h3></marquee>
+                                    <label>Cantidad: 3</label>
+                                    <label>Precio: $2000</label>
+                                    <span>800</span>
+                                    <span>10% de descuento</span>
+                                </div>
+                            </div>
+                            <div class="compra">
+                                <div class="box-img-producto">
+                                    <img src="../img/casas/cosina/cosina1.png" alt="">
+                                </div>
+                                <div class="datos">
+                                    <marquee><h3>Titulo</h3></marquee>
+                                    <label>Cantidad: 3</label>
+                                    <label>Precio: $2000</label>
+                                    <span>800</span>
+                                    <span>10% de descuento</span>
+                                </div>
+                            </div>
+                            <div class="compra">
+                                <div class="box-img-producto">
+                                    <img src="../img/casas/cosina/cosina1.png" alt="">
+                                </div>
+                                <div class="datos">
+                                    <marquee><h3>Titulo</h3></marquee>
+                                    <label>Cantidad: 3</label>
+                                    <label>Precio: $2000</label>
+                                    <span>800</span>
+                                    <span>10% de descuento</span>
+                                </div>
+                            </div>
+                            <div class="compra">
+                                <div class="box-img-producto">
+                                    <img src="../img/casas/cosina/cosina1.png" alt="">
+                                </div>
+                                <div class="datos">
+                                    <marquee><h3>Titulo</h3></marquee>
+                                    <label>Cantidad: 3</label>
+                                    <label>Precio: $2000</label>
+                                    <span>800</span>
+                                    <span>10% de descuento</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="fondo">
+        <div class="selecionar">
+            <button onclick="closeSeleccion()" id="btn-cerrar-selecion">&times;</button>
+            <h2>Que quieres modificar?</h2>
+            <button>Foto de perfil</button>
+            <button>Nombre</button>
+            <button>Nombre de usuario</button>
+            <button>Contraseña</button>
+            <button>Ubicacion</button>
         </div>
     </div>
     <footer>
@@ -149,6 +211,6 @@
             </ul>
         </div>
     </footer>
-
+    <script src="../js/cuenta-script.js"></script>
 </body>
 </html>
