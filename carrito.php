@@ -1,6 +1,20 @@
 <?php
 
-    $id_usuario = $_GET['id'];
+    include './php/conexion.php';
+
+    session_start();
+    $cuenta = 0;
+
+    if(isset($_SESSION['correo'])){
+        $correo = $_SESSION['correo'];
+        $cuenta = 1;
+        $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
+        $ejecutar = $conexion -> query($sql);
+        $datos = $ejecutar -> fetch_object();
+        $id_usuario = $datos -> id;
+    }else{
+        $cuenta = 0;
+    }
 
 ?>
 <!DOCTYPE html>
@@ -8,9 +22,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito | Horizon Marcketing</title>
     <link rel="stylesheet" href="css/carrito.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .media-alert{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 300px;
+            top: 70px;
+            color: white;
+        }
+        .media-alert img{
+            position: relative;
+            width: 200px;
+        }
+        .media-alert a{
+            padding: 7px 40px;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+        }
+        .media-alert a:hover{
+            background-color: white;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     
@@ -24,10 +66,10 @@
             <h2>Carrito</h2>
         </div>
     </nav>
-    <!-- <div class="box-img-producto">
-                <img src="../img/juguetes/figuras_accion/fa1.png" alt="">
-            </div> -->
-    <div class="media-car">
+    
+    <?php
+        if($cuenta == 1){ ?>
+            <div class="media-car">
     <?php
             include './php/conexion.php';
 
@@ -159,6 +201,16 @@
             <button onclick="window.history.back()">Aceptar</button>
         </div>
     </div>
+        <?php } else{ ?>
+            <div class="media-alert">
+                <img src="./img/carritoSinCompras.png">
+                <p>Inicie sesion para poder añadir al carrito</p>
+                <a href="./login.php">Iniciar Sesion</a>
+            </div>
+        <?php }
+    ?>
+
+    
 
 
     <script src="js/carrito-script.js"></script>

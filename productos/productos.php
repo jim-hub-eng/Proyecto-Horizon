@@ -1,12 +1,20 @@
 <?php
 
-    session_start();
-
     include '../php/conexion.php';
-
-    $id_usuario = $_SESSION['id'];
     $sub_categoria = $_GET['subCategoria'];
+    session_start();
+    $cuenta = 0;
 
+    if(isset($_SESSION['correo'])){
+        $correo = $_SESSION['correo'];
+        $sql = "SELECT id FROM usuarios WHERE correo = '$correo';";
+        $ejecutar = $conexion -> query($sql);
+        $datos = $ejecutar -> fetch_object();
+        $id_usuario = $datos -> id;
+        $cuenta = 1;
+    }else{
+        $cuenta = 0;
+    }
 ?>
 
 <html lang="en">
@@ -67,7 +75,7 @@
         </div>
         <div class="navegacion-box">
             <div class="carrito">
-            <a target="_blank" href="../carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
+            <a href="../carrito.php"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -226,7 +234,13 @@
                 <input type="hidden" name="txtidUsuario" value="<?= $id_usuario ?>">
                 <input type="hidden" name="txtSubCategoria" value="<?= $sub_categoria ?>">
                 <a href="../producto_indiv.php?id=<?= $datos -> id ?>" class="ov-btn-grow-skew-reverse">Ver Mas</a>
-                <button id="btn-anadir-carrito">Añadir al carrito <span></span></button>
+                <?php
+                    if($cuenta == 1){ ?>
+                        <button id="btn-anadir-carrito">Añadir al carrito <span></span></button>
+                    <?php }else{ ?>
+                        <span id="btn-anadir-carrito">Añadir al carrito <span></span></span>
+                    <?php }
+                ?>
             </form>
         <?php }
 

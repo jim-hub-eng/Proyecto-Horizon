@@ -1,33 +1,30 @@
 <?php
-    session_start();
-
     include './php/conexion.php';
+    
+    session_start();
+    $cuenta = 0;
 
-    $correo = $_SESSION['correo'];
-
-    if($correo){
-        $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
-        $ejecutar = $conexion -> query($sql);
-
-        while($datos = $ejecutar -> fetch_assoc()){
-        $id_usuario = $_SESSION['id'] = $datos['id'];
-    }
+    if(isset($_SESSION['correo'])){
+        $correo = $_SESSION['correo'];
+        $cuenta = 1;
     }else{
-        header("location: ./login.php");
+        $cuenta = 0;
     }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
+    <title>Principal | HORIZON MARKETING</title>
     <style>
-        .icon-usuario{
+        .icon-is , 
+        .icon-cuenta{
+                display: flex;
                 color: white;
-                font-size: 20px;
+                font-size: 16px;
+                gap: 10px;
                 text-decoration: none;
         }
         @media(max-width: 740px){
@@ -75,10 +72,16 @@
         </div>
         <div class="navegacion-box">
             <div class="carrito">
-                <a href="./carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
+                <a href="./carrito.php"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="box-cerrarsesion">
-                <a class="icon-usuario" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></a>
+                <?php
+                    if($cuenta == 1){ ?>
+                        <a class="icon-cuenta" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></a>
+                    <?php }else{ ?>
+                        <a class="icon-is" href="./login.php">Iniciar Sesion<i class="bi bi-person-fill"></i></a>
+                    <?php  }
+                ?>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -146,9 +149,17 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href="./carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
+            <li><a href="./carrito.php"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
             <li><button style="margin-left: -10px;" onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
-            <li><a class="cerrarS" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></i>Cuenta</a></li>
+            <li>
+                <?php
+                    if($cuenta == 1){ ?>
+                        <a class="cerrarS" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i>Cuenta</a>
+                    <?php }else{ ?>
+                        <a class="cerrarS" href="./login.php"><i class="bi bi-person-fill"></i>Iniciar Sesion</a>
+                    <?php }
+                ?>
+            </li>
         </ul>
         <ul class="ul-2-from-menu">
             <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>

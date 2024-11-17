@@ -22,8 +22,9 @@
     $validar_login = mysqli_query($conexion , "SELECT * FROM usuarios WHERE correo = '$correo' and contrasena = '$password'");
 
     #si esta los manda al index
-    if(mysqli_num_rows($validar_login) > 0){
-        $_SESSION['correo'] = $correo;  #el session sirve para que se pueda usar la variable correo en cualquier lugar del codigo
+    if(mysqli_num_rows($validar_login) > 0){ #el session sirve para que se pueda usar la variable correo en cualquier lugar del codigo
+        session_start();
+        $_SESSION['correo'] = $correo;
         header("location: ../index.php");
         exit;
     }else{ #si no esta los manda al login

@@ -1,9 +1,21 @@
 <?php 
 
-    session_start(); #inicia sesion
+    session_start(); 
+    include './php/conexion.php';
+    $id_producto = $_GET['id']; 
+    $cuenta = 0;
 
-    $id_usuario = $_SESSION['id']; #se obtiene el id del usuario que se mando por el link
-    $id_producto = $_GET['id']; #se obtiene el id del producto para porder mostrarlo
+    if(isset($_SESSION['correo'])){
+        $correo = $_SESSION['correo'];
+        $sql = "SELECT id FROM usuarios WHERE correo = '$correo';";
+        $ejecutar = $conexion -> query($sql);
+        $datos = $ejecutar -> fetch_object();
+        $id_usuario = $datos -> id;
+        $cuenta = 1;
+    }else{
+        $cuenta = 0;
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -22,6 +34,40 @@
             border-radius: 10px;
             overflow: hidden;
         }
+        #btnAnadirCarrito{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 35px;
+            border: 1px solid;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: royalblue;
+            color: white;
+        }
+        #btnLabel{
+            position: relative;
+            width: 90%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+            background-color: transparent;
+            z-index: 50;
+            overflow: hidden;
+            transition: .3s;
+            cursor: pointer;
+        }
+        #btnLabel:hover{
+            background-color: black;
+            color: white;
+        }
     </style>
     <link rel="stylesheet" href="css/producto_indiv-styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -38,7 +84,7 @@
         </div>
         <div class="navegacion-box">
             <div class="carrito">
-                <a href="./carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i></a>
+                <a href="./carrito.php"><i class="bi bi-cart-fill"></i></a>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -106,7 +152,7 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button style="margin-left: -5px;" onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href="./carrito.php?id=<?= $id_usuario ?>"><i class="bi bi-cart-fill"></i>Carrito</a></li>
+            <li><a href="./carrito.php"><i class="bi bi-cart-fill"></i>Carrito</a></li>
             <li><button style="margin-left: -5px;" onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
         </ul>
         <ul class="ul-2-from-menu">
@@ -277,7 +323,13 @@
                         <?php }
                     ?>  
                     <!-- Cuando da click se mandan los datos al carrito -->
-                    <button id="btnAnadirCarrito" type="submit">Añadir al carrito</button>
+                    <?php
+                        if($cuenta == 1){ ?>
+                            <button id="btnAnadirCarrito" type="submit">Añadir al carrito</button>
+                        <?php } else { ?>
+                            <label id="btnAnadirCarrito">Añadir al carrito</label>
+                        <?php }
+                    ?>
                 </form>
                 <div class="bx">
                     <button id="btnComprar">Comprar</button>
@@ -317,7 +369,7 @@
                     while($datos = $ejecutar -> fetch_object()){
                         #Si el id del producto es igual al id del producto inicial, no se muestra
                         if($datos -> id != $id_producto ){ ?>
-                            <div class="producto product">
+                            <form class="producto product">
                             <div class="box-producto-img">
                                 <?php #se muestra la imagen del producto
                                     echo '
@@ -338,9 +390,15 @@
                             </div>
                             <div class="box-btn"> <!-- Se manda el id del producto al archivo producto_indiv.php por la url -->
                                 <a href="./producto_indiv.php?id=<?= $datos -> id ?>">Ver mas <span></span></a>
-                                <button>Añadir al carrito</button>
+                                <?php
+                                    if($cuenta == 1){ ?>
+                                        <button>Añadir al carrito</button>
+                                    <?php } else { ?>
+                                        <label id="btnLabel">Añadir al carrito</label>
+                                    <?php }
+                                ?>
                             </div>
-                        </div>
+                        </form>
                         <?php }
                         
                     }
@@ -355,7 +413,8 @@
                     <div class="box-flex">
                         <?php
 
-                            #se muestra los datos del registro del usuario que esta en sesion
+                            if($cuenta == 1){
+                                #se muestra los datos del registro del usuario que esta en sesion
                             $sql = "SELECT id , foto , usuario FROM usuarios WHERE id = '$id_usuario'";
                             #se ejecuta la consulta
                             $ejecutar = $conexion -> query($sql);
@@ -383,6 +442,22 @@
                             </div>
 
                             <?php }
+                            }else { ?>
+                                
+                                <div class="box-user">
+                                    <img src="./img/usuarioSinFoto.png" alt="">
+                                </div>
+                                
+
+                                                       
+                            <div class="box-inp">
+                                <label>Usuario:</label>
+                                <!-- Muestra el usuario del usuario -->
+                                <input type="text" name="txtUsuario" value="">
+                            </div>
+
+                            <?php }
+                            
 
                         ?>
                     </div>
@@ -408,12 +483,24 @@
                     </div>
                     <input type="hidden" name="txtIdProducto" value="<?= $id_producto ?>">
                     <!-- se manda el id del producto  -->
-                    <button style="top: -50px;" id="btnEnviarComen">Enviar 
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+                    <?php
+                        if($cuenta == 1){ ?>
+                            <button style="top: -50px;" id="btnEnviarComen">Enviar 
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                         </button>
+                        <?php }else { ?>
+                            <label style="top: -50px; display: flex; align-items: center; justify-content: center;" id="btnEnviarComen">
+                                Enviar
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </label>
+                        <?php }
+                    ?>
                 </form>
                 <div class="box-comentarios">
                     <?php
@@ -546,7 +633,13 @@
                         </div>
                         <div class="box-btn"> <!-- Se manda el id del producto por el link -->
                             <a href="./producto_indiv.php?id=<?= $datos -> id ?>">Ver mas <span></span></a>
-                            <button>Añadir al carrito</button>
+                            <?php
+                                    if($cuenta == 1){ ?>
+                                        <button>Añadir al carrito</button>
+                                    <?php } else { ?>
+                                        <label id="btnLabel">Añadir al carrito</label>
+                                    <?php }
+                                ?>
                         </div>
                     </div>
                 <?php }

@@ -168,7 +168,7 @@
     </div>
     <div class="box-foto-perfil">
         <form class="foto-perfil">
-            <span  class="ls-btn">&times;</span>
+            <span id="ls-btn-1" class="ls-btn">&times;</span>
             <h2>Seleccione su foto de perfil.</h2>
             <div class="box-img-perfil">
                 <img src="../img/sinImagen.png" alt="">
@@ -176,6 +176,53 @@
             <div class="box-file">
                 <input type="file" required>
                 <label>Seleccione imagen</label>
+            </div>
+            <button id="btnGuardar">Guardar</button>
+        </form>
+    </div>
+    <div class="box-nombre">
+        <form>
+            <span id="ls-btn-2" class="ls-btn">&times;</span>
+            <h2>Ingrese los nuevos datos</h2>
+            <div class="box-input">
+                <input type="text" id="" required>
+                <label>Nombre</label>
+            </div>
+            <div class="box-input">
+                <input type="text" id="" required>
+                <label>Apellido Paterno</label>
+            </div>
+            <div class="box-input">
+                <input type="text" id="" required>
+                <label>Apellido Materno</label>
+            </div>
+            <button id="btnGuardar">Guardar</button>
+        </form>
+    </div>
+    <div class="box-usuario">
+        <form>
+            <span id="ls-btn-3" class="ls-btn">&times;</span>
+            <h2>Ingrese el nuevo dato</h2>
+            <div class="box-input">
+                <input type="text" id="nombreUsuario" required>
+                <label for="nombreUsuario">Nombre de usuario</label>
+                <p>0 / 10</p> 
+            </div>
+            <button id="btnGuardar">Guardar</button>
+        </form>
+    </div>
+    <div class="box-contrasena">
+        <form>
+            <span id="ls-btn-3" class="ls-btn">&times;</span>
+            <h2>Ingrese la nueva contraseña</h2>
+            <div class="box-input">
+                <input type="password" id="" required>
+                <label for="">Nueva contraseña</label>
+            </div>
+            <div class="box-input">
+                <input type="text" id="" required>
+                <label for="">Nombre de usuario</label>
+                <p>No coinciden</p>
             </div>
             <button id="btnGuardar">Guardar</button>
         </form>
