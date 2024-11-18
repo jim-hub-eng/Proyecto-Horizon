@@ -8,7 +8,6 @@ const buttonCompras = document.getElementById('btnCompras');
 jm.btnStyle(buttonComentarios, "activo", buttonCompras, "activo");
 jm.btnStyle(buttonCompras, "activo", buttonComentarios, "activo");
 
-
 jm.verskynItemClass(buttonComentarios , carosel, "comentarios", "compras");
 jm.verskynItemClass(buttonCompras , carosel, "compras", "comentarios");
 

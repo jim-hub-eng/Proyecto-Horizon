@@ -172,19 +172,37 @@
                             <p>Se mostraran todas las compras hechas.</p>
                         </div>
                         <div class="box-compras">
-                            <?php
-                                $sql = "SELECT P.id , P.descuento, P.nombre, P.precio, T.id_producto, T.cant_producto, T.codigo, T.fecha FROM productos P INNER JOIN carrito T ON P.id = T.id_producto WHERE T.id_usuario = '$id' AND T.pagado = 'no';";
-                                $ejecutar = $conexion -> query($sql);
-                                while($datos = $ejecutar -> fetch_object()){
-                                    
-                                }
-                                
-                            ?>
-                            <div class="bx-pro-compras">
-                                <div class="fecha">
-                                    <h3>Fecha</h3>
-                                </div>
                                 <div class="comprass">
+                                    <?php
+                                        $sql = "SELECT P.id , P.descuento, P.nombre, P.precio, T.id_producto, T.cant_producto, T.codigo, T.fecha FROM productos P INNER JOIN carrito T ON P.id = T.id_producto WHERE T.id_usuario = '$id' AND T.pagado = 'si';";
+                                        $ejecutar = $conexion -> query($sql);
+                                        while($datos = $ejecutar -> fetch_object()){ ?>
+                                            <div class="compra">
+                                                <div class="box-img-producto">
+                                                    <?php 
+                                                        echo '<img src="../productos/mos.php?id=' . htmlspecialchars($datos -> id_producto , ENT_QUOTES) . '">';
+                                                    ?>
+                                                </div>
+                                                <div class="datos">
+                                                    <marquee><h3><?= $datos -> nombre ?></h3></marquee>
+                                                    <label>Cantidad: <?= $datos -> cant_producto ?></label>
+                                                    <?php
+                                                        if($datos -> descuento == 'n / a'){ ?>
+                                                            <label>Precio: $<?= $datos -> precio ?></label>
+                                                        <?php } else { ?>
+                                                            <label>Precio: $<?= $datos -> precio - ($datos -> precio * $datos -> descuento / 100) ?></label>
+                                                            <span><s>$<?= $datos -> precio ?></s></span>
+                                                            <span><?= $datos -> descuento ?>% de descuento</span>
+                                                        <?php }
+                                                    ?>
+                                                    <span>Total: $<?= $datos -> precio - ($datos -> precio * $datos -> descuento / 100) * $datos -> cant_producto ?></span>
+                                                    <span>Fecha: <?= $datos -> fecha ?></span>
+                                                </div>
+                                            </div>
+                                        <?php }
+
+                                    ?>  
+                                    <!--
                                     <div class="compra">
                                         <div class="box-img-producto">
                                             <img src="../img/casas/cosina/cosina1.png" alt="">
@@ -195,128 +213,11 @@
                                             <label>Precio: $2000</label>
                                             <span>800</span>
                                             <span>10% de descuento</span>
+                                            <span>Total: $000</span>
+                                            <span>Fecha: 00-00-00</span>
                                         </div>
                                     </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-datos-paga">
-                                    <div class="ti">
-                                        <p>TOTAL: $0000</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bx-pro-compras">
-                                <div class="fecha">
-                                    <h3>Fecha</h3>
-                                </div>
-                                <div class="comprass">
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                        </div>
-                                    </div>
+                                        -->
                                 </div>
                             </div>
                         </div>
@@ -458,5 +359,15 @@
         </div>
     </footer>
     <script type="module" src="../js/cuenta-script.js"></script>
+    <script>
+        const carosel = document.querySelector('.box');
+
+        function btnComent(){
+            carosel.classList.remove("activo");
+        }
+        function btnCom(){
+            carosel.classList.add("activo");
+        }
+    </script>
 </body>
 </html>
