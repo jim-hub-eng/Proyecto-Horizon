@@ -108,6 +108,7 @@ body{
     width: 100%;
     height: auto;
     top: 70px;
+    z-index: 1;
 }
 .box-car{
     position: fixed;
@@ -366,9 +367,26 @@ body{
     cursor: pointer;
     transition: .3s;
 }
+#btnGuardarImg{
+    padding: 7px 30px;
+    margin-top: 20px;
+    background-color: black;
+    color: #aaa;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    transition: .3s;
+    pointer-events: none;
+    cursor: pointer;
+}
+#btnGuardarImg.activo{
+    pointer-events: all;
+}
+#btnGuardarImg:hover,
 #btnGuardar:hover{
     padding: 7px 80px;
     background-color: #c234ff;
+    border-color: #c234ff;
+    color: white;
 }
 /* CSS DE MODIFICAR EL NOMBRE */
 .box-nombre{
@@ -496,6 +514,86 @@ body{
         left: 10px;
     }
 }
+/* CSS DE MODIFICAR CONTRASEÑA */
+.box-contrasena{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    transform: translateY(20px);
+    transition: .3s;
+    z-index: 999;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+}
+.box-contrasena.activo{
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+.box-contrasena form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    gap: 10px;
+    color: white;
+    width: 300px;
+    padding: 10px;
+    height: 340px;
+    border-radius: 10px;
+    border: 1px solid #c234ff;
+    box-shadow: 0 0 10px black;
+}
+/*CSS DE MODIFICAR UBICACION */
+.box-ubicacion{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    transform: translateY(20px);
+    transition: .3s;
+    z-index: 999;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(0,0,0,0.5);
+}
+.box-ubicacion.activo{
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+.box-ubicacion form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    gap: 10px;
+    color: white;
+    width: 300px;
+    padding: 10px;
+    height: 340px;
+    border-radius: 10px;
+    border: 1px solid #c234ff;
+    box-shadow: 0 0 10px black;
+
+    h2{
+        margin-top: 50px;
+    }
+}
 /* CSS DE COMENTARIOS */
 .box-comentarios{
     position: relative;
@@ -518,6 +616,11 @@ body{
     border-radius: 10px;
     margin-top: 10px;
 }
+@media(max-width: 400px){
+    .comentario{
+        width: 85%;
+    }
+}
 .box-datos-img-c{
     position: relative;
     width: 100%;
@@ -534,13 +637,25 @@ body{
 /* CSS DE COMPRAS */
 .box-compras{
     position: relative;
-    display: flex;
-    gap: 10px;
     width: 100%;
     height: auto;
+    background-color: transparent
+}
+.bx-pro-compras{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fecha{
+    position: relative;
+    width: 100%;
+    height: 70px;
+}
+.comprass{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
     flex-wrap: wrap;
-    background-color: transparent;
-    padding: 10px;
 }
 .compra{
     position: relative;
@@ -578,6 +693,18 @@ body{
     gap: 10px;
     height: auto;
     padding: 10px;
+}
+.box-datos-paga{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid white;
+    padding-top: 20px;
+    margin-top: 20px;
+    p{  
+        display: inline;
+        font-size: 20px;
+    }
 }
 /* CSS DE FOOTER */
 footer{
@@ -728,5 +855,145 @@ footer .politicas{
                 color: white;
             }
         }
+    }
+}
+@media(max-width: 600px){
+    .box-datos-user,
+    .box-img-user,
+    #openSeleccion,
+    #btnCerrarSesion{
+        display: none;
+    }
+    #btnMenu{
+        display: block;
+    }
+}
+.menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+    border-right: 1px solid #202020;
+    left: -300px;
+    transition: .3s;
+
+    h2{
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+    #cerrarMenu{
+        padding: 10px;
+        position: absolute;
+        left: 90%;
+        font-size: 25px;
+        color: red;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+.menu.activo{
+    left: 0;
+}
+.menu .ul-1{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: -20px;
+    top: -10px;
+
+    li{
+        list-style: none;
+        padding: 10px;
+
+        button{  
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: transparent;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: transparent;
+        }
+
+    }
+}
+.menu .ul-2-from-menu{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 92%;
+
+    li{
+        a{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: red;
+        }
+    }
+}
+.box-cuenta-img-datos{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    width: 90%;
+    height: 90px;
+    margin: 0 auto;
+    border-bottom: 1px solid white;
+    color: white;
+}
+.box-cuenta-img-datos .box-img{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.dts-usuario{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+
+    p , label{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 5px;
+    }
+
+}
+@media(max-width: 443px){
+    #desBusquedaFlotante{
+        left: -10px;
     }
 }

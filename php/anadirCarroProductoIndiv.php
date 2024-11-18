@@ -6,10 +6,11 @@
     $id_usuario = $_POST['txtidUsuario'];
     $id_producto = $_POST['txtidProducto'];
     $cant_producto = 1;  #cuando se añada al carrito un producto, en la cantidad va aparecer " 1 "
+    $pago = 'no';
 
     #se genera la consulta
-    $sql = "INSERT INTO carrito(id_usuario, id_producto, cant_producto)
-            VALUES('$id_usuario', '$id_producto', '$cant_producto')";
+    $sql = "INSERT INTO carrito(id_usuario, id_producto, cant_producto, pagado)
+            VALUES('$id_usuario', '$id_producto', '$cant_producto', '$pago')";
     
     #verifica si el producto ya existe
     $verificacion_producto = "SELECT * FROM carrito WHERE id_usuario = '$id_usuario' AND id_producto = '$id_producto'";

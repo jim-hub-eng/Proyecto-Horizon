@@ -5,7 +5,6 @@
     $cuenta = 0;
 
     if(isset($_SESSION['correo'])){
-        $correo = $_SESSION['correo'];
         $cuenta = 1;
     }else{
         $cuenta = 0;
@@ -77,7 +76,7 @@
             <div class="box-cerrarsesion">
                 <?php
                     if($cuenta == 1){ ?>
-                        <a class="icon-cuenta" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></a>
+                        <a class="icon-cuenta" href="./cuenta/cuenta.php"><i class="bi bi-person-fill"></i></a>
                     <?php }else{ ?>
                         <a class="icon-is" href="./login.php">Iniciar Sesion<i class="bi bi-person-fill"></i></a>
                     <?php  }
@@ -154,7 +153,7 @@
             <li>
                 <?php
                     if($cuenta == 1){ ?>
-                        <a class="cerrarS" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i>Cuenta</a>
+                        <a class="cerrarS" href="./cuenta/cuenta.php"><i class="bi bi-person-fill"></i>Cuenta</a>
                     <?php }else{ ?>
                         <a class="cerrarS" href="./login.php"><i class="bi bi-person-fill"></i>Iniciar Sesion</a>
                     <?php }

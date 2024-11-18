@@ -76,7 +76,7 @@
             $total = 0;
             $total_cant = 0;
 
-            $sql = "SELECT P.id , P.descuento, P.nombre, P.precio, T.id_producto, T.cant_producto, T.codigo FROM productos P INNER JOIN carrito T ON P.id = T.id_producto WHERE T.id_usuario = '$id_usuario';";
+            $sql = "SELECT P.id , P.descuento, P.nombre, P.precio, T.id_producto, T.cant_producto, T.codigo FROM productos P INNER JOIN carrito T ON P.id = T.id_producto WHERE T.id_usuario = '$id_usuario' AND T.pagado = 'no';";
             $ejecutar = $conexion -> query($sql);
             while($datos = $ejecutar -> fetch_object()){ 
                     
@@ -117,7 +117,6 @@
         <div class="media-pagar">
             <div class="box-pagar">
                 <div class="datos-pagar">
-                    <?php  ?>
                     <p>Total: $<?= $total ?></p>
                     <p>Cantidad de productos: <?= $total_cant ?></p>
                 </div>
@@ -127,26 +126,27 @@
     </div>
 
     <div class="container">
-        <form id="orderForm">
+        <form action="./php/pagar_carrito.php" method="POST" id="orderForm">
             <span id="btnCerrarPaga" onclick="btnCerrarPaga()">&times;</span>
             <div class="row">
                 <div class="col">
                     <h3 class="title">Dirección de envio</h3>
+                    <input type="hidden" name="txtid" value="<?= $id_usuario ?>">
                     <div class="inputBox">
                         <span>Nombre Completo:</span>
-                        <input required type="text" id="nombreCompleto" placeholder="Ingrese nombre completo">
+                        <input required type="text" name="nombreCompleto" id="nombreCompleto" placeholder="Ingrese nombre completo">
                     </div>
                     <div class="inputBox">
                         <span>Correo:</span>
-                        <input required type="email" id="correo" placeholder="Ingrese correo">
+                        <input required type="email" name="correo" id="correo" placeholder="Ingrese correo">
                     </div>
                     <div class="inputBox">
                         <span>Dirección :</span>
-                        <input required type="text" id="direccion" placeholder="Ingrese dirección">
+                        <input required type="text" name="direccion" id="direccion" placeholder="Ingrese dirección">
                     </div>
                     <div class="inputBox">
                         <span>Ciudad :</span>
-                        <select required id="ciudad">
+                        <select required name="ciudad" id="ciudad">
                             <option disabled selected value="">Seleccione una ciudad</option>
                             <option value="Estado de Mexico">Estado de Mexico</option>
                             <option value="Ciudad de Mexico">Ciudad de Mexico</option>
@@ -157,7 +157,7 @@
                     <div class="flex">
                         <div class="inputBox">
                             <span>Codigo postal:</span>
-                            <input required type="number" min="1" id="codigoPostal" class="input-quantity" placeholder="Ingrese codigo postal">
+                            <input required type="number" name="codigoPostal" min="1" id="codigoPostal" class="input-quantity" placeholder="Ingrese codigo postal">
                         </div>
                     </div>
                 </div>
@@ -171,15 +171,15 @@
                     </div>
                     <div class="inputBox">
                         <span>nombre en tarjeta :</span>
-                        <input required type="text" id="nombreTarjeta" placeholder="Ingrese nombre en tarjeta">
+                        <input required type="text" id="nombreTarjeta" name="nombreTarjeta" placeholder="Ingrese nombre en tarjeta">
                     </div>
                     <div class="inputBox">
                         <span>numeros de la tarjeta:</span>
-                        <input required type="number" id="numeroTarjeta" class="input-quantity" placeholder="1111-2222-3333-4444">
+                        <input required type="number" id="numeroTarjeta" name="numeroTarjeta" class="input-quantity" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
                         <span>Fecha de vencimiento</span>
-                        <input required type="text" id="fechaVencimiento" placeholder="MM/AA">
+                        <input required type="text" id="fechaVencimiento" name="fechaVencimiento" placeholder="MM/AA">
                     </div>
                     <div class="flex">
                         <div class="inputBox">
