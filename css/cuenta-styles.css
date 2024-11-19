@@ -134,14 +134,6 @@ body{
         cursor: pointer;
     }
 }
-#btnComentarios.activo{
-    background-color: rgba(142, 3, 255, 0.137);
-    border-bottom: 1px solid rgb(170, 67, 255);
-}
-#btnCompras.activo{
-    background-color: rgba(142, 3, 255, 0.137);
-    border-bottom: 1px solid rgb(170, 67, 255);
-}
 /* CSS DE CARRUSEL */
 .box-carosel{
     position: relative;
@@ -300,6 +292,7 @@ body{
     width: 300px;
     height: 350px;
     background-color: black;
+    color: white;
 }
 .ls-btn{
     position: absolute;
@@ -314,7 +307,7 @@ body{
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    bottom: 70px;
+    bottom: 10px;
 
     img{
         position: absolute;

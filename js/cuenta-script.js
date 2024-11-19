@@ -1,23 +1,9 @@
-import * as jm from '../libreria/libreria.js';
-
-const carosel = document.querySelector('.box');
-
-const buttonComentarios = document.getElementById('btnComentarios');
-const buttonCompras = document.getElementById('btnCompras');
-
-jm.btnStyle(buttonComentarios, "activo", buttonCompras, "activo");
-jm.btnStyle(buttonCompras, "activo", buttonComentarios, "activo");
-
-jm.verskynItemClass(buttonComentarios , carosel, "comentarios", "compras");
-jm.verskynItemClass(buttonCompras , carosel, "compras", "comentarios");
-
-
-const fondo = document.querySelector('.fondo');
-const closeSeleccion = document.getElementById('closeSeleccion');
-
-jm.verskynItemClass(closeSeleccion, fondo, null ,"activo");
-
 const btns = document.querySelectorAll('.eleccion');
+const fondo = document.querySelector('.fondo');
+
+function cerrarSeleccion(){
+    fondo.classList.remove("activo");
+}
 
 const box_picture = document.querySelector('.box-foto-perfil');
 const box_nombre = document.querySelector('.box-nombre');
@@ -47,29 +33,37 @@ btns.forEach((element , i) => {
         }
 
     }
-}); 
-const btn1 = document.getElementById('ls-btn-1');
-jm.verskynItemClass(btn1 , box_picture, null, "activo");
+});
 
-const btn2 = document.getElementById('ls-btn-2');
-jm.verskynItemClass(btn2 , box_nombre, null, "activo");
+const lbButton = document.querySelectorAll('.ls-btn');
 
-const btn3 = document.getElementById('ls-btn-3');
-jm.verskynItemClass(btn3 , box_usuario, null, "activo");
+lbButton.forEach((element , i) => {
+    element.addEventListener('click', clickLb);
 
-const btn4 = document.getElementById('ls-btn-4');
-jm.verskynItemClass(btn4 , box_contrasena, null, "activo");
+    function clickLb(){
+        if(i == 0){
+            box_picture.classList.remove("activo");
+        }else if(i == 1){
+            box_nombre.classList.remove("activo");
+        }else if(i == 2){
+            box_usuario.classList.remove("activo");
+        }else if(i == 3){
+            box_contrasena.classList.remove("activo");
+        }else if(i == 4){
+            box_ubicacion.classList.remove("activo");
+        }
+    }
 
-const btn5 = document.getElementById('ls-btn-5');
-jm.verskynItemClass(btn5 , box_ubicacion, null, "activo");
+});
 
 const menu = document.querySelector('.menu');
-const btnMenu = document.getElementById('btnMenu');
-const cerrarMenu = document.getElementById('cerrarMenu');
 
-jm.verskynItemClass(btnMenu , menu, "activo", null);
-jm.verskynItemClass(cerrarMenu , menu, null,"activo");
-
+function abrirMenu(){
+    menu.classList.add("activo");
+}
+function cerrarMenu(){
+    menu.classList.remove("activo");
+}
 
 const btnSeleccion = document.querySelectorAll('.openSeleccion');
 
@@ -92,15 +86,82 @@ const img = document.getElementById('img');
 const lb = document.querySelector('.lb-name');
 const btnGuardarImg = document.getElementById('btnGuardarImg');
 
-jm.insertImage(inputFile , img, lb, btnGuardarImg, "activo");
+inputFile.addEventListener('change', function(event){
+    const file = event.target.files[0];
+
+            if(file){
+
+                lb.textContent = file.name;
+                btnGuardarImg.classList.add("activo");
+
+                const reader = new FileReader();
+
+                reader.onload = function(e){
+
+                    img.src = e.target.result;
+
+                }
+                reader.readAsDataURL(file);
+            }
+
+});
+
+
 
 const nombreUsuario = document.getElementById('nombreUsuario');
 const caja_conteo_nombre = document.getElementById('caja-conteo-nombre');
 
-jm.countUp(nombreUsuario , caja_conteo_nombre , "10");
+nombreUsuario.addEventListener('keyup', contarLetras);
+
+function contarLetras(){
+
+    let cantidad = nombreUsuario.value.length;
+
+    caja_conteo_nombre.innerHTML = `${cantidad} / 10`;
+
+}
 
 const newpsw = document.getElementById('newpsw');
 const newrpsw = document.getElementById('newrpsw');
 const cajaRpsw = document.getElementById('caja-verificacion-rpsw');
 
-jm.validatePsw(newpsw,newrpsw,cajaRpsw);
+newrpsw.addEventListener('input', validar_psw);
+
+function validar_psw(){
+    
+    let psw = newpsw.value;
+    let psw_r = newrpsw.value;
+
+    if(psw_r === ""){
+        cajaRpsw.textContent = "";
+    }else if(psw === psw_r){
+        cajaRpsw.textContent = 'Las contraseñas coinciden';
+        cajaRpsw.style.color = '#54ff62';
+    }else{
+        cajaRpsw.textContent = 'Las contraseñas no coinciden';
+        cajaRpsw.style.color = 'red';
+    }
+
+}
+const psw = document.getElementById('psw');
+const psw_actual = document.getElementById('psw-actual');
+
+psw.addEventListener('input', validacion);
+
+function validacion(){
+    
+    let password_actual = psw_actual.value;
+    let password = psw.value;
+
+    if(password == ''){
+        newpsw.classList.remove("activo");
+        newrpsw.classList.remove("activo");
+    }else if(password === password_actual){
+        newpsw.classList.add("activo");
+        newrpsw.classList.add("activo");
+    }else{
+        newpsw.classList.remove("activo");
+        newrpsw.classList.remove("activo");
+    }
+
+}

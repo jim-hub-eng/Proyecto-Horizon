@@ -16,6 +16,9 @@
         $usuario = $datos -> usuario;
         $apellido_p = $datos -> apellido_p;
         $apellido_m = $datos -> apellido_m;
+        $contrasena = $datos -> contrasena;
+        $direccion = $datos -> direccion;
+        $region = $datos -> region;
 
         $cuenta = 1;
     }else{
@@ -32,6 +35,22 @@
     <link rel="shortcut icon" href="img/logo-1_2.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/cuenta-styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        #newpsw,
+        #newrpsw{
+            border-color: #202020;
+            pointer-events: none;
+        }
+        #lb-newpsw,
+        #lb-newrpsw{
+            pointer-events: none;
+        }
+        #newpsw.activo,
+        #newrpsw.activo{
+            border-color: white;
+            pointer-events: all;
+        }
+    </style>
 </head>
 <body>
     
@@ -49,13 +68,13 @@
             </div>
             <div class="box-datos-user">
                 <label><?= $usuario ?></label>
-                <p><?= $nombre . " " . $apellido_p . " " . $apellido_m ?></p>
+                <p><?php echo ucwords($nombre) . " " . ucwords($apellido_p) . " " . ucwords($apellido_m) ?></p>
             </div>
         </div>
         <box class="box-2">
             <button class="openSeleccion" id="openSeleccion"><i class="bi bi-pencil-square"></i></button>
             <a id="btnCerrarSesion" href="../php/cerrarSesion.php"><i class="bi bi-box-arrow-in-left"></i></a>
-            <button id="btnMenu"><i class="bi bi-list"></i></button>
+            <button id="btnMenu" onclick="abrirMenu()"><i class="bi bi-list"></i></button>
         </box>
     </nav>
    <!--MENU-->
@@ -74,7 +93,7 @@
         </div>
         <div class="dts-usuario">
             <label><?= $usuario ?></label>
-            <p><?= $nombre . " " . $apellido_p . " " . $apellido_m ?></p>
+            <p><?php echo ucwords($nombre) . " " . ucwords($apellido_p) . " " . ucwords($apellido_m) ?></p>
         </div>
     </div>
     <ul class="ul-1">
@@ -87,8 +106,16 @@
    <!-- FIN MENU-->
     <div class="media">
         <div class="box-car">
-            <button id="btnComentarios" onclick="btnComent()" class="activo"><i class="bi bi-chat-left-dots"></i>Comentarios</button>
-            <button id="btnCompras" onclick="btnCom()"><i class="bi bi-bag"></i>Compras</button>
+            <button id="btnComentarios" onclick="
+                const carosel = document.querySelector('.box');
+                carosel.classList.add('comentarios');
+                carosel.classList.remove('compras');
+            "><i class="bi bi-chat-left-dots"></i>Comentarios</button>
+            <button id="btnCompras" onclick="
+                const carosel = document.querySelector('.box');
+                carosel.classList.add('compras');
+                carosel.classList.remove('comentarios');
+            " ><i class="bi bi-bag"></i>Compras</button>
         </div>
         <div class="box-carosel">
             <div class="carosel">
@@ -189,35 +216,20 @@
                                                     <?php
                                                         if($datos -> descuento == 'n / a'){ ?>
                                                             <label>Precio: $<?= $datos -> precio ?></label>
+                                                            <span>Total: $<?= $datos -> precio * $datos -> cant_producto ?></span>
                                                         <?php } else { ?>
                                                             <label>Precio: $<?= $datos -> precio - ($datos -> precio * $datos -> descuento / 100) ?></label>
                                                             <span><s>$<?= $datos -> precio ?></s></span>
                                                             <span><?= $datos -> descuento ?>% de descuento</span>
+                                                            <span>Total: $<?= $datos -> precio - ($datos -> precio * $datos -> descuento / 100) * $datos -> cant_producto ?></span>
                                                         <?php }
                                                     ?>
-                                                    <span>Total: $<?= $datos -> precio - ($datos -> precio * $datos -> descuento / 100) * $datos -> cant_producto ?></span>
                                                     <span>Fecha: <?= $datos -> fecha ?></span>
                                                 </div>
                                             </div>
                                         <?php }
 
-                                    ?>  
-                                    <!--
-                                    <div class="compra">
-                                        <div class="box-img-producto">
-                                            <img src="../img/casas/cosina/cosina1.png" alt="">
-                                        </div>
-                                        <div class="datos">
-                                            <marquee><h3>Titulo</h3></marquee>
-                                            <label>Cantidad: 3</label>
-                                            <label>Precio: $2000</label>
-                                            <span>800</span>
-                                            <span>10% de descuento</span>
-                                            <span>Total: $000</span>
-                                            <span>Fecha: 00-00-00</span>
-                                        </div>
-                                    </div>
-                                        -->
+                                    ?> 
                                 </div>
                             </div>
                         </div>
@@ -228,7 +240,7 @@
     </div>
     <div class="fondo">
         <div class="selecionar">
-            <button id="closeSeleccion">&times;</button>
+            <button id="closeSeleccion" onclick="cerrarSeleccion()">&times;</button>
             <h2>Que quieres modificar?</h2>
             <button class="eleccion">Foto de perfil</button>
             <button class="eleccion">Nombre</button>
@@ -238,78 +250,88 @@
         </div>
     </div>
     <div class="box-foto-perfil">
-        <form class="foto-perfil">
+        <form method="POST" action="../php_cuenta/mod_foto_cuenta.php" enctype="multipart/form-data" class="foto-perfil">
             <span id="ls-btn-1" class="ls-btn">&times;</span>
             <h2>Seleccione su foto de perfil.</h2>
             <div class="box-img-perfil">
                 <img id="img" src="../img/sinImagen.png" alt="">
             </div>
             <div class="box-file">
-                <input type="file" id="inputFile" required>
+                <input type="hidden" name="txtid" value="<?= $id ?>">
+                <input type="file" name="foto" id="inputFile" required>
                 <label class="lb-name" for="inputFile">Seleccione imagen</label>
             </div>
             <button id="btnGuardarImg">Guardar</button>
         </form>
     </div>
     <div class="box-nombre">
-        <form>
+        <form method="POST" action="../php_cuenta/mod_nombre_cuenta.php">
             <span id="ls-btn-2" class="ls-btn">&times;</span>
             <h2>Ingrese los nuevos datos</h2>
             <div class="box-input">
-                <input type="text" id="" required>
+                <input type="text" name="nombre" value="<?= $nombre ?>"  required>
                 <label>Nombre</label>
             </div>
             <div class="box-input">
-                <input type="text" id="" required>
+                <input type="text" name="apellido_p"  value="<?= $apellido_p ?>"  required>
                 <label>Apellido Paterno</label>
             </div>
             <div class="box-input">
-                <input type="text" id="" required>
+                <input type="text" name="apellido_m"  value="<?= $apellido_m ?>" required>
                 <label>Apellido Materno</label>
             </div>
+            <input type="hidden" name="txtid" value="<?= $id ?>">
             <button id="btnGuardar">Guardar</button>
         </form>
     </div>
     <div class="box-usuario">
-        <form>
+        <form method="POST" action="../php_cuenta/mod_usuario_cuenta.php">
             <span id="ls-btn-3" class="ls-btn">&times;</span>
             <h2>Ingrese el nuevo dato</h2>
             <div class="box-input">
-                <input type="text" maxlength="10" id="nombreUsuario" required>
+                <input type="text" maxlength="10" name="usuario" value="<?= $usuario ?>" id="nombreUsuario" required>
                 <label for="nombreUsuario">Nombre de usuario</label>
                 <p id="caja-conteo-nombre">0 / 10</p> 
             </div>
+            <input type="hidden" name="txtid" value="<?= $id ?>">
             <button id="btnGuardar">Guardar</button>
         </form>
     </div>
     <div class="box-contrasena">
-        <form>
+        <form method="POST" action="../php_cuenta/mod_psw_cuenta.php">
             <span id="ls-btn-4" class="ls-btn">&times;</span>
             <h2>Ingrese la nueva contraseña</h2>
             <div class="box-input">
-                <input type="password" id="newpsw" required>
-                <label for="newpsw">Nueva contraseña</label>
+                <input type="hidden" id="psw-actual" value="<?= $contrasena ?>">
+                <input type="password" id="psw" required>
+                <label for="psw">Ingrese su contraseña</label>
+            </div>
+            <div class="box-input">
+                <input type="password" name="password" id="newpsw" required>
+                <label id="lb-newpsw" for="newpsw">Nueva contraseña</label>
             </div>
             <div class="box-input">
                 <input type="password" id="newrpsw" required>
-                <label for="newrpsw">Repetir contraseña</label>
+                <label id="lb-newrpsw" for="newrpsw">Repetir contraseña</label>
                 <p id="caja-verificacion-rpsw"></p>
             </div>
+            <input type="hidden" name="txtid" value="<?= $id ?>">
             <button id="btnGuardar">Guardar</button>
         </form>
     </div>
     <div class="box-ubicacion">
-        <form>
+        <form method="POST" action="../php_cuenta/mod_ubi_cuenta.php">
             <span id="ls-btn-5" class="ls-btn">&times;</span>
             <h2>Ingrese los nuevos datos</h2>
             <div class="box-input">
-                <input type="text" id="direccion" required>
+                <input type="text" name="direccion" value="<?= $direccion ?>" id="direccion" required>
                 <label for="direccion">Direccion</label>
             </div>
             <div class="box-input">
-                <input type="text" id="region" required>
+                <input type="text" name="region" value="<?= $region ?>" id="region" required>
                 <label for="region">Region</label>
             </div>
+            <input type="hidden" name="txtid" value="<?= $id ?>">
             <button id="btnGuardar">Guardar</button>
         </form>
     </div>
@@ -358,16 +380,30 @@
             </ul>
         </div>
     </footer>
-    <script type="module" src="../js/cuenta-script.js"></script>
+    <script src="../js/cuenta-script.js"></script>
     <script>
-        const carosel = document.querySelector('.box');
+        const psw = document.getElementById('psw');
+const psw_actual = document.getElementById('psw-actual');
 
-        function btnComent(){
-            carosel.classList.remove("activo");
-        }
-        function btnCom(){
-            carosel.classList.add("activo");
-        }
+psw.addEventListener('input', validacion);
+
+function validacion(){
+    
+    let password_actual = psw_actual.value;
+    let password = psw.value;
+
+    if(password == ''){
+        newpsw.classList.remove("activo");
+        newrpsw.classList.remove("activo");
+    }else if(password === password_actual){
+        newpsw.classList.add("activo");
+        newrpsw.classList.add("activo");
+    }else{
+        newpsw.classList.remove("activo");
+        newrpsw.classList.remove("activo");
+    }
+
+}
     </script>
 </body>
 </html>
