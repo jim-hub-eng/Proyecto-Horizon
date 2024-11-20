@@ -31,7 +31,8 @@
                 display: none;
             }
         }
-        #resultados{
+        #resultados,
+        #result{
             position: absolute;
             display: none;
             flex-direction: column;
@@ -50,7 +51,10 @@
                 padding: 10px;
                 text-decoration: none;
             }
-
+        }
+        #result{
+            display: none;
+            width: 100%;
         }
     </style>
     <link rel="stylesheet" href="css/index-styles.css">
@@ -174,7 +178,10 @@
         <p>Ingresa el articulo que quieres buscar.</p>
         <div class="box-inp-busqueda">
             <label for=""><i class="bi bi-search"></i></label>
-            <input type="text" placeholder="Buscar...">
+            <input type="text" id="input-buscar-menu" placeholder="Buscar...">
+            <div id="result">
+                <a href="">Mejor nada</a>
+            </div>
         </div>
     </div>
 
@@ -393,7 +400,61 @@
             }
 
         }
+        //input-buscar-menu
+        const search_menu = document.getElementById('input-buscar-menu');
+        search_menu.addEventListener('keyup', buscar_menu);
+        const resultados_menu =document.getElementById('result');
+        let lista_menu = [
+        <?php
+            $sql = "SELECT id , nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
 
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>",
+            <?php }
+        ?>
+        ];
+        let link_menu = {
+        <?php
+            $sql = "SELECT id, nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>" : "<?= $datos -> id ?>",
+            <?php }
+        ?>
+        };
+        function buscar_menu(){
+            let buscardor = search_menu.value;
+            let i = 0;
+            let result = [];
+            let resultLinks = [];
+            resultados_menu.innerHTML = '';
+
+            for(i=0; i<lista_menu.length; i++){
+                if(lista_menu[i].toLowerCase().includes(buscardor.toLowerCase())){
+                    result.push(lista_menu[i]);
+                    resultLinks.push(i);
+                }
+            }
+            if(result.length > 0){
+                for(i=0; i<lista.length; i++){
+                    const a = document.createElement('a');
+                    a.textContent = result[i];
+                    a.href = './producto_indiv.php?id=' + link_menu[result[i]];
+
+                    resultados_menu.appendChild(a);
+                }
+            }else{
+                resultados_menu.textContent = 'Sin resultados';
+            }
+            if(buscardor == ''){
+                resultados_menu.style.display = 'none';
+            }else{
+                resultados_menu.style.display = 'flex';
+            }
+
+        }
     </script>
 </body>
 </html>
