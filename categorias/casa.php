@@ -82,7 +82,7 @@
             <div class="box-cerrarsesion">
             <?php
                     if($cuenta == 1){ ?>
-                        <a class="icon-cuenta" href="../cuenta/cuenta.html"><i class="bi bi-person-fill"></i></a>
+                        <a class="icon-cuenta" href="../cuenta/cuenta.php"><i class="bi bi-person-fill"></i></a>
                     <?php }else{ ?>
                         <a class="icon-is" href="../login.php">Iniciar Sesion<i class="bi bi-person-fill"></i></a>
                     <?php  }
@@ -160,7 +160,7 @@
             <li>
                 <?php
                     if($cuenta == 1){ ?>
-                        <a class="cerrarS" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></i>Cuenta</a>
+                        <a class="cerrarS" href="./cuenta/cuenta.php"><i class="bi bi-person-fill"></i></i>Cuenta</a>
                     <?php }else{ ?>
                         <a class="cerrarS" href="../login.php"><i class="bi bi-person-fill"></i></i>Iniciar Sesion</a>
                     <?php }
