@@ -252,7 +252,7 @@
             <h3>Redes Sociales</h3>
             <ul>
                 <li>
-                    <a class="btn-ins" href="#">
+                    <a target="_blanck" class="btn-ins" href="https://www.instagram.com/programmers._.123?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                         <i class="bi bi-instagram"></i>
                         <span>Instagram</span>
                     </a>
@@ -280,7 +280,7 @@
         <div class="atencionCliente">
             <h2>Atencion al Cliente</h2>
             <ul>
-                <li><a href="#">Ayuda</a></li>
+                <li><a href="./Ayuda.html">Ayuda</a></li>
                 <li><a href="#">Servicios</a></li>
             </ul>
         </div>

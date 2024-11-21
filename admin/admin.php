@@ -22,6 +22,16 @@
         .content-2 .box-input p{
             left: 85%;
         }
+        .salirBtn{
+            position: absolute;
+            top: 100%;
+            color: black; 
+            padding: 10px;
+            background-color: black;
+            color: white;
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
     </style>
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -31,6 +41,7 @@
     <div class="nav">
         <button id="btn-car-1"><i class="bi bi-person-fill"></i></button>
         <button id="btn-car-2"><i class="bi bi-bag-fill"></i></button>
+        <a class="salirBtn" href="../login.php"><i class="bi bi-box-arrow-in-right"></i></a>
     </div>
 
     <div class="box-1">
@@ -39,7 +50,7 @@
             <div class="boxes">
                 <div class="title-1">
                     <h2>ADMINISTRADORES</h2>
-                    <a href="">Descargar Pdf</a>
+                    <a href="./apartado_reportes/reporte_admin.php">Generar Pdf</a>
                 </div>
                 <div class="box-registrar">
                     <div class="title-2">
@@ -109,7 +120,7 @@
                                         <td><?= $datos -> edad ?></td>
                                         <td><?= $datos -> correo ?></td>
                                         <td><?= $datos -> fecha_ingreso ?></td>
-                                        <td><a class="btn-pencil" href="./pantallas/modificar_admin.php?id=<?= $datos -> id ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                        <td><a class="btn-pencil" href="./confirm_pass.php?id=<?= $datos -> id ?>"><i class="bi bi-pencil-square"></i></a></td>
                                         <td><a class="btn-delete" href="./apartado_admin/eliminar.php?id=<?= $datos -> id ?>"><i class="bi bi-trash"></i></a></td>
                                     </tr>
                                 <?php }
@@ -151,19 +162,19 @@
                                 <label for="">Descuento</label>
                             </div>
                             <div class="box-input">
-                                <input type="text" name="txtColorArticulo" id="" required>
+                                <input type="text" maxlength="20" name="txtColorArticulo" id="input-color" required>
                                 <label for="">Color</label>
-                                <p>0 / 20</p>
+                                <p id="box-color" >0 / 20</p>
                             </div>
                             <div class="box-input">
-                                <input type="text" name="txtMarcaArticulo" id="" required>
+                                <input type="text" maxlength="20" name="txtMarcaArticulo" id="input-marca" required>
                                 <label for="">Marca</label>
-                                <p>0 / 20</p>
+                                <p id="box-marca">0 / 20</p>
                             </div>
                             <div class="box-input">
-                                <input type="text" name="txtInteresesArticulo" id="" required>
+                                <input type="text" maxlength="50" name="txtInteresesArticulo" id="input-intereses" required>
                                 <label for="">Intereses</label>
-                                <p>0 / 50</p>
+                                <p id="box-intereses">0 / 50</p>
                             </div>
                             <div class="box-select">
                                 <label for="">Categoria</label>
@@ -228,6 +239,47 @@ function cantLetras_producto(){
     error_producto.innerHTML = `${num_letras} / 70`;
 
 }
+
+const color = document.getElementById('input-color');
+const mos_color = document.getElementById('box-color');
+
+color.addEventListener('keyup', cantLetras_color);
+
+function cantLetras_color(){
+
+    let num_letras = color.value.length;
+
+    mos_color.innerHTML = `${num_letras} / 20`;
+
+}
+
+    const marca = document.getElementById('input-marca');
+    const mos_marca = document.getElementById('box-marca');
+
+    marca.addEventListener('keyup', cantLetras_marca);
+
+    function cantLetras_marca(){
+
+        let num_letras = marca.value.length;
+
+        mos_marca.innerHTML = `${num_letras} / 20`;
+
+    }
+
+    const intereses = document.getElementById('input-intereses');
+    const mos_intereses = document.getElementById('box-intereses');
+    
+    intereses.addEventListener('keyup', cantLetras_intereses);
+    
+    function cantLetras_intereses(){
+    
+        let num_letras = intereses.value.length;
+    
+        mos_intereses.innerHTML = `${num_letras} / 50`;
+    
+    }
+
+
 
     </script>
 </body>

@@ -344,16 +344,15 @@
                         <img src="img/ofrecimientos/entrega.png" alt="">
                     </div>
                     <h3>Enviado por Horizon Marcketing</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolorum culpa aliquid illo modi aperiam dolor! Quod id ratione accusamus officia beatae adipisci</p>
+                    <p>Todos nuestros productos son enviados desde Horizon Marcketing</p>
                 </div>
                 <div class="card">
                     <div class="box-ofrecimiento-img">
                         <img src="img/ofrecimientos/seguridadDeEntrega.png" alt="">
                     </div>
                     <h3>Seguridad en el envio</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolorum culpa aliquid illo modi aperiam dolor! Quod id ratione accusamus officia beatae adipisci</p>
+                    <p>Un envío seguro es esencial para una experiencia de compra en línea satisfactoria.</p>
                 </div>
-                
             </div>
         </div>
         <div class="box-3">
@@ -654,7 +653,8 @@
             <h3>Redes Sociales</h3>
             <ul>
                 <li>
-                    <a class="btn-ins" href="#">
+                <a target="_blanck" class="btn-ins" href="https://www.instagram.com/programmers._.123?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                    
                         <i class="bi bi-instagram"></i>
                         <span>Instagram</span>
                     </a>
@@ -682,7 +682,7 @@
         <div class="atencionCliente">
             <h2>Atencion al Cliente</h2>
             <ul>
-                <li><a href="#">Ayuda</a></li>
+                <li><a href="./Ayuda.html">Ayuda</a></li>
                 <li><a href="#">Servicios</a></li>
             </ul>
         </div>

@@ -31,6 +31,31 @@
                 display: none;
             }
         }
+        #resultados,
+        #result{
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background-color: white;
+            top: 200%;
+            border-radius: 10px;
+            z-index: 999;
+            width: 200px;
+            height: auto;
+            padding: 10px;
+            color: black;
+
+            a{
+                color: black;
+                padding: 10px;
+                text-decoration: none;
+            }
+        }
+        #result{
+            display: none;
+            width: 100%;
+        }
     </style>
     <link rel="stylesheet" href="../css/categoria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -46,6 +71,7 @@
         <div class="box-buscador">
             <input type="search" id="inp-buscador" placeholder="Buscar..." required>
             <label for="inp-buscador"><i class="bi bi-search"></i></label>
+            <div id="resultados"></div>
         </div>
         <div class="navegacion-box">
             <div class="carrito">
@@ -66,7 +92,7 @@
         </div>
         <div class="nav-1">
             <a class="btn-verCategoria" href=""><i class="bi bi-list-ul"></i>Categorias</a>
-            <a class="Ayuda" href=""><i class="bi bi-info-circle"></i>Ayuda</a>
+            <a class="Ayuda" href="../Ayuda.html"><i class="bi bi-info-circle"></i>Ayuda</a>
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
@@ -140,7 +166,7 @@
             </li>
         </ul>
         <ul class="ul-2-from-menu">
-            <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>
+            <li><a href="../Ayuda.html"><i class="bi bi-info-circle"></i>Ayuda</a></li>
             <li><a href="#"><i class="bi bi-question-lg"></i>Preguntas</a></li>
         </ul>
     </div>
@@ -153,7 +179,8 @@
         <p>Ingresa el articulo que quieres buscar.</p>
         <div class="box-inp-busqueda">
             <label for=""><i class="bi bi-search"></i></label>
-            <input type="text" placeholder="Buscar...">
+            <input type="text" id="input-buscar-menu" placeholder="Buscar...">
+            <div id="result"></div>
         </div>
     </div>
 
@@ -247,7 +274,7 @@
             <h3>Redes Sociales</h3>
             <ul>
                 <li>
-                    <a class="btn-ins" href="#">
+                    <a target="_blanck" class="btn-ins" href="https://www.instagram.com/programmers._.123?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                         <i class="bi bi-instagram"></i>
                         <span>Instagram</span>
                     </a>
@@ -275,7 +302,7 @@
         <div class="atencionCliente">
             <h2>Atencion al Cliente</h2>
             <ul>
-                <li><a href="#">Ayuda</a></li>
+                <li><a href="../Ayuda.html">Ayuda</a></li>
                 <li><a href="#">Servicios</a></li>
             </ul>
         </div>
@@ -289,5 +316,122 @@
     </footer>
 
     <script src="../js/categorias-script.js"></script>
+    <script>
+        const search = document.getElementById('inp-buscador');
+        search.addEventListener('keyup', buscar);
+        const resultados =document.getElementById('resultados');
+        let lista = [
+        <?php
+            $sql = "SELECT id , nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>",
+            <?php }
+        ?>
+        ];
+        let link = {
+        <?php
+            $sql = "SELECT id, nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>" : "<?= $datos -> id ?>",
+            <?php }
+        ?>
+        };
+        function buscar(){
+            let buscardor = search.value;
+            let i = 0;
+            let result = [];
+            let resultLinks = [];
+            resultados.innerHTML = '';
+
+            for(i=0; i<lista.length; i++){
+                if(lista[i].toLowerCase().includes(buscardor.toLowerCase())){
+                    result.push(lista[i]);
+                    resultLinks.push(i);
+                }
+            }
+            if(result.length > 0){
+                for(i=0; i<lista.length; i++){
+                    const a = document.createElement('a');
+                    a.textContent = result[i];
+                    a.href = './producto_indiv.php?id=' + link[result[i]];
+
+                    if(link[result[i]] != null){
+                        resultados.appendChild(a);
+                    }
+                    
+                }
+            }else{
+                resultados.textContent = 'Sin resultados';
+            }
+            if(buscardor == ''){
+                resultados.style.display = 'none';
+            }else{
+                resultados.style.display = 'flex';
+            }
+
+        }
+        //input-buscar-menu
+        const search_menu = document.getElementById('input-buscar-menu');
+        search_menu.addEventListener('keyup', buscar_menu);
+        const resultados_menu =document.getElementById('result');
+        let lista_menu = [
+        <?php
+            $sql = "SELECT id , nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>",
+            <?php }
+        ?>
+        ];
+        let link_menu = {
+        <?php
+            $sql = "SELECT id, nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>" : "<?= $datos -> id ?>",
+            <?php }
+        ?>
+        };
+        function buscar_menu(){
+            let buscardor = search_menu.value;
+            let i = 0;
+            let result = [];
+            let resultLinks = [];
+            resultados_menu.innerHTML = '';
+
+            for(i=0; i<lista_menu.length; i++){
+                if(lista_menu[i].toLowerCase().includes(buscardor.toLowerCase())){
+                    result.push(lista_menu[i]);
+                    resultLinks.push(i);
+                }
+            }
+            if(result.length > 0){
+                for(i=0; i<lista.length; i++){
+                    const a = document.createElement('a');
+                    a.textContent = result[i];
+                    a.href = './producto_indiv.php?id=' + link_menu[result[i]];
+
+                    if(link_menu[result[i]] != null){
+                        resultados_menu.appendChild(a);
+                    }
+                    
+                }
+            }else{
+                resultados_menu.textContent = 'Sin resultados';
+            }
+            if(buscardor == ''){
+                resultados_menu.style.display = 'none';
+            }else{
+                resultados_menu.style.display = 'flex';
+            }
+
+        }
+    </script>
 </body>
 </html>

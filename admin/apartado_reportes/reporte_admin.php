@@ -20,7 +20,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(80);
     // Título
-    $this->Cell(30,10,'REPORTE DE USUARIOS',0,1,'C');
+    $this->Cell(30,10,'REPORTE DE ADMINISTRADORES',0,1,'C');
 
     $this->SetFont('Arial','B',13);
 

@@ -165,7 +165,7 @@
             </li>
         </ul>
         <ul class="ul-2-from-menu">
-            <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>
+            <li><a href="../Ayuda.html"><i class="bi bi-info-circle"></i>Ayuda</a></li>
             <li><a href="#"><i class="bi bi-question-lg"></i>Preguntas</a></li>
         </ul>
     </div>
@@ -179,9 +179,7 @@
         <div class="box-inp-busqueda">
             <label for=""><i class="bi bi-search"></i></label>
             <input type="text" id="input-buscar-menu" placeholder="Buscar...">
-            <div id="result">
-                <a href="">Mejor nada</a>
-            </div>
+            <div id="result"></div>
         </div>
     </div>
 
@@ -303,7 +301,7 @@
             <h3>Redes Sociales</h3>
             <ul>
                 <li>
-                    <a class="btn-ins" href="#">
+                    <a target="_blank" class="btn-ins" href="https://www.instagram.com/programmers._.123?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                         <i class="bi bi-instagram"></i>
                         <span>Instagram</span>
                     </a>
@@ -388,7 +386,10 @@
                     a.textContent = result[i];
                     a.href = './producto_indiv.php?id=' + link[result[i]];
 
-                    resultados.appendChild(a);
+                    if(link[result[i]] != null){
+                        resultados.appendChild(a);
+                    }
+                    
                 }
             }else{
                 resultados.textContent = 'Sin resultados';
@@ -443,7 +444,10 @@
                     a.textContent = result[i];
                     a.href = './producto_indiv.php?id=' + link_menu[result[i]];
 
-                    resultados_menu.appendChild(a);
+                    if(link_menu[result[i]] != null){
+                        resultados_menu.appendChild(a);
+                    }
+                    
                 }
             }else{
                 resultados_menu.textContent = 'Sin resultados';
