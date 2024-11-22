@@ -133,7 +133,7 @@
                         <div class="box-comentarios">
 
                         <?php
-                            $sql = "SELECT * FROM comentarios WHERE id = '$id';";
+                            $sql = "SELECT * FROM comentarios WHERE usuario = '$usuario';";
                             $ejecutar = $conexion -> query($sql);
 
                             while($datos = $ejecutar -> fetch_object()){ ?>

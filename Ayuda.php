@@ -1,3 +1,16 @@
+<?php
+    include './php/conexion.php';
+    
+    session_start();
+    $cuenta = 0;
+
+    if(isset($_SESSION['correo'])){
+        $cuenta = 1;
+    }else{
+        $cuenta = 0;
+    }
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +19,46 @@
     <link rel="stylesheet" href="css/Ayuda.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        .icon-is , 
+        .icon-cuenta{
+                display: flex;
+                color: white;
+                font-size: 16px;
+                gap: 10px;
+                text-decoration: none;
+        }
+        @media(max-width: 740px){
+            .box-cerrarsesion{
+                display: none;
+            }
+        }
+        #resultados,
+        #result{
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background-color: white;
+            top: 200%;
+            border-radius: 10px;
+            z-index: 999;
+            width: 200px;
+            height: auto;
+            padding: 10px;
+            color: black;
+
+            a{
+                color: black;
+                padding: 10px;
+                text-decoration: none;
+            }
+        }
+        #result{
+            display: none;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     
@@ -16,16 +69,20 @@
         <div class="box-buscador">
             <input type="search" id="inp-buscador" placeholder="Buscar..." required>
             <label for="inp-buscador"><i class="bi bi-search"></i></label>
-            <div id="resultados">
-                <a href="">Manzana</a>
-            </div>
+            <div id="resultados"></div>
         </div>
         <div class="navegacion-box">
             <div class="carrito">
-                <a href="./carrito.php?id=<?= $id_usuario ?>"><i class="fas fa-shopping-cart"></i></a>
+                <a href="./carrito.php"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="box-cerrarsesion">
-                <a class="icon-usuario" href="./cuenta/cuenta.html"><i class="bi bi-person-fill"></i></a>
+            <?php
+                    if($cuenta == 1){ ?>
+                        <a class="icon-cuenta" href="./cuenta/cuenta.php"><i class="bi bi-person-fill"></i></a>
+                    <?php }else{ ?>
+                        <a class="icon-is" href="./login.php">Iniciar Sesion<i class="bi bi-person-fill"></i></a>
+                    <?php  }
+                ?>
             </div>
             <div class="btn-menu">
                 <button onclick="abrirMenu()"><i class="bi bi-list"></i></button>
@@ -86,7 +143,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn-regresar" href="./index.php"><i class="bi bi-arrow-left"></i></a>
+        <a class="btn-regresar" href="index.php"><i class="bi bi-arrow-left"></i></a>
     </nav>
 
     <div class="menu">
@@ -94,7 +151,13 @@
         <button id="cerrarMenu" onclick="cerrarMenu()">&times;</button>
         <ul class="ul-1-from-menu">
             <li><button onclick="abrirCategoriasDeMenu()"><i class="bi bi-list-ul"></i>Categorias</button></li>
-            <li><a href="../login.html"><i class="bi bi-person"></i>Iniciar Sesion</a></li>
+            <li><?php
+                    if($cuenta == 1){ ?>
+                        <a class="cerrarS" href="./cuenta/cuenta.php"><i class="bi bi-person-fill"></i>Cuenta</a>
+                    <?php }else{ ?>
+                        <a class="cerrarS" href="./login.php"><i class="bi bi-person-fill"></i>Iniciar Sesion</a>
+                    <?php }
+                ?></li>
             <li><a href="../carrito.html"><i class="fas fa-shopping-cart"></i>Carrito</a></li>
             <li><button onclick="apaBusquedaFlotante()"><i class="bi bi-search"></i>Buscar</button></li>
         </ul>
@@ -111,7 +174,8 @@
         <p>Ingresa el articulo que quieres buscar.</p>
         <div class="box-inp-busqueda">
             <label for=""><i class="bi bi-search"></i></label>
-            <input type="text" placeholder="Buscar...">
+            <input type="text" id="input-buscar-menu" placeholder="Buscar...">
+            <div id="result"></div>
         </div>
     </div>
 
@@ -239,18 +303,135 @@
         <div class="atencionCliente">
             <h2>Atencion al Cliente</h2>
             <ul>
-                <li><a href="#">Servicios</a></li>
+                <li><a href="./terminos.php#servicios">Servicios</a></li>
             </ul>
         </div>
         <div class="politicas">
             <ul>
-                <li><a href="#">Politicas de privacidad</a></li>
-                <li><a href="#">Terminos de uso</a></li>
-                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="./terminos.php#politicasDePrivacidad">Politicas de privacidad</a></li>
+                <li><a href="./terminos.php#terminos">Terminos de uso</a></li>
+                <li><a href="">Preguntas frecuentes</a></li>
             </ul>
         </div>
     </footer>
 
     <script src="js/Ayuda.js"></script>
+    <script>
+        const search = document.getElementById('inp-buscador');
+        search.addEventListener('keyup', buscar);
+        const resultados =document.getElementById('resultados');
+        let lista = [
+        <?php
+            $sql = "SELECT id , nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>",
+            <?php }
+        ?>
+        ];
+        let link = {
+        <?php
+            $sql = "SELECT id, nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>" : "<?= $datos -> id ?>",
+            <?php }
+        ?>
+        };
+        function buscar(){
+            let buscardor = search.value;
+            let i = 0;
+            let result = [];
+            let resultLinks = [];
+            resultados.innerHTML = '';
+
+            for(i=0; i<lista.length; i++){
+                if(lista[i].toLowerCase().includes(buscardor.toLowerCase())){
+                    result.push(lista[i]);
+                    resultLinks.push(i);
+                }
+            }
+            if(result.length > 0){
+                for(i=0; i<lista.length; i++){
+                    const a = document.createElement('a');
+                    a.textContent = result[i];
+                    a.href = './producto_indiv.php?id=' + link[result[i]];
+
+                    if(link[result[i]] != null){
+                        resultados.appendChild(a);
+                    }
+                    
+                }
+            }else{
+                resultados.textContent = 'Sin resultados';
+            }
+            if(buscardor == ''){
+                resultados.style.display = 'none';
+            }else{
+                resultados.style.display = 'flex';
+            }
+
+        }
+        //input-buscar-menu
+        const search_menu = document.getElementById('input-buscar-menu');
+        search_menu.addEventListener('keyup', buscar_menu);
+        const resultados_menu =document.getElementById('result');
+        let lista_menu = [
+        <?php
+            $sql = "SELECT id , nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>",
+            <?php }
+        ?>
+        ];
+        let link_menu = {
+        <?php
+            $sql = "SELECT id, nombre FROM productos";
+            $ejecutar = $conexion -> query($sql);
+
+            while($datos = $ejecutar -> fetch_object()){ ?>
+                "<?= $datos -> nombre ?>" : "<?= $datos -> id ?>",
+            <?php }
+        ?>
+        };
+        function buscar_menu(){
+            let buscardor = search_menu.value;
+            let i = 0;
+            let result = [];
+            let resultLinks = [];
+            resultados_menu.innerHTML = '';
+
+            for(i=0; i<lista_menu.length; i++){
+                if(lista_menu[i].toLowerCase().includes(buscardor.toLowerCase())){
+                    result.push(lista_menu[i]);
+                    resultLinks.push(i);
+                }
+            }
+            if(result.length > 0){
+                for(i=0; i<lista.length; i++){
+                    const a = document.createElement('a');
+                    a.textContent = result[i];
+                    a.href = './producto_indiv.php?id=' + link_menu[result[i]];
+
+                    if(link_menu[result[i]] != null){
+                        resultados_menu.appendChild(a);
+                    }
+                    
+                }
+            }else{
+                resultados_menu.textContent = 'Sin resultados';
+            }
+            if(buscardor == ''){
+                resultados_menu.style.display = 'none';
+            }else{
+                resultados_menu.style.display = 'flex';
+            }
+
+        }
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
     <style>
         .btn-pencil{
             padding: 5px;
@@ -143,9 +143,9 @@
                                 <label id="caja-file" for="input-file-foto">Seleccionar archivo</label>
                             </div>
                             <div class="box-input">
-                                <input type="text" maxlength="70" name="txtNombreArticulo" id="inp-nombre-producto" required>
+                                <input type="text" maxlength="100" name="txtNombreArticulo" id="inp-nombre-producto" required>
                                 <label for="">Nombre del producto</label>
-                                <p id="caja-nombre-producto">0 / 70</p>
+                                <p id="caja-nombre-producto">0 / 100</p>
                             </div>
                             <div class="box-textarea">
                                 <textarea name="txtDesArticulo" maxlength="230" id="inp-des-producto" placeholder="Escriba la descripcion" required></textarea>
@@ -236,7 +236,7 @@ function cantLetras_producto(){
 
     let num_letras = nombre_producto.value.length;
 
-    error_producto.innerHTML = `${num_letras} / 70`;
+    error_producto.innerHTML = `${num_letras} / 100`;
 
 }
 
@@ -278,9 +278,6 @@ function cantLetras_color(){
         mos_intereses.innerHTML = `${num_letras} / 50`;
     
     }
-
-
-
     </script>
 </body>
 </html>

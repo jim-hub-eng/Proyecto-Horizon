@@ -155,3 +155,14 @@
 
         }
     </script>
+
+
+-- Poner alerta de compra en el boton de producto individual -- LISTO
+-> PHP de boton de comprar -- LISTO
+-- Poner boton de regresar en el producto individual -- LISTO
+-- Calcular las estrellas en el producto individual -- LISTO
+-- Poner buscador en el producto individual -- LISTO
+-- Hacer disable el input donde viene el nombre del usuario de los comentarios --LISTO
+-- Poner boton de ir a cuenta en el producto individual --LISTO
+-- Hacer pantalla de "Politicas de privacidad" , "Terminos de uso" ,  "Preguntas frecuentes" , "Servicios"  FINAL
+-- Meter mas productos de todas las categorias FINAL

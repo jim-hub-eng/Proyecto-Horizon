@@ -92,7 +92,7 @@
         </div>
         <div class="nav-1">
             <a class="btn-verCategoria" href=""><i class="bi bi-list-ul"></i>Categorias</a>
-            <a class="Ayuda" href="./Ayuda.html"><i class="bi bi-info-circle"></i>Ayuda</a>
+            <a class="Ayuda" href="./Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a>
             <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
             <div class="categorias">
                 <div class="box-categoria">
@@ -335,7 +335,7 @@
         </div>
         <div class="politicas">
             <ul>
-                <li><a href="#">Politicas de privacidad</a></li>
+                <li><a href="./terminos.html#politicasDePrivacidad">Politicas de privacidad</a></li>
                 <li><a href="#">Terminos de uso</a></li>
                 <li><a href="#">Preguntas frecuentes</a></li>
             </ul>

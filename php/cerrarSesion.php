@@ -4,6 +4,6 @@
     session_destroy(); #destruye la sesion
 
     #te manda al login
-    header("location: ../login.php  ");
+    header("location: ../index.php");
 
 ?>
