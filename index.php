@@ -329,7 +329,7 @@
         <div class="atencionCliente">
             <h2>Atencion al Cliente</h2>
             <ul>
-                <li><a href="./Ayuda.html">Ayuda</a></li>
+                <li><a href="./Ayuda.php">Ayuda</a></li>
                 <li><a href="#">Servicios</a></li>
             </ul>
         </div>
