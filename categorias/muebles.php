@@ -258,7 +258,7 @@
                 <img src="../img/muebles/comodas/comodas.png" alt="">
             </div>
             <h3>Comodas</h3>
-            <a target="_blanck" href="../productos/productos.php?subCategoria=comoda">Ver</a>
+            <a target="_blanck" href="../productos/productos.php?subCategoria=comodas">Ver</a>
         </div>
         <div class="producto">
             <div class="box-img">
