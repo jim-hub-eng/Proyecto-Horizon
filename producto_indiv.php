@@ -326,10 +326,9 @@ select{
             display: none;
             width: 100%;
         }
-        #input-nombre-usuario{
+        #input-nombre-usuarioo{
             pointer-events: none;
-            border-color: #aaa;
-            color: #aaa;
+            border-color: red;
         }
         .icon-is , 
         .icon-cuenta{
@@ -343,6 +342,64 @@ select{
             .box-cerrarsesion{
                 display: none;
             }
+        }
+        .media-aviso,
+        .media-carrito{
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.5);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+        }
+        .media-aviso.activo{
+            pointer-events: all;
+            opacity: 1;
+        }
+        .media-carrito.activo{
+            pointer-events: all;
+            opacity: 1;
+        }
+        .aviso{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: caja;
+            width: 300px;
+            height: 250px;
+            background-color: white;
+            border-radius: 10px;
+            color: black;
+            padding: 10px;
+
+            a{
+                color: royalblue;
+            }
+
+        }
+        .aviso button{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            border: 1px solid royalblue;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 90%;
+            height: 30px;
+            background-color: white;
+            transition: .2s;
+            top: 85%;
+        }
+        .aviso button:hover{
+            background-color: royalblue;
+            color: white;
         }
     </style>
     <link rel="stylesheet" href="css/producto_indiv-styles.css">
@@ -673,12 +730,12 @@ select{
                         if($cuenta == 1){ ?>
                             <button id="btnAnadirCarrito" type="submit">Añadir al carrito</button>
                         <?php } else { ?>
-                            <label id="btnAnadirCarrito">Añadir al carrito</label>
+                            <label class="btnAnadirCarritoall" id="btnAnadirCarrito">Añadir al carrito</label>
                         <?php }
                     ?>
                 </form>
                 <div class="bx">
-                    <button onclick="comprarAlert()" id="btnComprar">Comprar</button>
+                    <button class="btnAnadirCarritoall" id="btnComprar">Comprar</button>
                 </div>
                 <div class="box-datos">
                     <p>Enviado desde <b>Horizon Marcketing</b></p>
@@ -739,7 +796,7 @@ select{
                                     if($cuenta == 1){ ?>
                                         <button>Añadir al carrito</button>
                                     <?php } else { ?>
-                                        <label id="btnLabel">Añadir al carrito</label>
+                                        <label class="btnsAnadir" id="btnLabel">Añadir al carrito</label>
                                     <?php }
                                 ?>
                             </div>
@@ -783,7 +840,7 @@ select{
                             <div class="box-inp">
                                 <label>Usuario:</label>
                                 <!-- Muestra el usuario del usuario -->
-                                <input type="text" id="input-nombre-usuario" name="txtUsuario" value="<?= $datos -> usuario ?>">
+                                <input type="text" style="pointer-events: none;" id="input-nombre-usuarioo" name="txtUsuario" value="<?= $datos -> usuario ?>">
                             </div>
 
                             <?php }
@@ -798,7 +855,7 @@ select{
                             <div class="box-inp">
                                 <label>Usuario:</label>
                                 <!-- Muestra el usuario del usuario -->
-                                <input type="text" name="txtUsuario" value="">
+                                <input type="text" style="pointer-events: none;" name="txtUsuario" value="">
                             </div>
 
                             <?php }
@@ -837,7 +894,7 @@ select{
                                 <span></span>
                          </button>
                         <?php }else { ?>
-                            <label style="top: -50px; display: flex; align-items: center; justify-content: center;" id="btnEnviarComen">
+                            <label onclick="avisoComentario()" style="top: -50px; display: flex; align-items: center; justify-content: center;" id="btnEnviarComen">
                                 Enviar
                                 <span></span>
                                 <span></span>
@@ -982,7 +1039,7 @@ select{
                                     if($cuenta == 1){ ?>
                                         <button>Añadir al carrito</button>
                                     <?php } else { ?>
-                                        <label id="btnLabel">Añadir al carrito</label>
+                                        <label class="btnsAnadir" id="btnLabel">Añadir al carrito</label>
                                     <?php }
                                 ?>
                         </div>
@@ -1044,7 +1101,7 @@ select{
                     </div>
                     <div class="inputBox">
                         <span>numeros de la tarjeta:</span>
-                        <input required type="number" id="numeroTarjeta" name="numeroTarjeta" class="input-quantity" placeholder="1111-2222-3333-4444">
+                        <input required type="number" maxlength="16" id="numeroTarjeta" name="numeroTarjeta" class="input-quantity" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
                         <span>Fecha de vencimiento</span>
@@ -1061,6 +1118,21 @@ select{
             <input type="hidden" name="txtidproducto" value="<?= $id_producto ?>">
             <input type="submit" value="Aceptar" class="submit-btn">
         </form>
+    </div>
+
+    <div class="media-aviso">
+        <div class="aviso">
+            <h2>Tienes una cuenta?</h2>
+            <p>Si quieres publicar un comentario debes de <a href="./login.php">iniciar sesion</a> y si no tienes una cuenta debes de <a href="./registrar.php">registrarte</a></p>
+            <button onclick="closeAvisoComentario()">Ok</button>
+        </div>
+    </div>
+    <div class="media-carrito">
+        <div class="aviso">
+            <h2>Tienes una cuenta?</h2>
+            <p>Si quieres añadir al carrto o comprar un producto debes de <a href="./login.php">iniciar sesion</a> y si no tienes una cuenta debes de <a href="./registrar.php">registrarte</a></p>
+            <button class="btnCerraAviso">Ok</button>
+        </div>
     </div>
 
     <footer>
@@ -1247,6 +1319,45 @@ select{
             }
 
         }
+        const media_aviso =document.querySelector('.media-aviso');
+        function avisoComentario(){
+            media_aviso.classList.add("activo");
+        }
+        function closeAvisoComentario(){
+            media_aviso.classList.remove("activo");
+        }
+
+        const avisoCarrito = document.querySelector('.media-carrito');
+        const btnAnadirCarritoall = document.querySelectorAll('.btnAnadirCarritoall');
+        const btnCerraAviso = document.querySelectorAll('.btnCerraAviso');
+
+        btnAnadirCarritoall.forEach( (element, i) => {
+            element.addEventListener('click', () => {
+                if(i == 0){
+                    avisoCarrito.classList.add("activo");
+                }else if(i == 1){
+                    avisoCarrito.classList.add("activo");
+                }
+            });
+        });
+
+        btnCerraAviso.forEach((element , i) => {
+            element.addEventListener('click', () => {
+                if(i == 0){
+                    avisoCarrito.classList.remove("activo");
+                }else if(i == 1){
+                    avisoCarrito.classList.remove("activo");
+                }
+            });
+        });
+        const btnsAnadir =document.querySelectorAll('.btnsAnadir');
+        btnsAnadir.forEach((element) => {
+            element.addEventListener('click', funcion);
+
+        function funcion(){
+            media_aviso.classList.add("activo");
+        }
+        });
     </script>
 </body>
 </html>

@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro</title>
     <link rel="stylesheet" href="css/registrar-styles.css">
+    <style>
+        .box-select{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 300px;
+            height: 60px;
+            margin-top: 50px;
+            color: white;
+            gap: 5px;
+
+            label{
+                color: #aaa;
+            }
+
+            select{
+                width: 100%;
+                height: 40px;
+                border: 1px solid #aaa;
+                border-radius: 4px;
+                background-color: #000000; 
+                color: #aaa;
+                transition: 0.3s;
+                outline: none;
+                padding-left: 10px;
+                font-size: 18px;
+            }
+            select:focus{
+                color: white;
+            }
+
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -49,9 +83,15 @@
                         <input type="text" name="txtDireccion" id="txtD" required>
                         <label for="">Direccion</label>
                     </div>
-                    <div class="box-input">
-                        <input type="text" name="txtRegion" id="txtR" required>
-                        <label for="">Region</label>
+                    <div class="box-select">
+                    <label for="region">Region</label>
+                    <select name="txtRegion" id="region" required>
+                        <option disabled selected value="">Seleccione una ciudad</option>
+                        <option value="Estado de Mexico">Estado de Mexico</option>
+                        <option value="Ciudad de Mexico">Ciudad de Mexico</option>
+                        <option value="Cuautitlan Izcalli">Cuautitlan Izcalli</option>    
+                        <option value="Monterrey">Monterrey</option>    
+                    </select>
                     </div>
                 </div>
             </div>

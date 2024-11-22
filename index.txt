@@ -166,3 +166,11 @@
 -- Poner boton de ir a cuenta en el producto individual --LISTO
 -- Hacer pantalla de "Politicas de privacidad" , "Terminos de uso" ,  "Preguntas frecuentes" , "Servicios"  FINAL
 -- Meter mas productos de todas las categorias FINAL -- FINAL
+
+-- Poner buscador en productos -- LISTO
+-- Poner boton de iniciar sesion en productos -- LISTO
+-- Poner select  -- LISTO
+-- Alerta de iniciar sesion en productos -- LISTO
+-- Alerta de iniciar sesion en producto individual -- LISTO
+-- Alerta de iniciar sesion en productos individual cuando se quiere agregar un comentario -- LISTO
+-- Poner links de "Politicas de privacidad" , "Terminos de uso" ,  "Preguntas frecuentes" , "Servicios"
