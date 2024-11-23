@@ -104,7 +104,7 @@
         <li><button class="openSeleccion"><i class="bi bi-pencil-square"></i>Modificar</button></li>
     </ul>
     <ul class="ul-2-from-menu">
-        <li><a id="btnSC" href=""><i class="bi bi-box-arrow-in-left"></i>Salir</a></li>
+        <li><a id="btnSC" href="../php/cerrarSesion.php"><i class="bi bi-box-arrow-in-left"></i>Salir</a></li>
     </ul>
 </div>
    <!-- FIN MENU-->

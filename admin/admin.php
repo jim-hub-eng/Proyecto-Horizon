@@ -41,7 +41,7 @@
     <div class="nav">
         <button id="btn-car-1"><i class="bi bi-person-fill"></i></button>
         <button id="btn-car-2"><i class="bi bi-bag-fill"></i></button>
-        <a class="salirBtn" href="../login.php"><i class="bi bi-box-arrow-in-right"></i></a>
+        <a class="salirBtn" href="../index.php"><i class="bi bi-box-arrow-in-right"></i></a>
     </div>
 
     <div class="box-1">

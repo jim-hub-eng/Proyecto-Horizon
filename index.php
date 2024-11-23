@@ -165,7 +165,7 @@
             </li>
         </ul>
         <ul class="ul-2-from-menu">
-            <li><a href="../Ayuda.html"><i class="bi bi-info-circle"></i>Ayuda</a></li>
+            <li><a href=". /Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a></li>
             <li><a href="#"><i class="bi bi-question-lg"></i>Preguntas</a></li>
         </ul>
     </div>
@@ -330,13 +330,13 @@
             <h2>Atencion al Cliente</h2>
             <ul>
                 <li><a href="./Ayuda.php">Ayuda</a></li>
-                <li><a href="#">Servicios</a></li>
+                <li><a href="./terminos.php#servicios">Servicios</a></li>
             </ul>
         </div>
         <div class="politicas">
             <ul>
-                <li><a href="./terminos.html#politicasDePrivacidad">Politicas de privacidad</a></li>
-                <li><a href="#">Terminos de uso</a></li>
+                <li><a href="./terminos.php#politicasDePrivacidad">Politicas de privacidad</a></li>
+                <li><a href="./terminos.php#terminos">Terminos de uso</a></li>
                 <li><a href="#">Preguntas frecuentes</a></li>
             </ul>
         </div>
