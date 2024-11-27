@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
    <link rel="stylesheet" href="css/login-styles.css">
+   <style>
+    footer{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  top: 35px;
+  background-color: black;
+  flex-wrap: wrap;
+}
+.btn_links{
+  padding: 10px;
+  color: #aaa;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+.btn_links:hover{
+  color: white;
+}
+   </style>
 </head>
 <body class="align">
 
@@ -49,6 +71,13 @@
         <path d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />
       </symbol>
     </svg>
+
+    <footer>
+      <a class="btn_links" href="./Ayuda.php">Ayuda</a>
+      <a class="btn_links" href="./terminos.php#servicios">Servicios</a>
+      <a class="btn_links" href="./terminos.php#politicasDePrivacidad">Politicas de privacidad</a>
+      <a class="btn_links" href="./terminos.php#terminos">Terminos de uso</a>
+    </footer>
   
   </body>
 </html>

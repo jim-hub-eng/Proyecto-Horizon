@@ -41,7 +41,7 @@
     <div class="nav">
         <button id="btn-car-1"><i class="bi bi-person-fill"></i></button>
         <button id="btn-car-2"><i class="bi bi-bag-fill"></i></button>
-        <a class="salirBtn" href="../index.php"><i class="bi bi-box-arrow-in-right"></i></a>
+        <a class="salirBtn" href="../php/cerrarSesion.php"><i class="bi bi-box-arrow-in-right"></i></a>
     </div>
 
     <div class="box-1">
@@ -210,15 +210,19 @@
     </div>
     <script src="./admin.js"></script>
     <script>
-        function selectCategoria(){
+        function selectCategoria(){//Cuando el valor del select se actualiza se hace esta funcion.
             var articulo = document.getElementById("selectorCategoria").value;
-
-            if (articulo !== "") {
+            //se usa para capturar lo que el servidor devuelve y procesarlo, por ejemplo, para actualizar el contenido de la página sin recargarla completamente.
+            if (articulo !== "") { //revisa si se selecciono algo en el select
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", "./apartado_product/productos_cat.php?articulo=" + articulo, true);
-                xhr.onreadystatechange = function () {
+                //El servidor procesa esta solicitud y genera una respuesta (por ejemplo, una lista de subcategorías en formato HTML).
+
+                xhr.onreadystatechange = function () {//Esta función se ejecutará cada vez que el estado de la solicitud(valor del select) cambie. 
                     if (xhr.readyState === 4 && xhr.status === 200) {
+                        //Cuando la solicitud termina (xhr.readyState === 4) y la respuesta es exitosa (xhr.status === 200), el código dentro de la función onreadystatechange se ejecuta.
                         document.getElementById("selecionarSubCategoria").innerHTML = xhr.responseText;
+                        //xhr.responseText contiene el texto de la respuesta, que en este caso será una lista de opciones HTML
                     }
                 };
                 xhr.send();

@@ -92,8 +92,7 @@
         </div>
         <div class="nav-1">
             <a class="btn-verCategoria" href=""><i class="bi bi-list-ul"></i>Categorias</a>
-            <a class="Ayuda" href="./Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a>
-            <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
+            <a class="Ayuda" style="position: relative; left: -30px;" href="./Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a>
             <div class="categorias">
                 <div class="box-categoria">
                     <a href="./categorias/casa.php">
@@ -165,8 +164,7 @@
             </li>
         </ul>
         <ul class="ul-2-from-menu">
-            <li><a href=". /Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a></li>
-            <li><a href="#"><i class="bi bi-question-lg"></i>Preguntas</a></li>
+            <li><a href="./Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a></li>
         </ul>
     </div>
 
@@ -337,7 +335,6 @@
             <ul>
                 <li><a href="./terminos.php#politicasDePrivacidad">Politicas de privacidad</a></li>
                 <li><a href="./terminos.php#terminos">Terminos de uso</a></li>
-                <li><a href="#">Preguntas frecuentes</a></li>
             </ul>
         </div>
     </footer>

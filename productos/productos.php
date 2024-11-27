@@ -188,8 +188,7 @@
         </div>
         <div class="nav-1">
             <a class="btn-verCategoria" href=""><i class="bi bi-list-ul"></i>Categorias</a>
-            <a class="Ayuda" href=""><i class="bi bi-info-circle"></i>Ayuda</a>
-            <a class="Preguntas" href=""><i class="bi bi-question-lg"></i>Preguntas</a>
+            <a class="Ayuda" style="position: relative; left: -30px;" href="../Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a>
             <div class="categorias">
                 <div class="box-categoria">
                     <a href="../categorias/casa.php">
@@ -257,7 +256,6 @@
         </ul>
         <ul class="ul-2-from-menu">
             <li><a href="#"><i class="bi bi-info-circle"></i>Ayuda</a></li>
-            <li><a href="#"><i class="bi bi-question-lg"></i>Preguntas</a></li>
         </ul>
     </div>
 
@@ -404,15 +402,14 @@
         <div class="atencionCliente">
             <h2>Atencion al Cliente</h2>
             <ul>
-                <li><a href="./Ayuda.html">Ayuda</a></li>
-                <li><a href="#">Servicios</a></li>
+            <li><a href="../Ayuda.php">Ayuda</a></li>
+            <li><a href="../terminos.php#servicios">Servicios</a></li>
             </ul>
         </div>
         <div class="politicas">
             <ul>
-                <li><a href="#">Politicas de privacidad</a></li>
-                <li><a href="#">Terminos de uso</a></li>
-                <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="../terminos.php#politicasDePrivacidad">Politicas de privacidad</a></li>
+            <li><a href="../terminos.php#terminos">Terminos de uso</a></li>
             </ul>
         </div>
     </footer>
@@ -459,7 +456,7 @@
                 for(i=0; i<lista.length; i++){
                     const a = document.createElement('a');
                     a.textContent = result[i];
-                    a.href = './producto_indiv.php?id=' + link[result[i]];
+                    a.href = '../producto_indiv.php?id=' + link[result[i]];
 
                     if(link[result[i]] != null){
                         resultados.appendChild(a);
@@ -517,7 +514,7 @@
                 for(i=0; i<lista.length; i++){
                     const a = document.createElement('a');
                     a.textContent = result[i];
-                    a.href = './producto_indiv.php?id=' + link_menu[result[i]];
+                    a.href = '../producto_indiv.php?id=' + link_menu[result[i]];
 
                     if(link_menu[result[i]] != null){
                         resultados_menu.appendChild(a);
