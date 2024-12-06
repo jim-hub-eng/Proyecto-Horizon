@@ -589,7 +589,7 @@ select{
                     #se genera la consulta para porder obtener la foto de la imagen 
                     $sql = "SELECT id FROM productos WHERE id = '$id_producto'"; #selecciona el id del producto
                     #se ejecuta la conexion
-                    $ejecutar = $conexion -> query($sql);
+                    $ejecutar = $conexion -> query($sql); //Ejecuta la consulta
 
                     while($datos = $ejecutar -> fetch_object()){
                         #muestra la imagen
@@ -733,7 +733,7 @@ select{
                     ?>
                 </form>
                 <div class="bx">
-                    <button class="btnAnadirCarritoall" id="btnComprar">Comprar</button>
+                    <!-- <button class="btnAnadirCarritoall" id="btnComprar">Comprar</button> -->
                 </div>
                 <div class="box-datos">
                     <p>Enviado desde <b>Horizon Marcketing</b></p>
@@ -760,7 +760,6 @@ select{
             <h2>Productos Relacionados</h2>
             <div class="productos">
                 <?php
-
                     #se genera la consulta para mostrar los producto de la misma subcategoria del producto inicial
                     $sql = "SELECT * FROM productos WHERE sub_categoria = '$sub_categoria'";
                     #se ejecuta la consulta
@@ -833,23 +832,17 @@ select{
                                         </div>
                                     ';
                                 }
-
                             ?>                            
                             <div class="box-inp">
                                 <label>Usuario:</label>
                                 <!-- Muestra el usuario del usuario -->
                                 <input type="text" style="pointer-events: none;" id="input-nombre-usuarioo" name="txtUsuario" value="<?= $datos -> usuario ?>">
                             </div>
-
                             <?php }
                             }else { ?>
-                                
                                 <div class="box-user">
                                     <img src="./img/usuarioSinFoto.png" alt="">
-                                </div>
-                                
-
-                                                       
+                                </div>            
                             <div class="box-inp">
                                 <label>Usuario:</label>
                                 <!-- Muestra el usuario del usuario -->
@@ -857,8 +850,6 @@ select{
                             </div>
 
                             <?php }
-                            
-
                         ?>
                     </div>
                     <div class="box-textarea">

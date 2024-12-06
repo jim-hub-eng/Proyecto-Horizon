@@ -101,13 +101,15 @@ body{
     text-decoration: none;
     background-color: transparent;
 }
+/*
 .navegacion .nav-1 .btn-verCategoria:hover ~.categorias {
-    height: 450px;
-    top: 100%;
+    height: 500px;
+    transform: translateY(100px);
 }
 .navegacion .nav-1 .btn-verCategoria:hover ~.categorias .box-categoria{
     position: relative;
 }
+    */
 .navegacion .categorias{
     position: absolute;
     display: flex;
@@ -153,6 +155,7 @@ body{
         }
     }
 }
+/*
 .navegacion .categorias:hover{
     top: 100%;
     height: 450px;
@@ -160,6 +163,7 @@ body{
 .navegacion .categorias:hover .box-categoria{
     position: relative;
 }
+    */
 .navegacion-box{
     display: flex;
     align-items: center;

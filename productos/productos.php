@@ -197,9 +197,9 @@
                     </a>
                 </div>
                 <div class="box-categoria">
-                    <a href="../categorias/electrodomesticos.php">
-                        <img src="../img/electrodomesticos.png">
-                        <h4>Electrodomesticos</h4>
+                    <a href="../categorias/electronico.php">
+                        <img src="../img/electronico.png">
+                        <h4>Electronico</h4>
                     </a>
                 </div>
                 <div class="box-categoria">
@@ -230,6 +230,12 @@
                     <a href="../categorias/muebles.php">
                         <img src="../img/muebles.png">
                         <h4>Muebles</h4>
+                    </a>
+                </div>
+                <div class="box-categoria">
+                    <a href="../categorias/electrodomesticos.php">
+                        <img src="../img/electrodomesticos.png">
+                        <h4>Electrodomesticos</h4>
                     </a>
                 </div>
             </div>

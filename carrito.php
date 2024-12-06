@@ -1,17 +1,17 @@
 <?php
 
-    include './php/conexion.php';
+    include './php/conexion.php'; //ES PARA PODER SUAR LA VARIABLE DE CONEXION
 
-    session_start();
-    $cuenta = 0;
+    session_start(); //Inicia sesion
+    $cuenta = 0; //variable
 
-    if(isset($_SESSION['correo'])){
-        $correo = $_SESSION['correo'];
-        $cuenta = 1;
-        $sql = "SELECT id FROM usuarios WHERE correo = '$correo'";
-        $ejecutar = $conexion -> query($sql);
-        $datos = $ejecutar -> fetch_object();
-        $id_usuario = $datos -> id;
+    if(isset($_SESSION['correo'])){ //Verifica si se inicio sesion
+        $correo = $_SESSION['correo']; //ese valor se guarda en la variable correo
+        $cuenta = 1; 
+        $sql = "SELECT id FROM usuarios WHERE correo = '$correo'"; //consulta para poder obtener los datos del usuario
+        $ejecutar = $conexion -> query($sql); // se ejecuta la consulta
+        $datos = $ejecutar -> fetch_object(); // en la variable datos se almacena la tabla
+        $id_usuario = $datos -> id; //le decimos que de datos queremos el id y se fuarda en la variables
     }else{
         $cuenta = 0;
     }

@@ -92,7 +92,7 @@
         </div>
         <div class="nav-1">
             <a class="btn-verCategoria" href=""><i class="bi bi-list-ul"></i>Categorias</a>
-            <a class="Ayuda" style="position: relative; left: -30px;" href="./Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a>
+            <a class="Ayuda"   href="./Ayuda.php"><i class="bi bi-info-circle"></i>Ayuda</a>
             <div class="categorias">
                 <div class="box-categoria">
                     <a href="./categorias/casa.php">

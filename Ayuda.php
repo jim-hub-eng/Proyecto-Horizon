@@ -77,9 +77,9 @@
             </div>
             <div class="box-cerrarsesion">
             <?php
-                    if($cuenta == 1){ ?>
+                    if($cuenta == 1){ ?> <!-- Este boton se mostrar si hay una sesion iniciada -->
                         <a class="icon-cuenta" href="./cuenta/cuenta.php"><i class="bi bi-person-fill"></i></a>
-                    <?php }else{ ?>
+                    <?php }else{ ?> <!-- Este boton se mostrar si no hay una sesion iniciada -->
                         <a class="icon-is" href="./login.php">Iniciar Sesion<i class="bi bi-person-fill"></i></a>
                     <?php  }
                 ?>
